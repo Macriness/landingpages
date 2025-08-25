@@ -248,8 +248,8 @@ export default function CtaSection() {
   <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
   <FlagCard country="Ghana"          users="6 000+"  imgSrc="/3.png" />
   <FlagCard country="Sénégal"        users="3 000+"  imgSrc="/6.png" />
-  <FlagCard country="Éthiopie"       users="4 000+"  imgSrc="/2.png" />
-  <FlagCard country="Bénin"          users="2 000+"  imgSrc="/1.png" />
+  <FlagCard country="Éthiopie"       users="4k+"  imgSrc="/2.png" />
+  <FlagCard country="Bénin"          users="4k +"  imgSrc="/1.png" />
 </div>
   </div>
 </section>

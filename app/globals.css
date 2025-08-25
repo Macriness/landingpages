@@ -3,6 +3,8 @@
 body {
   background-color: #000; /* Fond noir */
   color: #fff; /* Texte blanc */
+  overflow-x: hidden; /* ok */
+  overflow-y: auto;
 }
 
 /* --- Fond noir avec gradient orangé subtil --- */

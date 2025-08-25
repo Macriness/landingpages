@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Star, Globe, Activity } from "lucide-react";
+import { Download, Star, Globe, Activity, ArrowRight, } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -70,7 +70,8 @@ export default function Hero() {
               }}
             >
               <Download size={18} />
-              Télécharger maintenant →
+              Télécharger maintenant
+              <ArrowRight size={18}/>
             </Link>
 
             <Link

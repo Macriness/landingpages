@@ -1,9 +1,9 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero"; // ton composant actuel
 import Features from "./components/Features"; // si déjà créé
-import WhyChoose from "./components/WhyChoose";
+import WhyChoose from "./components/Why";
 import AppSection from "./components/App";
-import EcosystemSection from "./components/EcosystemSection";
+import EcosystemSection from "./components/Ecosystem";
 import CtaSection from "./components/CtaSection";
 
 export default function Home() {

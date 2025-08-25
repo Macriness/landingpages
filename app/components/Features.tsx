@@ -9,7 +9,15 @@ import {
   MessageCircle,
   Globe2,
   ShieldCheck,
+  ArrowRight,
 } from "lucide-react";
+import { DM_Sans } from "next/font/google";
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"], // tu choisis ce dont tu as besoin
+});
+
 
 const features = [
   {
@@ -55,7 +63,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="relative py-24">
+    <section id="features" className={`relative py-24 ${dmSans.className} text-[24px]`}>
       {/* --- Header --- */}
       <div className="relative text-center mb-12">
         <div
@@ -88,7 +96,7 @@ export default function Features() {
           </span>
         </h2>
 
-        <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed text-[17.5px]">
           UpAfrica redéfinit l’écosystème entrepreneurial africain avec des
           technologies de pointe. Découvrez comment notre plateforme transforme
           la collaboration intercontinentale.
@@ -148,19 +156,19 @@ export default function Features() {
 </div>
 
                       {/* Titre */}
-                      <h3 className="text-[18px] font-bold leading-tight text-white">
+                      <h3 className="text-[21px] font-bold leading-tight text-white">
                         {f.title}
                       </h3>
 
                       {/* Kicker */}
                       {"kicker" in f && (
-                        <p className="mt-3 text-[13px] font-medium text-gray-200/95">
+                        <p className="mt-3 text-[10.5px] font-medium text-gray-200/95">
                           {(f as any).kicker}
                         </p>
                       )}
 
                       {/* Description */}
-                      <p className="mt-2 text-[13.5px] leading-relaxed text-gray-300/90">
+                      <p className="mt-2 text-[15.8px] leading-relaxed text-gray-300/90">
                         {f.desc}
                       </p>
                     </div>
@@ -182,11 +190,11 @@ export default function Features() {
       shadow-[0_20px_40px_rgba(0,0,0,0.4)]
     "
   >
-    <h2 className="text-white text-[22px] md:text-[28px] font-bold mb-3">
+    <h2 className="text-white text-[24px] md:text-[28px] font-bold mb-3">
       Prêt à transformer votre approche du business en Afrique ?
     </h2>
 
-    <p className="text-[#D1D5DC] mb-6 max-w-2xl mx-auto leading-relaxed">
+    <p className="text-[#D1D5DC] mb-6 max-w-2xl mx-auto leading-relaxed text-[17.5px]">
       Rejoignez l’élite des entrepreneurs africains qui utilisent déjà UpAfrica
       pour révolutionner leurs stratégies de développement continental.
     </p>
@@ -205,7 +213,7 @@ export default function Features() {
       aria-label="Commencer maintenant"
     >
       Commencer maintenant
-      <span aria-hidden>→</span>
+      <ArrowRight/>
     </Link>
   </div>
 </div>
