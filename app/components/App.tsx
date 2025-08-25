@@ -16,7 +16,13 @@ export default function AppSection() {
             <span
               className={`${dmSans.className} font-black text-[#ED6D0B] inline-block
                           text-[52.5px] leading-[65.6px]`}
-              style={{ textShadow: "0px 1px 40px #ED6D0B" }}
+              style={{
+                filter: `
+                  drop-shadow(0 2px 6px rgba(0,0,0,0.25))
+                  drop-shadow(0 10px 18px rgba(255,122,26,0.28))
+                  drop-shadow(0 0 24px rgba(255,148,79,0.55))
+                `,
+              }}
             >
               Up Africa
             </span>

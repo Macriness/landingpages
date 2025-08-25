@@ -48,23 +48,24 @@ export default function WhyChoose() {
 
           {/* Heading */}
           <h2 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-snug tracking-[-0.01em]">
-            <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
-              Pourquoi choisir{" "}
-            </span>
-            <span
-              className="bg-gradient-to-b from-[#FFD3A8] via-[#FF944F] to-[#FF7A1A]
-                         bg-clip-text text-transparent font-black"
-              style={{
-                filter:
-                  "drop-shadow(0 2px 6px rgba(0,0,0,.25)) \
-                   drop-shadow(0 10px 18px rgba(255,122,26,.28)) \
-                   drop-shadow(0 0 24px rgba(255,148,79,.55))",
-              }}
-            >
-              UpAfrica
-            </span>
-            <span className="text-white"> ?</span>
-          </h2>
+  <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
+    Pourquoi choisir{" "}
+  </span>
+  <span
+    className="bg-gradient-to-b from-[#FFD3A8] via-[#FF944F] to-[#FF7A1A]
+               bg-clip-text text-transparent font-black"
+    style={{
+      filter: `
+        drop-shadow(0 2px 6px rgba(0,0,0,0.25))
+        drop-shadow(0 10px 18px rgba(255,122,26,0.28))
+        drop-shadow(0 0 24px rgba(255,148,79,0.55))
+      `,
+    }}
+  >
+    UpAfrica
+  </span>
+  <span className="text-white"> ?</span>
+</h2>
 
           {/* Orbes décoratifs */}
           <span
@@ -167,16 +168,22 @@ export default function WhyChoose() {
           </div>
 
           {/* Title */}
-          <h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-snug">
-            L&apos;Afrique a besoin de <span
-  className="font-sora font-bold text-orange-600"
-  style={{
-    textShadow: "0px 1px 40px #ED6D0B"
-  }}
->
-  ses talents
-</span>
-          </h3>
+<h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-snug">
+  L&apos;Afrique a besoin de{" "}
+  <span
+    className="bg-gradient-to-b from-[#FFD3A8] via-[#FF944F] to-[#FF7A1A]
+               bg-clip-text text-transparent font-black"
+    style={{
+      filter: `
+        drop-shadow(0 2px 6px rgba(0,0,0,0.25))
+        drop-shadow(0 10px 18px rgba(255,122,26,0.28))
+        drop-shadow(0 0 24px rgba(255,148,79,0.55))
+      `,
+    }}
+  >
+    ses talents
+  </span>
+</h3>
 
           {/* Description */}
           <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">

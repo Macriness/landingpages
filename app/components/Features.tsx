@@ -72,7 +72,7 @@ export default function Features() {
 
         <h2 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-snug">
           <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
-            Fonctionnalités
+            Fonctionnalités<br />
           </span>{" "}
           <span
             className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"

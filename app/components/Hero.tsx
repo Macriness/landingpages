@@ -2,170 +2,138 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Play, Star, Globe, Activity } from "lucide-react";
+import { Download, Star, Globe, Activity } from "lucide-react";
 
 export default function Hero() {
   return (
-    <div className="min-h-screen from-gray-900 via-amber-900/20 to-gray-900">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20">
-        <div className="mx-auto w-[92%] max-w-6xl grid md:grid-cols-2 gap-12 items-center">
-          
-          {/* Texte */}
-          <div className="space-y-8">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
-  Connectez-vous à<br />
-  <span
-    className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
-    style={{
-      // 3 drop shadows comme dans Figma
-      filter: `
-        drop-shadow(0 2px 6px rgba(0,0,0,0.25))
-        drop-shadow(0 10px 18px rgba(255,122,26,0.28))
-        drop-shadow(0 0 24px rgba(255,148,79,0.55))
-      `
-    }}
-  >
-    l&apos;Afrique
-  </span>{" "}
-  qui
-  <span
-    className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
-    style={{
-      filter: `
-        drop-shadow(0 2px 6px rgba(0,0,0,0.25))
-        drop-shadow(0 10px 18px rgba(255,122,26,0.28))
-        drop-shadow(0 0 24px rgba(255,148,79,0.55))
-      `
-    }}
-  >
-    {" "}innove
+    <section className="relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900">
+      {/* Section = hauteur écran - header éventuel */}
+      <div
+        className="
+          w-[92%] md:w-[76%] max-w-6xl
+          grid md:grid-cols-[560px_auto] items-center gap-24
+          mx-auto md:mx-0 md:ml-auto md:mr-[9vw]
+        "
+        style={{ minHeight: "calc(100dvh - var(--header-h, 0px))" }}
+      >
+        {/* === COLONNE TEXTE === */}
+        <div className="w-full flex flex-col items-start text-left space-y-[35px]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+  Connectez-vous à{" "}
+  <span className="whitespace-nowrap">
+    <span
+      className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
+      style={{
+        filter: `
+          drop-shadow(0 2px 6px rgba(0,0,0,0.25))
+          drop-shadow(0 10px 18px rgba(255,122,26,0.28))
+          drop-shadow(0 0 24px rgba(255,148,79,0.55))
+        `,
+      }}
+    >
+      l&apos;Afrique
+    </span>{" "}
+    qui{" "}
+    <span
+      className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
+      style={{
+        filter: `
+          drop-shadow(0 2px 6px rgba(0,0,0,0.25))
+          drop-shadow(0 10px 18px rgba(255,122,26,0.28))
+          drop-shadow(0 0 24px rgba(255,148,79,0.55))
+        `,
+      }}
+    >
+      innove
+    </span>
   </span>
 </h1>
 
-            <p className="text-gray-300 text-lg max-w-xl leading-relaxed">
-              UpAfrica révolutionne la façon dont la diaspora africaine et les 
-              entrepreneurs du continent collaborent. Découvrez des opportunités uniques, 
-              créez des partenariats stratégiques et participez à la transformation 
-              numérique de l&apos;Afrique.
-            </p>
+          <p className="text-[var(--text-grey-2,#D1D5DC)] text-lg max-w-xl leading-relaxed">
+            UpAfrica révolutionne la façon dont la diaspora africaine et les
+            entrepreneurs du continent collaborent. Découvrez des opportunités uniques,
+            créez des partenariats stratégiques et participez à la transformation
+            numérique de l&apos;Afrique.
+          </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 pt-2">
-              <Link
-  href="#contact"
-  className="inline-flex items-center justify-center h-9 w-auto px-3 rounded-lg text-[14px] font-medium text-white gap-[6px]"
-  style={{
-    background: 'var(--btn-base-orange, #FF7A1A)',
-    boxShadow: [
-      '0 2px 6px rgba(0,0,0,0.25)',
-      '0 10px 18px rgba(255,122,26,0.28)'
-    ].join(', ')
-  }}
->
-  <Download size={18} />
-  Télécharger maintenant →
-</Link>
-              <Link
-  href="#features"
-  className="inline-flex items-center justify-center h-9 w-auto px-3 rounded-lg text-[14px] font-medium text-white"
-  style={{
-    // Fill: Buttons/Full/Base grey (fallback fourni)
-    background: 'var(--btn-base-grey, #2A2B2F)',
-    // 2 drop-shadows (proche sombre + glow orange à 20%, Y=1, Blur=20)
-    boxShadow: [
-      '0 2px 6px rgba(0,0,0,0.25)',
-      '0 1px 20px rgba(237,109,11,0.20)' // #ED6D0B @ 20%
-    ].join(', ')
-  }}
->
-  Voir la démo
-</Link>
-            </div>
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="#contact"
+              className="inline-flex items-center justify-center h-10 px-4 rounded-lg text-[14px] font-medium text-white gap-[6px]"
+              style={{
+                background: "var(--btn-base-orange, #FF7A1A)",
+                boxShadow: [
+                  "0 2px 6px rgba(0,0,0,0.25)",
+                  "0 10px 18px rgba(255,122,26,0.28)",
+                ].join(", "),
+              }}
+            >
+              <Download size={18} />
+              Télécharger maintenant →
+            </Link>
 
-            {/* Stats Cards */}
-<div className="flex flex-wrap gap-4 pt-6">
-  {/* Card 1 */}
-  <div
-    className="relative rounded-[14px] h-[75.5px] px-2.5 py-2.5 flex items-center gap-[10px] select-none"
-    style={{
-      background: "rgba(42,42,42,0.40)",                  // Fill 2A2A2A @ 40%
-      backdropFilter: "blur(14px) saturate(140%)",         // Background blur
-      WebkitBackdropFilter: "blur(14px) saturate(140%)",
-      border: "1px solid rgba(255,255,255,0.08)",          // Stroke inside 1px @ 8%
-      boxShadow: [
-        "0 8px 24px rgba(0,0,0,0.35)",                     // Drop shadow
-        "inset 0 1px 0 rgba(255,255,255,0.08)",            // Inner highlight top
-        "inset 0 -2px 8px rgba(0,0,0,0.35)"                // Inner depth bottom
-      ].join(", ")
-    }}
-  >
-    <Star className="text-[var(--text-orange-3,#ED6D0B)]" size={18} />
-    <div className="text-left leading-tight">
-      <p className="font-bold text-lg text-[var(--text-orange-3,#ED6D0B)]">50 000+</p>
-      <p className="text-xs text-[var(--text-grey-2,rgba(255,255,255,0.56))]">Utilisateurs actifs</p>
-    </div>
-  </div>
-
-  {/* Card 2 */}
-  <div
-    className="relative rounded-[14px] h-[75.5px] px-2.5 py-2.5 flex items-center gap-[10px] select-none"
-    style={{
-      background: "rgba(42,42,42,0.40)",
-      backdropFilter: "blur(14px) saturate(140%)",
-      WebkitBackdropFilter: "blur(14px) saturate(140%)",
-      border: "1px solid rgba(255,255,255,0.08)",
-      boxShadow: [
-        "0 8px 24px rgba(0,0,0,0.35)",
-        "inset 0 1px 0 rgba(255,255,255,0.08)",
-        "inset 0 -2px 8px rgba(0,0,0,0.35)"
-      ].join(", ")
-    }}
-  >
-    <Globe className="text-[var(--text-orange-3,#ED6D0B)]" size={18} />
-    <div className="text-left leading-tight">
-      <p className="font-bold text-lg text-[var(--text-orange-3,#ED6D0B)]">500+</p>
-      <p className="text-xs text-[var(--text-grey-2,rgba(255,255,255,0.56))]">Entreprises</p>
-    </div>
-  </div>
-
-  {/* Card 3 */}
-  <div
-    className="relative rounded-[14px] h-[75.5px] px-2.5 py-2.5 flex items-center gap-[10px] select-none"
-    style={{
-      background: "rgba(42,42,42,0.40)",
-      backdropFilter: "blur(14px) saturate(140%)",
-      WebkitBackdropFilter: "blur(14px) saturate(140%)",
-      border: "1px solid rgba(255,255,255,0.08)",
-      boxShadow: [
-        "0 8px 24px rgba(0,0,0,0.35)",
-        "inset 0 1px 0 rgba(255,255,255,0.08)",
-        "inset 0 -2px 8px rgba(0,0,0,0.35)"
-      ].join(", ")
-    }}
-  >
-    <Activity className="text-[var(--text-orange-3,#ED6D0B)]" size={18} />
-    <div className="text-left leading-tight">
-      <p className="font-bold text-lg text-[var(--text-orange-3,#ED6D0B)]">54</p>
-      <p className="text-xs text-[var(--text-grey-2,rgba(255,255,255,0.56))]">Pays africains</p>
-    </div>
-  </div>
-</div>
+            <Link
+              href="#features"
+              className="inline-flex items-center justify-center h-10 px-4 rounded-lg text-[14px] font-medium text-white"
+              style={{
+                background: "var(--btn-base-grey, #2A2B2F)",
+                boxShadow: [
+                  "0 2px 6px rgba(0,0,0,0.25)",
+                  "0 1px 20px rgba(237,109,11,0.20)",
+                ].join(", "),
+              }}
+            >
+              Voir la démo
+            </Link>
           </div>
 
-          {/* Image simple sans cadre */}
-          <div className="flex justify-center md:justify-end">
+          {/* Stats */}
+          <div className="flex flex-wrap gap-4">
+            {[
+              { icon: Star, value: "50 000+", label: "Utilisateurs actifs" },
+              { icon: Globe, value: "500+", label: "Entreprises" },
+              { icon: Activity, value: "54", label: "Pays africains" },
+            ].map(({ icon: Icon, value, label }) => (
+              <div
+                key={label}
+                className="relative rounded-[14px] h-[75.5px] px-3 py-2.5 flex items-center gap-[10px] select-none"
+                style={{
+                  background: "rgba(42,42,42,0.40)",
+                  backdropFilter: "blur(14px) saturate(140%)",
+                  WebkitBackdropFilter: "blur(14px) saturate(140%)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  boxShadow: [
+                    "0 8px 24px rgba(0,0,0,0.35)",
+                    "inset 0 1px 0 rgba(255,255,255,0.08)",
+                    "inset 0 -2px 8px rgba(0,0,0,0.35)",
+                  ].join(", "),
+                }}
+              >
+                <Icon className="text-[var(--text-orange-3,#ED6D0B)]" size={18} />
+                <div className="text-left leading-tight">
+                  <p className="font-bold text-lg text-[var(--text-orange-3,#ED6D0B)]">{value}</p>
+                  <p className="text-xs text-[var(--text-grey-2,#D1D5DC)]">{label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* === COLONNE IMAGE === */}
+        <div className="w-full flex justify-center md:justify-start md:-ml-12">
+          <div className="relative h-[98dvh] md:h-[120dvh] max-h-[820px] aspect-[9/19.5]">
             <Image
               src="/hero.png"
               alt="UpAfrica App"
-              width={420}
-              height={640}
+              fill
               priority
+              className="object-contain drop-shadow-2xl"
+              sizes="(max-width:768px) 58dvh, 68dvh"
             />
           </div>
-          
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

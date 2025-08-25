@@ -49,7 +49,7 @@ export default function CtaSection() {
               {/* store badges */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={180} height={54} />
-                <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={180} height={54} />
+                <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={165} height={54} />
               </div>
               <p className="text-xs text-gray-500">Disponible sur iOS 15+ et Android 7+</p>
 
@@ -258,7 +258,7 @@ export default function CtaSection() {
   <div className="mx-auto w-full max-w-[1026px] flex flex-col md:flex-row items-center justify-between">
     {/* gauche */}
     <p className="text-[12px] leading-none text-[#99A1AF]">
-      © 2024 UpAfrica. Tous droits réservés. Construisons ensemble l'avenir de l'Afrique.
+      © 2024 UpAfrica. Tous droits réservés. Construisons ensemble l&apos;avenir de l&apos;Afrique.
     </p>
 
     {/* droite */}
@@ -268,7 +268,7 @@ export default function CtaSection() {
       </Link>
       <span className="mx-2">•</span>
       <Link href="/terms" className="hover:text-white/80 transition-colors">
-        Conditions d'utilisation
+        Conditions d&apos;utilisation
       </Link>
       <span className="mx-2">•</span>
       <Link href="/sitemap" className="hover:text-white/80 transition-colors">
