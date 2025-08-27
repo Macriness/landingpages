@@ -32,17 +32,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <span
-              className="inline-flex items-center justify-center h-[40px] w-[40px] rounded-[12px]"
-              style={{
-                background: "var(--ua-base-orange, #FF7A1A)",
-                boxShadow:
-                  "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
-              }}
-            >
-              <Zap className="h-5 w-5 text-white" />
-            </span>
-            <span className="font-bold text-white text-[15px]">UpAfrica</span>
+            <span className="font-bold text-white text-[24px]">UpAfrica</span>
           </Link>
 
           {/* Menu centre (desktop) */}

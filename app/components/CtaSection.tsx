@@ -14,7 +14,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function CtaSection() {
   return (
-    <div className="relative isolate text-white bg-[#0f0f11]">
+    <div className="relative isolate text-white ">
       {/* ===== CTA ===== */}
       <section className="px-6 lg:px-12 py-20">
         <div className="mx-auto w-full max-w-[854px]">
@@ -55,15 +55,15 @@ export default function CtaSection() {
 
               {/* features */}
               <div className="grid grid-cols-2 gap-4 md:gap-[14px] pt-2 w-full">
-                <FeatureCard icon={<Download size={18} />} title="Téléchargement gratuit" subtitle="Toutes les fonctionnalités incluses" />
-                <FeatureCard icon={<Users size={18} />} title="Réseau vérifié" subtitle="Profils et activités contrôlés" />
-                <FeatureCard icon={<Shield size={18} />} title="Sécurité" subtitle="Chiffrement de niveau bancaire" />
-                <FeatureCard icon={<Zap size={18} />} title="Mises à jour" subtitle="Nouveautés chaque mois" />
+                <FeatureCard icon={<Download size={22} />} title="Téléchargement gratuit" subtitle="Applications entièrement gratuites avec toutes les fonctionnalités" />
+                <FeatureCard icon={<Users size={22} />} title="Réseau vérifié" subtitle="Tous les membres sont vérifiées pour garentir la qualité" />
+                <FeatureCard icon={<Shield size={22} />} title="Sécurisé" subtitle="Vos données sont protégées aavec un cryptage de niveau bancaire" />
+                <FeatureCard icon={<Zap size={22} />} title="Mises à jour" subtitle="Nouvelles fonctionnalités ajoutées chaque mois" />
               </div>
             </div>
 
             {/* RIGHT — image seule */}
-            <div className="w-full md:w-[406px] flex justify-center">
+            <div className="w-full md:w-[406px] flex justify-center animate-bounce-slow">
               <Image
                 src="/ending image.png" // idéal: renommer sans espace
                 alt="Aperçu de l’app UpAfrica"
@@ -102,7 +102,7 @@ export default function CtaSection() {
       placeholder="Votre adresse email"
       className="
         h-[44px] flex-1 min-w-0 px-4
-        rounded-full
+        rounded-[12px]
         bg-[#2A2A2A] border border-[#4A5565]
         text-white placeholder-[#99A1AF]
         outline-none focus:border-[#ED6D0B] focus:ring-0
@@ -112,7 +112,7 @@ export default function CtaSection() {
       type="submit"
       className="
         h-[44px] px-5
-        rounded-full
+        rounded-[12px]
         font-semibold text-white
         bg-[#ED6D0B] hover:brightness-110
         shadow-[0_6px_20px_rgba(237,109,11,0.35)]
@@ -131,12 +131,13 @@ export default function CtaSection() {
         </div>
       </section>
       {/* Divider centré */}
-<div className="w-[80%] h-[1px] bg-[#4A5565] opacity-60 mt-[42px] mx-auto"></div>
+  
 <footer className="px-6 lg:px-12 py-12 border-t border-white/10">
-  <div className="mx-auto w-full max-w-[854px]">
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
+  <div className="mx-auto w-full max-w-[1054px]">
+    <div className="grid grid-cols-1 md:grid-cols-6 md:gap-x-0 gap-y-0">
+      
       {/* Colonne 1 — UpAfrica + description */}
-      <div className="space-y-4">
+      <div className="max-w-[265.5px] md:col-span-2 pr-8">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
             <Zap size={16} className="text-white" />
@@ -149,95 +150,88 @@ export default function CtaSection() {
         </p>
       </div>
 
-      {/* Colonne 2 — Produit */}
-      <div className="space-y-3">
-        <h4 className="text-white font-semibold text-lg">Produit</h4>
-        <ul className="space-y-2 text-sm">
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Fonctionnalités</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Tarifs</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Sécurité</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Mises à jour</a></li>
-        </ul>
-      </div>
-
-      {/* Colonne 3 — Entreprise */}
-      <div className="space-y-3">
-        <h4 className="text-white font-semibold text-lg">Entreprise</h4>
-        <ul className="space-y-2 text-sm">
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">À propos de nous</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Carrières</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Presse</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Partenaires</a></li>
-        </ul>
-      </div>
-
-      {/* Colonne 4 — Légal */}
-      <div className="space-y-3">
-        <h4 className="text-white font-semibold text-lg">Légal</h4>
-        <ul className="space-y-2 text-sm">
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Confidentialité</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Conditions</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Cookies</a></li>
-          <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Licences</a></li>
-        </ul>
-      </div>
-
-      {/* Colonne 5 — Contact + Réseaux sociaux */}
-      <div className="space-y-3">
-        {/* Contact */}
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2 text-[#99A1AF]">
-            <Mail size={16} className="text-[#ED6D0B]" />
-            <span>contact@upafrica.com</span>
-          </div>
-          <div className="flex items-center gap-2 text-[#99A1AF]">
-            <Phone size={16} className="text-[#ED6D0B]" />
-            <span>+33 1 23 45 67 89</span>
-          </div>
-          <div className="flex items-center gap-2 text-[#99A1AF]">
-            <MapPin size={16} className="text-[#ED6D0B]" />
-            <span>Paris, France et Lagos, Nigéria</span>
-          </div>
+      {/* Colonnes 2 → 5 */}
+      <div className="md:col-span-4 grid grid-cols-2 md:grid-cols-4 gap-px">
+        {/* Produit */}
+        <div className="space-y-2.5">
+          <h4 className="text-white font-semibold text-lg">Produit</h4>
+          <ul className="space-y-0.5 text-sm">
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Fonctionnalités</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Tarifs</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Sécurité</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Mises à jour</a></li>
+          </ul>
         </div>
 
-        {/* Réseaux sociaux */}
-        <div className="flex items-center gap-2 pt-2">
-          {[
-            { Icon: Facebook, href: "#" },
-            { Icon: Twitter, href: "#" },
-            { Icon: Instagram, href: "#" },
-            { Icon: Linkedin, href: "#" },
-            { Icon: Youtube, href: "#" },
-          ].map(({ Icon, href }, i) => (
-            <a
-              key={i}
-              href={href}
-              className="w-8 h-8 rounded-lg grid place-items-center
-                         bg-[#2A2A2A] border border-[#4A5565]
-                         text-white/80 hover:text-white hover:border-[#ED6D0B]
-                         transition-colors"
-              aria-label="Réseau social"
-            >
-              <Icon size={16} />
-            </a>
-          ))}
+        {/* Entreprise */}
+        <div className="space-y-2.5">
+          <h4 className="text-white font-semibold text-lg">Entreprise</h4>
+          <ul className="space-y-0.5 text-sm">
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">À propos de nous</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Carrières</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Presse</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Partenaires</a></li>
+          </ul>
+        </div>
+
+        {/* Légal */}
+        <div className="space-y-2.5">
+          <h4 className="text-white font-semibold text-lg">Légal</h4>
+          <ul className="space-y-0.5 text-sm">
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Confidentialité</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Conditions</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Cookies</a></li>
+            <li><a className="text-[#99A1AF] hover:text-white transition-colors" href="#">Licences</a></li>
+          </ul>
+        </div>
+
+        {/* Contact */}
+        <div className="space-y-2.5">
+          <div className="space-y-1 text-sm">
+            <div className="flex items-center gap-2 text-[#99A1AF]">
+              <Mail size={16} className="text-[#ED6D0B]" />
+              <span>contact@upafrica.com</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#99A1AF]">
+              <Phone size={16} className="text-[#ED6D0B]" />
+              <span>+33 1 23 45 67 89</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#99A1AF]">
+              <MapPin size={16} className="text-[#ED6D0B]" />
+              <span>Paris, France et Lagos, Nigéria</span>
+            </div>
+          </div>
+
+          {/* Réseaux sociaux */}
+          <div className="flex items-center gap-1.5 pt-2">
+            {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
+              <a
+                key={i}
+                href="#"
+                className="w-8 h-8 rounded-lg grid place-items-center
+                           bg-[#7F7F7F] border border-[#4A5565]
+                           text-white/80 hover:text-white hover:border-[#ED6D0B]
+                           transition-all duration-300 ease-in-out
+                           transform hover:scale-110
+                           hover:shadow-[0_0_10px_rgba(237,109,11,0.6)]"
+              >
+                <Icon size={16} />
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
   </div>
 </footer>
-{/* ===== Divider d'ouverture de section ===== */}
-<section className="px-6 lg:px-12">
-  <div className="mx-auto w-full max-w-[854px]">
-    {/* trait centré, discret */}
-    <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
-  </div>
-</section>
 
+
+    <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
+    
 {/* ===== Notre présence en Afrique ===== */}
 <section className="px-6 lg:px-12 py-8">
-  <div className="mx-auto w-full max-w-[854px]">
-    <h3 className="text-center text-sm font-semibold text-[#FCDD0A] mb-4">
+  <div className="mx-auto w-full max-w-[954px]">
+    <h3 className="text-center text-sm font-semibold text-[#F6B27A] mb-4">
       Notre présence en Afrique
     </h3>
 
@@ -263,18 +257,27 @@ export default function CtaSection() {
 
     {/* droite */}
     <nav className="mt-2 md:mt-0 flex items-center text-[12px] leading-none text-[#99A1AF]">
-      <Link href="/privacy" className="hover:text-white/80 transition-colors">
-        Politique de confidentialité
-      </Link>
-      <span className="mx-2">•</span>
-      <Link href="/terms" className="hover:text-white/80 transition-colors">
-        Conditions d&apos;utilisation
-      </Link>
-      <span className="mx-2">•</span>
-      <Link href="/sitemap" className="hover:text-white/80 transition-colors">
-        Plan du site
-      </Link>
-    </nav>
+  <Link
+    href="/privacy"
+    className="px-2 py-1 rounded-md hover:text-[#7F7F7F] transition-colors"
+  >
+    Politique de confidentialité
+  </Link>
+  <span className="mx-2">•</span>
+  <Link
+    href="/terms"
+    className="px-2 py-1 rounded-md  hover:text-[#7F7F7F] transition-colors"
+  >
+    Conditions d&apos;utilisation
+  </Link>
+  <span className="mx-2">•</span>
+  <Link
+    href="/sitemap"
+    className="px-2 py-1 rounded-md hover:text-[#7F7F7F] transition-colors"
+  >
+    Plan du site
+  </Link>
+</nav>
   </div>
 </section>
 
@@ -326,7 +329,7 @@ function FeatureCard({
     <div
       className="
         relative flex items-center
-        h-[120px] w-full md:w-[196px] p-[15px]
+        h-[110px] w-full md:w-[182px] p-[15px]
         rounded-[8.75px]
         bg-[#2A2A2A]/40 backdrop-blur-[40px]
         border border-white/8
@@ -357,7 +360,7 @@ function FlagCard({
   return (
     <div
       className="
-        w-[130.66px] h-[94px]
+        w-[160.7px] h-[94px]
         rounded-[8.75px]
         bg-[#2A2A2A]/40 backdrop-blur-[40px]
         border border-white/8
@@ -374,7 +377,7 @@ function FlagCard({
         className="rounded-[2px] object-cover"
       />
       <div className="text-center leading-tight">
-        <div className="text-[13px] font-semibold text-white">{country}</div>
+        <div className="text-[12px] font-semibold text-white">{country}</div>
         {/* Orange doux = “Text/Full/Orange 2” de ta palette */}
         <div className="text-[12px] font-medium text-[#F6B27A]">{users}</div>
       </div>

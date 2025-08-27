@@ -38,20 +38,19 @@ const ScrollBackgrounds = () => {
 
   return (
     <div className="fixed inset-0 z-0">
-      {backgrounds.map((bg, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
-            currentBackground === index ? "opacity-100" : "opacity-0"
-          }`}
-          style={{
-            backgroundImage: `url(${bg})`,
-          }}
-        />
-      ))}
-      {/* Overlay pour assurer la lisibilité du texte */}
-      <div className="absolute inset-0 bg-black/40" />
-    </div>
+  {backgrounds.map((bg, index) => (
+    <img
+  key={index}
+  src={bg}
+  alt={`background-${index}`}
+  className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
+    currentBackground === index ? "opacity-100" : "opacity-0"
+  }`}
+/>
+  ))}
+  {/* Overlay noir pour la lisibilité */}
+  <div className="absolute inset-0 bg-black/40" />
+</div>
   );
 };
 

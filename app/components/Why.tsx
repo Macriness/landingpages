@@ -13,7 +13,9 @@ import {
   Rocket,
   Zap,
   LucideIcon,
-   User
+  User,
+  Dot,
+  CircleDollarSign
   } from "lucide-react";
   import { Button } from "@heroui/react";
 
@@ -32,7 +34,7 @@ export default function WhyChoose() {
                         bg-[linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02))]
                         shadow-[inset_0_1px_0_rgba(255,255,255,.14)]"
           >
-            <Zap size={14} className="opacity-90" />
+            <Dot size={24} className="opacity-90" />
             <span>PLUS DE 50 000 ENTREPRENEURS NOUS FONT CONFIANCE</span>
             <Zap size={14} className="opacity-90" />
           </div>
@@ -47,24 +49,33 @@ export default function WhyChoose() {
           />
 
           {/* Heading */}
-          <h2 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-snug tracking-[-0.01em]">
-  <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
+          <h2
+  className="
+    mt-4
+    text-[35px] sm:text-[46px] md:text-[55.5px]
+    font-black
+    font-bold
+    leading-snug md:leading-[65.6px]
+    tracking-[0]
+  "
+>
+  <span className="text-white [filter:drop-shadow(0_2px_6px_rgba(0,0,0,0.25))]">
     Pourquoi choisir{" "}
   </span>
-  <span
-    className="bg-gradient-to-b from-[#FFD3A8] via-[#FF944F] to-[#FF7A1A]
-               bg-clip-text text-transparent font-black"
-    style={{
-      filter: `
-        drop-shadow(0 2px 6px rgba(0,0,0,0.25))
-        drop-shadow(0 10px 18px rgba(255,122,26,0.28))
-        drop-shadow(0 0 24px rgba(255,148,79,0.55))
-      `,
-    }}
-  >
-    UpAfrica
-  </span>
-  <span className="text-white"> ?</span>
+
+  {/* UpAfrica : utilise la variable --frame-full-orange-3 */}
+<span
+  style={{
+    color: "#E86A0C", // orange soutenu, plus chaud et plus foncé
+    filter: "drop-shadow(0 1px 30px #E86A0C)",
+    textShadow: "0 1px 30px #E86A0C",
+  }}
+  className="font-black font-bold"
+>
+  UpAfrica
+</span>
+
+  <span className="text-white font-bold"> ?</span>
 </h2>
 
           {/* Orbes décoratifs */}
@@ -95,7 +106,12 @@ export default function WhyChoose() {
             title="Plus de 750M d'euros"
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
-            badge="+150% par rapport à 2023"
+            badge={
+    <>
+      <ArrowUpRight size={14} className="ml-1 opacity-90" />
+      +150% par rapport à 2023
+    </>
+  }
           />
           <FeatureCard
             icon={Award}
@@ -128,16 +144,16 @@ export default function WhyChoose() {
             className="
               pointer-events-none absolute -top-16 right-10 h-56 w-56 rounded-full
               bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,148,79,0.4),transparent_70%)]
-              blur-3xl
+              blur-3xl shadow-[0_0_40px_#232323]
             "
           />
 
-          <ul className="grid grid-cols-2 sm:grid-cols-4 place-items-center gap-y-8 gap-x-10">
-            <StatV2 icon={<Users size={22} />} value="25 000+" label="Emplois créés" />
-            <StatV2 icon={<Rocket size={22} />} value="500+" label="Startups financées" />
-            <StatV2 icon={<Globe size={22} />} value="54" label="Pays impactés" />
-            <StatV2 icon={<Euro size={22} />} value="750 millions d&apos;euros" label="Capital mobilisé" />
-          </ul>
+          <ul className="flex flex-wrap justify-center items-center gap-x-5 gap-y-3">
+  <StatV2 icon={<Users size={16} />} value="25 000+" label="Emplois créés" />
+  <StatV2 icon={<Rocket size={16} />} value="500+" label="Startups financées" />
+  <StatV2 icon={<Globe size={16} />} value="54" label="Pays impactés" />
+  <StatV2 icon={<CircleDollarSign size={16} />} value="750 millions d'euros" label="Capital mobilisé" />
+</ul>
         </div>
 
         {/* === CTA Néomorphique === */}
@@ -157,7 +173,7 @@ export default function WhyChoose() {
               rounded-full uppercase tracking-[0.12em]
               text-[12px] font-semibold select-none
               text-[#ED6D0B]
-              bg-[rgba(237,109,11,0.10)]
+              bg-[#232323]
               backdrop-blur-[20px]
               ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
               shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
@@ -186,9 +202,9 @@ export default function WhyChoose() {
 </h3>
 
           {/* Description */}
-          <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
+          <p className="text-gray-400 max-w-3xl mx-auto mb-8 text-lg leading-relaxed">
             Rejoignez l&apos;écosystème d&apos;innovation le plus exclusif d&apos;Afrique.
-            Connectez-vous avec l&apos;élite entrepreneuriale et participez à la révolution
+            Connectez-vous avec l&apos;élite <br /> entrepreneuriale et participez à la révolution
             économique du continent.
           </p>
 
@@ -243,13 +259,13 @@ function FeatureCard({
   title: string;
   subtitle?: string;
   description: string;
-  badge: string;
+  badge: React.ReactNode;
 }) {
   return (
     <div
       className="
         relative flex flex-col items-center text-center overflow-hidden
-        w-[266px] min-h-[381px] p-[28px] gap-[23px]
+        w-[266px] min-h-[281px] p-[28px] gap-[13px]
         rounded-[20px] bg-[#232323]
         shadow-[8px_8px_20px_rgba(0,0,0,0.65),-8px_-8px_20px_rgba(255,255,255,0.05),
                 inset_1px_1px_2px_rgba(255,255,255,0.04),inset_-1px_-1px_3px_rgba(0,0,0,0.28)]
@@ -278,15 +294,15 @@ function FeatureCard({
 
       {/* Titre */}
       <h3
-        className="
-          text-[22px] leading-tight font-extrabold
-          bg-gradient-to-b from-[#FFE6D1] via-[#FFD1A6] to-[#FF9A3C]
-          bg-clip-text text-transparent
-          drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]
-        "
-      >
-        {title}
-      </h3>
+  className="
+    text-[22px] leading-tight font-extrabold
+    bg-gradient-to-b from-[#FFE6D1] via-[#FFB380] to-[#FFA366]
+    bg-clip-text text-transparent
+    drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]
+  "
+>
+  {title}
+</h3>
 
       {subtitle && (
         <h4 className="text-[15px] font-semibold text-white/95">{subtitle}</h4>
@@ -306,7 +322,7 @@ function FeatureCard({
           shadow-[0_8px_24px_rgba(255,122,26,0.25),inset_0_1px_0_rgba(255,255,255,0.12)]
         "
       >
-        ↑ {badge}
+         {badge}
       </span>
     </div>
   );
@@ -323,8 +339,9 @@ function StatV2({
 }) {
   return (
     <li className="flex flex-col items-center text-center select-none">
+      {/* Icône */}
       <div className="relative mb-2">
-        <span className="grid place-items-center w-9 h-9 text-gray-200/90">
+        <span className="grid place-items-center w-8 h-8 text-gray-200/90">
           {icon}
         </span>
         <span
@@ -336,18 +353,23 @@ function StatV2({
         />
       </div>
 
+      {/* Valeur */}
       <div
         className="
-          text-xl md:text-2xl font-extrabold tracking-tight
-          bg-gradient-to-br from-orange-200 via-orange-300 to-orange-500
+          text-base md:text-lg font-bold tracking-tight
+          bg-gradient-to-br from-[#FFE6D1] via-[#FFB380] to-[#FFA366]
           bg-clip-text text-transparent
           drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]
+          whitespace-nowrap
         "
       >
         {value}
       </div>
 
-      <div className="mt-1 text-[13px] md:text-sm text-gray-400/90">{label}</div>
+      {/* Label */}
+      <div className="mt-1 text-[12px] md:text-[13px] text-gray-400/90">
+        {label}
+      </div>
     </li>
   );
 }

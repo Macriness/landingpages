@@ -1,3 +1,4 @@
+//app/tsx
 import type { AppProps } from "next/app";
 import { Poppins } from "next/font/google";
 import "@/styles/globals.css";

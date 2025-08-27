@@ -15,50 +15,16 @@ import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // tu choisis ce dont tu as besoin
+  weight: ["400", "500", "700"],
 });
 
-
 const features = [
-  {
-    title: "Réseau Global Ultra-Connecté",
-    desc: "Connectez-vous avec une communauté d’élite d’entrepreneurs, d’investisseurs et d’innovateurs africains répartis dans 120+ pays.",
-    icon: Users,
-    img: "/Container.png",
-    kicker: "Plus de 50 000 entrepreneurs vérifiés",
-  },
-  {
-    title: "Opportunités Business Premium",
-    kicker: "500M+ d'opportunités disponibles",
-    desc: "Accédez à des milliers d’opportunités d’investissement exclusives, des partenariats stratégiques et des projets d’impact à travers l’Afrique.",
-    icon: Briefcase,
-    img: "/Container-1.png",
-  },
-  {
-    title: "Intelligence Marché Avancée",
-    kicker: "Des informations basées sur l’IA en temps réel",
-    desc: "Bénéficiez d’analyses prédictives, de rapports sectoriels exclusifs et d’insights basés sur l’IA pour optimiser vos décisions d’investissement.",
-    icon: TrendingUp,
-    img: "/Container-2.png",
-  },
-  {
-    title: "Communication Sécurisée",
-    desc: "Bénéficiez d'une messagerie instantanée protégée pour vos échanges confidentiels.",
-    icon: MessageCircle,
-    img: "/Container-2.png",
-  },
-  {
-    title: "Impact Continental Mesurable",
-    desc: "Suivez vos collaborations et mesurez leur impact réel sur le développement en Afrique.",
-    icon: Globe2,
-    img: "/Container-3.png",
-  },
-  {
-    title: "KYC/AML Ultra-Robuste",
-    desc: "Une infrastructure de conformité intégrée, conforme aux standards internationaux.",
-    icon: ShieldCheck,
-    img: "/Container-4.png",
-  },
+  { title: "Réseau Global Ultra-Connecté", desc: "Connectez-vous avec une communauté d’élite d’entrepreneurs, d’investisseurs et d’innovateurs africains répartis dans 120+ pays.", icon: Users, img: "/Container.png", kicker: "Plus de 50 000 entrepreneurs vérifiés" },
+  { title: "Opportunités Business Premium", kicker: "500M+ d'opportunités disponibles", desc: "Accédez à des milliers d’opportunités d’investissement exclusives, des partenariats stratégiques et des projets d’impact à travers l’Afrique.", icon: Briefcase, img: "/Container-1.png" },
+  { title: "Intelligence Marché Avancée", kicker: "Des informations basées sur l’IA en temps réel", desc: "Bénéficiez d’analyses prédictives, de rapports sectoriels exclusifs et d’insights basés sur l’IA pour optimiser vos décisions d’investissement.", icon: TrendingUp, img: "/Container-2.png" },
+  { title: "Communication Sécurisée", desc: "Bénéficiez d'une messagerie instantanée protégée pour vos échanges confidentiels.", icon: MessageCircle, img: "/Container-2.png" },
+  { title: "Impact Continental Mesurable", desc: "Suivez vos collaborations et mesurez leur impact réel sur le développement en Afrique.", icon: Globe2, img: "/Container-3.png" },
+  { title: "KYC/AML Ultra-Robuste", desc: "Une infrastructure de conformité intégrée, conforme aux standards internationaux.", icon: ShieldCheck, img: "/Container-4.png" },
 ];
 
 export default function Features() {
@@ -96,7 +62,7 @@ export default function Features() {
           </span>
         </h2>
 
-        <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed text-[17.5px]">
+        <p className="text-gray-400 mt-4 max-w-3xl mx-auto leading-relaxed text-[17.5px]">
           UpAfrica redéfinit l’écosystème entrepreneurial africain avec des
           technologies de pointe. Découvrez comment notre plateforme transforme
           la collaboration intercontinentale.
@@ -119,7 +85,6 @@ export default function Features() {
                     transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)]
                   "
                 >
-                  {/* Image de fond */}
                   <Image
                     src={f.img}
                     alt={f.title}
@@ -127,8 +92,6 @@ export default function Features() {
                     sizes="(max-width:768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                   />
-
-                  {/* Overlay assombrissement */}
                   <div
                     className="absolute inset-0 rounded-none"
                     style={{
@@ -136,38 +99,28 @@ export default function Features() {
                         "linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.22) 28%, rgba(0,0,0,0.58) 72%, rgba(0,0,0,0.75) 100%)",
                     }}
                   />
-
-                  {/* Contenu */}
                   <div className="relative z-10 flex h-full">
                     <div className="mt-auto w-full px-5 pb-6">
-                      {/* === Pastille icône MAQUETTE STYLE === */}
-                      {/* Pastille icône — fond transparent + box-shadow orange */}
-<div
-  className="
-    inline-grid place-items-center h-14 w-14 rounded-[14px]
-    mb-4 bg-transparent
-    shadow-[0_0_20px_rgba(237,109,11,0.5)]
-  "
->
-  <f.icon
-    size={22}
-    className="text-white"
-  />
-</div>
+                      <div
+                        className="
+                          inline-grid place-items-center h-14 w-14 rounded-[14px]
+                          mb-4 bg-transparent
+                          shadow-[0_0_20px_rgba(237,109,11,0.5)]
+                        "
+                      >
+                        <f.icon size={22} className="text-white" />
+                      </div>
 
-                      {/* Titre */}
                       <h3 className="text-[21px] font-bold leading-tight text-white">
                         {f.title}
                       </h3>
 
-                      {/* Kicker */}
                       {"kicker" in f && (
                         <p className="mt-3 text-[10.5px] font-medium text-gray-200/95">
                           {(f as any).kicker}
                         </p>
                       )}
 
-                      {/* Description */}
                       <p className="mt-2 text-[15.8px] leading-relaxed text-gray-300/90">
                         {f.desc}
                       </p>
@@ -180,14 +133,14 @@ export default function Features() {
       </div>
 
       {/* --- CTA Section --- */}
-<div className="flex justify-center mt-[70px]">
+      <div className="flex justify-center mt-[70px]">
   <div
     className="
       relative w-[1100px] max-w-[92%] min-h-[246px]
       rounded-[20px] p-[42px] text-center
       bg-[#232323]
       border-t-[6px] border-[#ED6D0B]
-      shadow-[0_20px_40px_rgba(0,0,0,0.4)]
+      shadow-[20px_20px_40px_rgba(0,0,0,0.4),0_0_40px_#232323]
     "
   >
     <h2 className="text-white text-[24px] md:text-[28px] font-bold mb-3">
@@ -201,19 +154,23 @@ export default function Features() {
 
     <Link
       href="#contact"
-      className="
-        inline-flex items-center justify-center gap-2
-        h-9 px-3 py-1.5 rounded-lg
-        text-white text-[13px] font-semibold
-        bg-[linear-gradient(180deg,#FF7A1A_0%,#FF9A3C_100%)]
-        shadow-[0_2px_8px_rgba(237,109,11,0.40)]
-        transition-all duration-200 hover:translate-y-[-1px]
-        active:translate-y-0
-      "
       aria-label="Commencer maintenant"
+      className="
+        inline-flex items-center justify-center gap-3
+        h-12 px-7 rounded-[12px]
+        bg-[#ED6D0B]
+        text-white text-[15px] font-medium
+        shadow-[0_1px_10px_rgba(237,109,11,0.5),0_1px_20px_rgba(237,109,11,0.5)]
+        transition-transform duration-150
+        hover:-translate-y-[1px]
+        active:translate-y-0
+        focus-visible:outline-none
+        focus-visible:ring-2 focus-visible:ring-[#ED6D0B]/60
+        focus-visible:ring-offset-2 focus-visible:ring-offset-[#232323]
+      "
     >
       Commencer maintenant
-      <ArrowRight/>
+      <ArrowRight className="h-4 w-4" />
     </Link>
   </div>
 </div>

@@ -2,20 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Star, Globe, Activity, ArrowRight, } from "lucide-react";
+import { Download, Star, Globe, Activity, ArrowRight, TrendingUp} from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900">
-      {/* Section = hauteur écran - header éventuel */}
-      <div
-        className="
-          w-[92%] md:w-[76%] max-w-6xl
-          grid md:grid-cols-[560px_auto] items-center gap-24
-          mx-auto md:mx-0 md:ml-auto md:mr-[9vw]
-        "
-        style={{ minHeight: "calc(100dvh - var(--header-h, 0px))" }}
-      >
+    <section 
+  className="
+    relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
+    -mt-20
+  "
+>
+  <div
+    className="
+      w-[92%] md:w-[76%] max-w-6xl
+      grid md:grid-cols-[560px_auto] items-center gap-24
+      mx-auto md:mx-0 md:ml-auto md:mr-[9vw]
+    "
+    style={{ minHeight: "calc(90dvh - var(--header-h, 0px))" }}
+  >
         {/* === COLONNE TEXTE === */}
         <div className="w-full flex flex-col items-start text-left space-y-[35px]">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
@@ -78,7 +82,7 @@ export default function Hero() {
               href="#features"
               className="inline-flex items-center justify-center h-10 px-4 rounded-lg text-[14px] font-medium text-white"
               style={{
-                background: "var(--btn-base-grey, #2A2B2F)",
+                background: "var(--btn-base-grey, #000000ff)",
                 boxShadow: [
                   "0 2px 6px rgba(0,0,0,0.25)",
                   "0 1px 20px rgba(237,109,11,0.20)",
@@ -94,7 +98,7 @@ export default function Hero() {
             {[
               { icon: Star, value: "50 000+", label: "Utilisateurs actifs" },
               { icon: Globe, value: "500+", label: "Entreprises" },
-              { icon: Activity, value: "54", label: "Pays africains" },
+              { icon: TrendingUp, value: "54", label: "Pays africains" },
             ].map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
@@ -123,7 +127,7 @@ export default function Hero() {
 
         {/* === COLONNE IMAGE === */}
         <div className="w-full flex justify-center md:justify-start md:-ml-12">
-          <div className="relative h-[98dvh] md:h-[120dvh] max-h-[820px] aspect-[9/19.5]">
+          <div className="relative h-[98dvh] md:h-[120dvh] max-h-[820px] aspect-[9/19.5] animate-bounce-slow">
             <Image
               src="/hero.png"
               alt="UpAfrica App"
