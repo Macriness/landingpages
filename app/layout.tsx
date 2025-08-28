@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import ScrollBackgrounds from "./components/ScrollBackgrounds";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,8 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
-      <body className={`${poppins.variable} font-sans bg-ua text-white antialiased`}>
-        <ScrollBackgrounds />
+      <body className={`${poppins.variable} font-sans text-white antialiased`} style={{ backgroundColor: '#333333' }}>
         {children}
       </body>
     </html>

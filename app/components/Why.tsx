@@ -148,12 +148,21 @@ export default function WhyChoose() {
             "
           />
 
-          <ul className="flex flex-wrap justify-center items-center gap-x-5 gap-y-3">
-  <StatV2 icon={<Users size={16} />} value="25 000+" label="Emplois créés" />
-  <StatV2 icon={<Rocket size={16} />} value="500+" label="Startups financées" />
-  <StatV2 icon={<Globe size={16} />} value="54" label="Pays impactés" />
-  <StatV2 icon={<CircleDollarSign size={16} />} value="750 millions d'euros" label="Capital mobilisé" />
-</ul>
+          {/* Desktop: Liste horizontale comme avant */}
+          <ul className="hidden md:flex flex-wrap justify-center items-center gap-x-5 gap-y-3">
+            <StatV2 icon={<Users size={16} />} value="25 000+" label="Emplois créés" />
+            <StatV2 icon={<Rocket size={16} />} value="500+" label="Startups financées" />
+            <StatV2 icon={<Globe size={16} />} value="54" label="Pays impactés" />
+            <StatV2 icon={<CircleDollarSign size={16} />} value="750 millions d'euros" label="Capital mobilisé" />
+          </ul>
+
+          {/* Mobile & Tablette: Grille de cartes 2x2 */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:hidden">
+            <StatV2Card icon={<Users size={16} />} value="25 000+" label="Emplois créés" />
+            <StatV2Card icon={<Rocket size={16} />} value="500+" label="Startups financées" />
+            <StatV2Card icon={<Globe size={16} />} value="54" label="Pays impactés" />
+            <StatV2Card icon={<CircleDollarSign size={16} />} value="€750 M" label="Capital mobilisé" />
+          </div>
         </div>
 
         {/* === CTA Néomorphique === */}
@@ -202,9 +211,9 @@ export default function WhyChoose() {
 </h3>
 
           {/* Description */}
-          <p className="text-gray-400 max-w-3xl mx-auto mb-8 text-lg leading-relaxed">
+          <p className="text-gray-400 max-w-3xl mx-auto mb-8 text-[15px] text-lg leading-relaxed">
             Rejoignez l&apos;écosystème d&apos;innovation le plus exclusif d&apos;Afrique.
-            Connectez-vous avec l&apos;élite <br /> entrepreneuriale et participez à la révolution
+            Connectez-vous avec l&apos;élite entrepreneuriale et participez à la révolution
             économique du continent.
           </p>
 
@@ -224,7 +233,7 @@ export default function WhyChoose() {
         active:scale-95
       "
     >
-      Rejoindre l’élite
+      Rejoindre l'élite
       <ArrowRight className="w-4 h-4 ml-1" />
     </Button>
 
@@ -271,7 +280,7 @@ function FeatureCard({
                 inset_1px_1px_2px_rgba(255,255,255,0.04),inset_-1px_-1px_3px_rgba(0,0,0,0.28)]
       "
     >
-      {/* halo derrière l’icône */}
+      {/* halo derrière l'icône */}
       <span
         className="pointer-events-none absolute top-6 h-24 w-24 rounded-[18px] -z-10
                    bg-[radial-gradient(60%_60%_at_50%_50%,rgba(255,148,79,0.35),transparent_65%)]
@@ -328,6 +337,7 @@ function FeatureCard({
   );
 }
 
+// Version desktop (inchangée)
 function StatV2({
   icon,
   value,
@@ -371,5 +381,69 @@ function StatV2({
         {label}
       </div>
     </li>
+  );
+}
+
+// Nouvelle version carte pour mobile/tablette
+function StatV2Card({
+  icon,
+  value,
+  label,
+}: {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}) {
+  return (
+    <div
+      className="
+        relative flex flex-col items-center text-center select-none
+        p-4 rounded-xl
+        bg-white/5 border border-white/10
+        shadow-[0_4px_12px_rgba(0,0,0,0.25)]
+        backdrop-blur-sm
+      "
+    >
+      {/* Halo subtil derrière l'icône */}
+      <div
+        className="
+          pointer-events-none absolute top-2 left-1/2 -translate-x-1/2
+          h-12 w-12 rounded-full
+          bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,148,79,0.25),transparent_70%)]
+          blur-lg -z-10
+        "
+      />
+
+      {/* Icône */}
+      <div className="relative mb-3">
+        <span className="grid place-items-center w-8 h-8 text-orange-300/90">
+          {icon}
+        </span>
+        <span
+          className="
+            pointer-events-none absolute inset-0 rounded-full
+            bg-[radial-gradient(50%_50%_at_50%_50%,rgba(255,148,79,0.4),transparent_70%)]
+            blur-[2px] opacity-60
+          "
+        />
+      </div>
+
+      {/* Valeur */}
+      <div
+        className="
+          text-sm sm:text-base font-bold tracking-tight mb-1
+          bg-gradient-to-br from-[#FFE6D1] via-[#FFB380] to-[#FFA366]
+          bg-clip-text text-transparent
+          drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]
+        "
+      >
+        {value}
+      </div>
+
+      {/* Label */}
+      <div className="text-[11px] sm:text-[12px] text-gray-400/90 leading-tight">
+        {label}
+      </div>
+    </div>
   );
 }

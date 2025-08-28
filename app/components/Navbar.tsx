@@ -9,8 +9,9 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-300">
+
       <div className="relative w-[92%] max-w-6xl mt-4">
-        {/* Container PC */}
+        {/* Container principal - flottant & transparent */}
         <div
           className="
             relative overflow-hidden
@@ -23,13 +24,18 @@ export default function Navbar() {
           "
           style={{ WebkitBackdropFilter: "blur(20px) saturate(140%)" }}
         >
+          {/* halos directionnels */}
+          <div className="absolute inset-0 rounded-full pointer-events-none">
+            <div className="absolute -top-10 -left-8 w-48 h-48 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.15),transparent_65%)] blur-2xl" />
+            <div className="absolute -bottom-12 right-6 w-56 h-56 rounded-full bg-[radial-gradient(circle,rgba(255,140,50,0.18),transparent_70%)] blur-2xl" />
+          </div>
+
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <Zap className="w-6 h-6 text-orange-400" />
-            <span className="font-bold text-white text-[20px]">UpAfrica</span>
+            <span className="font-bold text-white text-[24px]">UpAfrica</span>
           </Link>
 
-          {/* Menu centre PC */}
+          {/* Menu centre (desktop) */}
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center">
             <ul className="flex flex-row items-center gap-8">
               {[
@@ -50,13 +56,13 @@ export default function Navbar() {
             </ul>
           </div>
 
-          {/* CTA PC */}
+          {/* CTA */}
           <div className="hidden sm:block">
             <Link
               href="#contact"
               className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white"
               style={{
-                background: "#FF7A1A",
+                background: "var(--btn-base-orange, #FF7A1A)",
                 boxShadow:
                   "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
               }}
@@ -85,18 +91,13 @@ export default function Navbar() {
         {/* Dropdown mobile */}
         {open && (
           <div
-            className="mt-2 sm:hidden rounded-2xl px-6 py-8 relative overflow-hidden
-                       bg-[rgba(26,27,31,0.95)] backdrop-blur-[16px]
-                       border border-white/10 flex flex-col gap-6"
+            className="mt-2 sm:hidden rounded-2xl p-4 relative overflow-hidden
+                       bg-[rgba(26,27,31,0.28)] backdrop-blur-[20px] backdrop-saturate-[140%]
+                       border border-white/10
+                       shadow-[0_12px_32px_rgba(0,0,0,0.25)]"
           >
-            {/* Logo mobile */}
-            <div className="flex items-center gap-2">
-              <Zap className="w-6 h-6 text-orange-400" />
-              <span className="font-bold text-white text-[20px]">UpAfrica</span>
-            </div>
-
-            {/* Liens */}
-            <ul className="flex flex-col gap-4 text-white text-[16px] font-medium">
+          
+          <ul className="flex flex-col gap-1 text-white/80 relative z-10">
               {[
                 ["#features", "Fonctionnalités"],
                 ["#why", "Pourquoi UpAfrica"],
@@ -107,31 +108,30 @@ export default function Navbar() {
                   <Link
                     href={href}
                     onClick={() => setOpen(false)}
-                    className="block py-1 hover:text-orange-400 transition-colors"
+                    className="block rounded-lg px-3 py-2.5 text-[14px] font-medium transition-colors hover:text-white hover:bg-white/5"
                   >
                     {label}
                   </Link>
                 </li>
               ))}
+              <li className="pt-2">
+                <Link
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="block h-9 w-auto px-3 rounded-lg text-center text-[14px] font-medium text-white"
+                  style={{
+                    background: "var(--btn-base-orange, #FF7A1A)",
+                    boxShadow:
+                      "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
+                  }}
+                >
+                  Nous contacter
+                </Link>
+              </li>
             </ul>
-
-            {/* CTA mobile */}
-            <Link
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="mt-4 block text-center text-white font-medium rounded-xl py-3"
-              style={{
-                background: "#FF7A1A",
-                boxShadow:
-                  "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
-              }}
-            >
-              Nous contacter
-            </Link>
           </div>
         )}
       </div>
     </nav>
   );
 }
-

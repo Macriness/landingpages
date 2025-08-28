@@ -1,28 +1,30 @@
+//Page
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Star, Globe, ArrowRight, TrendingUp } from "lucide-react";
+import { Download, Star, Globe, Activity, ArrowRight, TrendingUp} from "lucide-react";
 
 export default function Hero() {
   return (
-    <section
+    <section 
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
-        pt-24 md:pt-0 md:-mt-20
+        -mt-20
       "
     >
       <div
         className="
-          w-[92%] md:w-[76%] max-w-6xl
-          grid grid-cols-1 md:grid-cols-[560px_auto] items-center gap-12 md:gap-24
-          mx-auto md:mx-0 md:ml-auto md:mr-[9vw]
+          w-[92%] xl:w-[76%] max-w-6xl
+          grid grid-cols-1 xl:grid-cols-[560px_auto] items-center gap-8 xl:gap-24
+          mx-auto xl:mx-0 xl:ml-auto xl:mr-[9vw]
+          pt-20 xl:pt-0
         "
         style={{ minHeight: "calc(90dvh - var(--header-h, 0px))" }}
       >
         {/* === COLONNE TEXTE === */}
-        <div className="w-full flex flex-col items-center md:items-start text-center md:text-left space-y-4 md:space-y-[35px]">
-          <h1 className="text-2xl sm:text-3xl lg:text-6xl font-extrabold leading-tight">
+        <div className="w-full flex flex-col items-center xl:items-start text-center xl:text-left space-y-6 xl:space-y-[35px] order-1 xl:order-1">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-extrabold leading-tight">
             Connectez-vous à{" "}
             <span className="whitespace-nowrap">
               <span
@@ -53,18 +55,32 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-[var(--text-grey-2,#D1D5DC)] text-base sm:text-lg max-w-xl leading-relaxed">
+          <p className="text-[var(--text-grey-2,#D1D5DC)] text-base lg:text-lg xl:text-lg max-w-lg xl:max-w-xl leading-relaxed px-4 xl:px-0">
             UpAfrica révolutionne la façon dont la diaspora africaine et les
-            entrepreneurs du continent collaborent. Découvrez des opportunités
-            uniques, créez des partenariats stratégiques et participez à la
-            transformation numérique de l&apos;Afrique.
+            entrepreneurs du continent collaborent. Découvrez des opportunités uniques,
+            créez des partenariats stratégiques et participez à la transformation
+            numérique de l&apos;Afrique.
           </p>
 
+          {/* === IMAGE MOBILE/TABLETTE === */}
+          <div className="w-full flex justify-center xl:hidden">
+            <div className="relative h-[50vh] sm:h-[60vh] md:h-[65vh] lg:h-[70vh] max-h-[400px] sm:max-h-[500px] md:max-h-[600px] lg:max-h-[700px] aspect-[9/19.5] animate-bounce-slow">
+              <Image
+                src="/hero.png"
+                alt="UpAfrica App"
+                fill
+                priority
+                className="object-contain drop-shadow-2xl"
+                sizes="(max-width:640px) 50vh, (max-width:768px) 60vh, (max-width:1024px) 65vh, (max-width:1280px) 70vh, 68dvh"
+              />
+            </div>
+          </div>
+
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center md:justify-start">
+          <div className="flex flex-row gap-3 xl:gap-4 w-full max-w-l xl:max-w-none">
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center h-11 px-6 rounded-lg text-[14px] font-medium text-white gap-[6px]"
+              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] font-medium text-white gap-[6px] flex-1"
               style={{
                 background: "var(--btn-base-orange, #FF7A1A)",
                 boxShadow: [
@@ -75,12 +91,12 @@ export default function Hero() {
             >
               <Download size={18} />
               Télécharger maintenant
-              <ArrowRight size={18} />
+              <ArrowRight size={18}/>
             </Link>
 
             <Link
               href="#features"
-              className="inline-flex items-center justify-center h-11 px-6 rounded-lg text-[14px] font-medium text-white"
+              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] font-medium text-white flex-1"
               style={{
                 background: "var(--btn-base-grey, #000000ff)",
                 boxShadow: [
@@ -94,7 +110,7 @@ export default function Hero() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-md justify-items-center md:justify-items-start">
+          <div className="flex flex-row justify-center xl:justify-start gap-2 xl:gap-4 w-full px-2 xl:px-0">
             {[
               { icon: Star, value: "50 000+", label: "Utilisateurs actifs" },
               { icon: Globe, value: "500+", label: "Entreprises" },
@@ -102,7 +118,7 @@ export default function Hero() {
             ].map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
-                className="relative rounded-[14px] h-[75.5px] px-3 py-2.5 flex items-center gap-[10px] select-none w-full"
+                className="relative rounded-[14px] h-[75.5px] px-2 xl:px-3 py-2.5 flex items-center gap-[8px] xl:gap-[10px] select-none flex-1 min-w-0"
                 style={{
                   background: "rgba(42,42,42,0.40)",
                   backdropFilter: "blur(14px) saturate(140%)",
@@ -115,33 +131,26 @@ export default function Hero() {
                   ].join(", "),
                 }}
               >
-                <Icon
-                  className="text-[var(--text-orange-3,#ED6D0B)]"
-                  size={18}
-                />
-                <div className="text-left leading-tight">
-                  <p className="font-bold text-lg text-[var(--text-orange-3,#ED6D0B)]">
-                    {value}
-                  </p>
-                  <p className="text-xs text-[var(--text-grey-2,#D1D5DC)]">
-                    {label}
-                  </p>
+                <Icon className="text-[var(--text-orange-3,#ED6D0B)] flex-shrink-0" size={16} />
+                <div className="text-left leading-tight min-w-0">
+                  <p className="font-bold text-base xl:text-lg text-[var(--text-orange-3,#ED6D0B)] truncate">{value}</p>
+                  <p className="text-xs text-[var(--text-grey-2,#D1D5DC)] truncate">{label}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* === COLONNE IMAGE === */}
-        <div className="w-full flex justify-center md:justify-start md:-ml-12 order-first md:order-last">
-          <div className="relative h-[58dvh] sm:h-[68dvh] md:h-[120dvh] max-h-[820px] aspect-[9/19.5] animate-bounce-slow">
+        {/* === COLONNE IMAGE DESKTOP === */}
+        <div className="hidden xl:flex w-full justify-center xl:justify-start xl:-ml-12 order-2 xl:order-2">
+          <div className="relative h-[98dvh] lg:h-[120dvh] max-h-[820px] aspect-[9/19.5] animate-bounce-slow">
             <Image
               src="/hero.png"
               alt="UpAfrica App"
               fill
               priority
               className="object-contain drop-shadow-2xl"
-              sizes="(max-width:768px) 58dvh, 68dvh"
+              sizes="68dvh"
             />
           </div>
         </div>
@@ -149,4 +158,3 @@ export default function Hero() {
     </section>
   );
 }
-
