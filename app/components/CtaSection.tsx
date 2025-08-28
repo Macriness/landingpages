@@ -245,21 +245,38 @@ export default function CtaSection() {
 
       {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
-
       {/* ===== Présence Afrique ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-8">
         <div className="mx-auto w-full max-w-[1200px]">
           <h3 className="text-center text-sm font-semibold text-[#F6B27A] mb-6">
             Notre présence en Afrique
           </h3>
-          <div className="flex flex-nowrap justify-start gap-4 sm:gap-[14px] overflow-x-auto scrollbar-hide">
-            <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
-            <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
-            <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
-            <FlagCard country="Ghana" users="6 000+" imgSrc="/3.png" />
-            <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
-            <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
-            <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
+          <div className="
+            flex flex-nowrap justify-start gap-4 sm:gap-[14px] 
+            overflow-x-auto md:overflow-visible 
+            scrollbar-hide
+          ">
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
+            </div>
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
+            </div>
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
+            </div>
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Ghana" users="6 000+" imgSrc="/3.png" />
+            </div>
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
+            </div>
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
+            </div>
+            <div className="min-w-[170px] sm:min-w-[180px] whitespace-nowrap">
+              <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
+            </div>
           </div>
         </div>
       </section>
