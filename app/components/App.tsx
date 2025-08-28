@@ -1,10 +1,11 @@
+//App
 "use client";
 
 import Image from "next/image";
 import { Users, MessageSquare, BarChart3, Globe, Star } from "lucide-react";
 import { DM_Sans } from "next/font/google";
 
-// Police DM Sans
+// Police DM 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "700", "900"] });
 
 export default function AppSection() {

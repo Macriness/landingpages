@@ -1,4 +1,3 @@
-//Page
 "use client";
 
 import Image from "next/image";
@@ -98,7 +97,7 @@ export default function Hero() {
               href="#features"
               className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] font-medium text-white flex-1"
               style={{
-                background: "var(--btn-base-grey, #000000ff)",
+                background: "var(--btn-base-grey, #333333)",
                 boxShadow: [
                   "0 2px 6px rgba(0,0,0,0.25)",
                   "0 1px 20px rgba(237,109,11,0.20)",

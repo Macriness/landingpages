@@ -129,8 +129,71 @@ export default function Features() {
           ))}
         </div>
 
-        {/* DESKTOP: Layout en grille (3 colonnes) */}
-        <div className="hidden md:flex md:flex-col md:gap-[32px]">
+        {/* TABLET: Layout en grille 2 colonnes */}
+        <div className="hidden md:flex lg:hidden flex-col gap-[32px]">
+          {Array.from({ length: Math.ceil(features.length / 2) }, (_, rowIndex) => (
+            <div key={rowIndex} className="flex gap-[24px] justify-center flex-wrap">
+              {features
+                .slice(rowIndex * 2, rowIndex * 2 + 2)
+                .map((f, i) => (
+                  <div
+                    key={i}
+                    className="
+                      group relative w-[320px] h-[500px] overflow-hidden
+                      rounded-[20px] border border-white/10 bg-black/10
+                      shadow-[0_12px_30px_rgba(0,0,0,0.35)]
+                      transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)]
+                    "
+                  >
+                    <Image
+                      src={f.img}
+                      alt={f.title}
+                      fill
+                      sizes="(max-width:1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                    />
+                    <div
+                      className="absolute inset-0 rounded-none"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,0.22) 28%, rgba(0,0,0,0.58) 72%, rgba(0,0,0,0.75) 100%)",
+                      }}
+                    />
+                    <div className="relative z-10 flex h-full">
+                      <div className="mt-auto w-full px-5 pb-6">
+                        <div
+                          className="
+                            inline-grid place-items-center h-14 w-14 rounded-[14px]
+                            mb-4 bg-transparent
+                            shadow-[0_0_20px_rgba(237,109,11,0.5)]
+                          "
+                        >
+                          <f.icon size={22} className="text-white" />
+                        </div>
+
+                        <h3 className="text-[21px] font-bold leading-tight text-white">
+                          {f.title}
+                        </h3>
+
+                        {"kicker" in f && (
+                          <p className="mt-3 text-[10.5px] font-medium text-gray-200/95">
+                            {(f as any).kicker}
+                          </p>
+                        )}
+
+                        <p className="mt-2 text-[15.8px] leading-relaxed text-gray-300/90">
+                          {f.desc}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
+
+        {/* DESKTOP: Layout en grille (3 colonnes) - Inchangé */}
+        <div className="hidden lg:flex lg:flex-col lg:gap-[32px]">
           {Array.from({ length: Math.ceil(features.length / 3) }, (_, rowIndex) => (
             <div key={rowIndex} className="flex gap-[32px] justify-center flex-wrap">
               {features

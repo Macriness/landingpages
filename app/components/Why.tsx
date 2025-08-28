@@ -100,18 +100,82 @@ export default function WhyChoose() {
         </div>
 
         {/* === Feature Cards === */}
-        <div className="flex flex-wrap justify-center gap-[28px] max-w-[1100px] mx-auto mt-16">
+        {/* MOBILE: Layout en colonne unique */}
+        <div className="flex flex-col items-center gap-6 md:hidden max-w-[1100px] mx-auto mt-16">
           <FeatureCard
             icon={ArrowUpRight}
             title="Plus de 750M d'euros"
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             badge={
-    <>
-      <ArrowUpRight size={14} className="ml-1 opacity-90" />
-      +150% par rapport à 2023
-    </>
-  }
+              <>
+                <ArrowUpRight size={14} className="ml-1 opacity-90" />
+                +150% par rapport à 2023
+              </>
+            }
+          />
+          <FeatureCard
+            icon={Award}
+            title=""
+            subtitle="Satisfaction client"
+            description="Net Promoter Score exceptionnel de notre communauté premium"
+            badge="#1 Plateforme Afrique"
+          />
+          <FeatureCard
+            icon={Heart}
+            title=""
+            subtitle="Histoires de réussite"
+            description="Partenariats et collaborations fructueuses créées"
+            badge="Record historique"
+          />
+        </div>
+
+        {/* TABLETTE: Layout 3 cartes sur une ligne */}
+        <div className="hidden md:flex lg:hidden justify-center gap-[20px] max-w-[1100px] mx-auto mt-16">
+          <FeatureCard
+            icon={ArrowUpRight}
+            title="Plus de 750M d'euros"
+            subtitle="Capital facilité"
+            description="Investissements et financements réalisés via notre écosystème"
+            badge={
+              <>
+                <ArrowUpRight size={14} className="ml-1 opacity-90" />
+                +150% par rapport à 2023
+              </>
+            }
+            isTablet={true}
+          />
+          <FeatureCard
+            icon={Award}
+            title=""
+            subtitle="Satisfaction client"
+            description="Net Promoter Score exceptionnel de notre communauté premium"
+            badge="#1 Plateforme Afrique"
+            isTablet={true}
+          />
+          <FeatureCard
+            icon={Heart}
+            title=""
+            subtitle="Histoires de réussite"
+            description="Partenariats et collaborations fructueuses créées"
+            badge="Record historique"
+            isTablet={true}
+          />
+        </div>
+
+        {/* DESKTOP: Layout original inchangé */}
+        <div className="hidden lg:flex flex-wrap justify-center gap-[28px] max-w-[1100px] mx-auto mt-16">
+          <FeatureCard
+            icon={ArrowUpRight}
+            title="Plus de 750M d'euros"
+            subtitle="Capital facilité"
+            description="Investissements et financements réalisés via notre écosystème"
+            badge={
+              <>
+                <ArrowUpRight size={14} className="ml-1 opacity-90" />
+                +150% par rapport à 2023
+              </>
+            }
           />
           <FeatureCard
             icon={Award}
@@ -263,22 +327,30 @@ function FeatureCard({
   subtitle,
   description,
   badge,
+  isTablet = false,
 }: {
   icon: LucideIcon;
   title: string;
   subtitle?: string;
   description: string;
   badge: React.ReactNode;
+  isTablet?: boolean;
 }) {
+  // Dimensions adaptées pour tablette
+  const cardWidth = isTablet ? "w-[240px]" : "w-[266px]";
+  const cardHeight = isTablet ? "min-h-[260px]" : "min-h-[281px]";
+  const cardPadding = isTablet ? "p-[22px]" : "p-[28px]";
+  const cardGap = isTablet ? "gap-[10px]" : "gap-[13px]";
+  
   return (
     <div
-      className="
+      className={`
         relative flex flex-col items-center text-center overflow-hidden
-        w-[266px] min-h-[281px] p-[28px] gap-[13px]
+        ${cardWidth} ${cardHeight} ${cardPadding} ${cardGap}
         rounded-[20px] bg-[#232323]
         shadow-[8px_8px_20px_rgba(0,0,0,0.65),-8px_-8px_20px_rgba(255,255,255,0.05),
                 inset_1px_1px_2px_rgba(255,255,255,0.04),inset_-1px_-1px_3px_rgba(0,0,0,0.28)]
-      "
+      `}
     >
       {/* halo derrière l'icône */}
       <span
@@ -289,47 +361,54 @@ function FeatureCard({
 
       {/* Icône */}
       <div
-        className="
-          grid place-items-center h-14 w-14 rounded-[14px]
+        className={`
+          grid place-items-center rounded-[14px]
           border border-white/10
           shadow-[0_14px_28px_rgba(255,122,26,0.45)]
-        "
+          ${isTablet ? "h-12 w-12" : "h-14 w-14"}
+        `}
         style={{
           background: "linear-gradient(180deg,#FF9A3C 0%,#FF7A1A 100%)",
         }}
       >
-        <Icon className="w-6 h-6 text-white" />
+        <Icon className={`text-white ${isTablet ? "w-5 h-5" : "w-6 h-6"}`} />
       </div>
 
       {/* Titre */}
       <h3
-  className="
-    text-[22px] leading-tight font-extrabold
-    bg-gradient-to-b from-[#FFE6D1] via-[#FFB380] to-[#FFA366]
-    bg-clip-text text-transparent
-    drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]
-  "
->
-  {title}
-</h3>
+        className={`
+          leading-tight font-extrabold
+          bg-gradient-to-b from-[#FFE6D1] via-[#FFB380] to-[#FFA366]
+          bg-clip-text text-transparent
+          drop-shadow-[0_1px_0_rgba(0,0,0,0.35)]
+          ${isTablet ? "text-[19px]" : "text-[22px]"}
+        `}
+      >
+        {title}
+      </h3>
 
       {subtitle && (
-        <h4 className="text-[15px] font-semibold text-white/95">{subtitle}</h4>
+        <h4 className={`font-semibold text-white/95 ${isTablet ? "text-[14px]" : "text-[15px]"}`}>
+          {subtitle}
+        </h4>
       )}
 
-      <p className="text-[13px] leading-relaxed text-gray-400">{description}</p>
+      <p className={`leading-relaxed text-gray-400 ${isTablet ? "text-[12px]" : "text-[13px]"}`}>
+        {description}
+      </p>
 
       {/* Badge */}
       <span
-        className="
+        className={`
           inline-flex items-center gap-1.5
-          px-3.5 py-1.5 rounded-full text-[12px] font-medium
+          px-3.5 py-1.5 rounded-full font-medium
           text-orange-200
           bg-[rgba(255,149,79,0.10)]
           backdrop-blur-md
           border border-orange-400/35
           shadow-[0_8px_24px_rgba(255,122,26,0.25),inset_0_1px_0_rgba(255,255,255,0.12)]
-        "
+          ${isTablet ? "text-[11px]" : "text-[12px]"}
+        `}
       >
          {badge}
       </span>
