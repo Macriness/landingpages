@@ -100,58 +100,60 @@ export default function CtaSection() {
       {/* ===== NEWSLETTER ===== */}
       <section className="px-4 sm:px-6 lg:px-12 pb-12 sm:pb-20">
         <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between gap-6">
-            
-            {/* Texte */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Texte gauche */}
             <div className="flex-1 max-w-[420px] text-center md:text-left">
-              <h3 className={`${dmSans.className} text-[18px] sm:text-[20px] leading-[1.3] font-bold text-white`}>
+              <h3 className={`${dmSans.className} text-[16px] sm:text-[18px] leading-[1.2] font-bold text-white`}>
                 Restez connecté à l&apos;innovation africaine
               </h3>
-              <p className="mt-2 text-sm sm:text-base text-[#99A1AF]">
+              <p className="mt-2 text-xs sm:text-sm text-[#99A1AF]">
                 Recevez les dernières nouvelles, opportunités et insights du continent africain directement dans votre boîte mail.
               </p>
             </div>
 
-            {/* Formulaire */}
-            <form className="w-full md:w-[412px] flex flex-col sm:flex-row gap-3 sm:gap-2">
-              <label htmlFor="nl-email" className="sr-only">
-                Votre adresse email
-              </label>
-              <input
-                id="nl-email"
-                type="email"
-                inputMode="email"
-                placeholder="Votre adresse email"
-                className="
-                  h-[48px] w-full px-4
-                  rounded-[12px]
-                  bg-[#2A2A2A] border border-[#4A5565]
-                  text-white placeholder-[#99A1AF]
-                  outline-none focus:border-[#ED6D0B] focus:ring-0
-                "
-              />
-              <button
-                type="submit"
-                className="
-                  h-[48px] w-full sm:w-auto px-5
-                  rounded-[12px]
-                  font-semibold text-white
-                  bg-[#ED6D0B] hover:brightness-110
-                  shadow-[0_6px_20px_rgba(237,109,11,0.35)]
-                  transition flex items-center justify-center gap-2
-                "
-              >
-                S’abonner
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 12H19M19 12L12 5M19 12L12 19"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+            {/* Formulaire droite */}
+            <form className="w-full md:w-[412px]">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-[4px]">
+                <label htmlFor="nl-email" className="sr-only">
+                  Votre adresse email
+                </label>
+                <input
+                  id="nl-email"
+                  type="email"
+                  inputMode="email"
+                  placeholder="Votre adresse email"
+                  className="
+                    h-[44px] flex-1 min-w-0 px-4
+                    rounded-[12px]
+                    bg-[#2A2A2A] border border-[#4A5565]
+                    text-white placeholder-[#99A1AF]
+                    outline-none focus:border-[#ED6D0B] focus:ring-0
+                  "
+                />
+                <button
+                  type="submit"
+                  className="
+                    h-[44px] px-5
+                    rounded-[12px]
+                    font-semibold text-white
+                    bg-[#ED6D0B] hover:brightness-110
+                    shadow-[0_6px_20px_rgba(237,109,11,0.35)]
+                    transition
+                    flex items-center justify-center gap-2
+                  "
+                >
+                  S’abonner
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M5 12H19M19 12L12 5M19 12L12 19"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -243,14 +245,13 @@ export default function CtaSection() {
 
       {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
-
       {/* ===== Présence Afrique ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-8">
         <div className="mx-auto w-full max-w-[1200px]">
           <h3 className="text-center text-sm font-semibold text-[#F6B27A] mb-6">
             Notre présence en Afrique
           </h3>
-          <div className="flex flex-nowrap justify-start gap-4 sm:gap-[14px] overflow-x-auto scrollbar-hide">
+          <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-4 sm:gap-[14px] overflow-x-auto md:overflow-visible">
             <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
             <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
             <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
@@ -258,9 +259,10 @@ export default function CtaSection() {
             <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
             <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
             <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
-          </div>
+         </div>
         </div>
       </section>
+
 
       {/* ===== Barre finale ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-3 border-t border-white/10">
@@ -323,4 +325,3 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
-
