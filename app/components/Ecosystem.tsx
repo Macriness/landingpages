@@ -185,7 +185,7 @@ export default function EcosystemSection() {
           </div>
         </div>
 
-        {/* === CTA + image APRES le bouton === */}
+        {/* === CTA + image + boutons Store === */}
         <div className="mt-14 flex flex-col items-center gap-6">
           <Button
             className="
@@ -198,14 +198,34 @@ export default function EcosystemSection() {
             Rejoindre l’écosystème
           </Button>
 
-          {/* ✅ Image placée juste après le bouton (mobile only pour ne rien changer sur PC) */}
+          {/* ✅ Boutons Google Play + App Store alignés */}
+          <div className="flex justify-center items-center gap-3 flex-wrap">
+            <a href="#" className="h-[48px]">
+              <Image
+                src="/google-play-badge.png"
+                alt="Télécharger sur Google Play"
+                width={160}
+                height={48}
+              />
+            </a>
+            <a href="#" className="h-[48px]">
+              <Image
+                src="/app-store-badge.png"
+                alt="Télécharger sur App Store"
+                width={160}
+                height={48}
+              />
+            </a>
+          </div>
+
+          {/* ✅ Image placée juste après les boutons (mobile only) */}
           <div className="md:hidden w-full flex justify-center">
             <div
               className="relative w-[92%] max-w-[480px] rounded-2xl overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,.45)] ring-1 ring-white/10 bg-black/10"
-              style={{ aspectRatio: "9 / 16" }} /* évite la mise en page qui saute */
+              style={{ aspectRatio: "9 / 16" }}
             >
               <Image
-                src={"/ending%20image.png"}        /* espace encodé */
+                src={"/ending%20image.png"}
                 alt="Aperçu UpAfrica"
                 fill
                 className="object-contain"
