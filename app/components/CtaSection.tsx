@@ -113,7 +113,7 @@ export default function CtaSection() {
 
             {/* Formulaire droite */}
             <form className="w-full md:w-[412px]">
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-[4px]">
+              <div className="flex flex-row gap-2 sm:gap-[4px]">
                 <label htmlFor="nl-email" className="sr-only">
                   Votre adresse email
                 </label>
@@ -263,7 +263,6 @@ export default function CtaSection() {
         </div>
       </section>
 
-
       {/* ===== Barre finale ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-3 border-t border-white/10">
         <div className="mx-auto w-full max-w-[1026px] flex flex-col md:flex-row items-center justify-between gap-2">
@@ -282,6 +281,7 @@ export default function CtaSection() {
     </div>
   );
 }
+
 /* ----------- Subcomponents ----------- */
 
 function StoreBadge({ href, src, alt, width, height, external = false }: { href: string; src: string; alt: string; width: number; height: number; external?: boolean; }) {
