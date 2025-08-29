@@ -162,7 +162,7 @@ export default function CtaSection() {
       {/* ===== FOOTER ===== */}
       <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
         <div className="mx-auto w-full max-w-[1054px]">
-          <div className="grid grid-cols-1 gap-y-10 md:grid-cols-6 md:gap-x-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-6 gap-8 sm:gap-10 md:gap-x-8">
             
             {/* Colonne 1 */}
             <div className="max-w-[265.5px] md:col-span-2 text-center md:text-left mx-auto md:mx-0">
@@ -179,7 +179,7 @@ export default function CtaSection() {
             </div>
 
             {/* Colonnes 2 → 5 */}
-            <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+            <div className="md:col-span-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
               {/* Produit */}
               <div className="space-y-2.5 text-center md:text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
