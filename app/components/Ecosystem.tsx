@@ -189,7 +189,7 @@ export default function EcosystemSection() {
         <div className="mt-14 flex flex-col items-center gap-6">
           <Button
             className="
-              w-[400px] h-[55px] rounded-[10px] px-4
+              w-[300px] h-[50px] rounded-[8px] px-4
               bg-[#ED6D0B] text-white font-semibold
               shadow-[0_8px_24px_rgba(237,109,11,0.35),inset_0_1px_0_rgba(255,255,255,0.18)]
               hover:brightness-105 active:translate-y-[1px] transition

@@ -1,4 +1,3 @@
-//CTA
 "use client";
 
 import Image from "next/image";
@@ -19,11 +18,11 @@ export default function CtaSection() {
       {/* ==== CTA ==== */}
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
         <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-8 sm:gap-10 lg:gap-[42px]">
             {/* LEFT */}
-            <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-8">
+            <div className="w-full lg:w-[406px] flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 sm:space-y-8">
               {/* rating */}
-              <div className="flex items-center gap-2 justify-center md:justify-start">
+              <div className="flex items-center gap-2 justify-center lg:justify-start">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} size={14} className="sm:size-16 text-orange-400 fill-orange-400" />
@@ -37,7 +36,7 @@ export default function CtaSection() {
               {/* heading */}
               <div className="space-y-4 sm:space-y-6">
                 <h1
-                  className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
+                  className={`${dmSans.className} text-[28px] sm:text-[36px] lg:text-[42px] leading-[1.2] font-bold text-white`}
                 >
                   Prêt à transformer
                   <br className="hidden sm:block" />
@@ -50,16 +49,16 @@ export default function CtaSection() {
               </div>
 
               {/* store badges */}
-              <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <div className="flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
                 <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
               </div>
-              <p className="text-xs text-gray-500 text-center md:text-left">
+              <p className="text-xs text-gray-500 text-center lg:text-left">
                 Disponible sur iOS 15+ et Android 7+
               </p>
 
               {/* features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-[14px] pt-2 w-full">
                 <FeatureCard
                   icon={<Download size={20} />}
                   title="Téléchargement gratuit"
@@ -83,8 +82,8 @@ export default function CtaSection() {
               </div>
             </div>
 
-            {/* RIGHT — image seule */}
-            <div className="w-full md:w-[406px] flex justify-center animate-bounce-slow">
+            {/* RIGHT — image seule (affichée seulement sur lg et +) */}
+            <div className="hidden lg:flex w-full lg:w-[406px] justify-center animate-bounce-slow">
               <Image
                 src="/ending image.png"
                 alt="Aperçu de l’app UpAfrica"
@@ -101,9 +100,9 @@ export default function CtaSection() {
       {/* ===== NEWSLETTER ===== */}
       <section className="px-4 sm:px-6 lg:px-12 pb-12 sm:pb-20">
         <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             {/* Texte gauche */}
-            <div className="flex-1 max-w-[420px] text-center md:text-left">
+            <div className="flex-1 max-w-[420px] text-center lg:text-left">
               <h3 className={`${dmSans.className} text-[16px] sm:text-[18px] leading-[1.2] font-bold text-white`}>
                 Restez connecté à l&apos;innovation africaine
               </h3>
@@ -113,7 +112,7 @@ export default function CtaSection() {
             </div>
 
             {/* Formulaire droite */}
-            <form className="w-full md:w-[412px]">
+            <form className="w-full lg:w-[412px]">
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-[4px]">
                 <label htmlFor="nl-email" className="sr-only">
                   Votre adresse email
@@ -185,7 +184,7 @@ function StoreBadge({ href, src, alt, width, height, external = false }: { href:
 
 function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string; }) {
   return (
-    <div className="relative flex items-center h-[110px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+    <div className="relative flex items-center h-[110px] w-full lg:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
         <div className="leading-tight">
