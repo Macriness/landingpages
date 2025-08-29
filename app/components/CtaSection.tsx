@@ -1,4 +1,3 @@
-//CTA
 "use client";
 
 import Image from "next/image";
@@ -50,7 +49,7 @@ export default function CtaSection() {
               </div>
 
               {/* store badges */}
-              <div className="flex flex-col xs:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
                 <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
               </div>
@@ -83,8 +82,8 @@ export default function CtaSection() {
               </div>
             </div>
 
-            {/* RIGHT — image seule */}
-            <div className="w-full md:w-[406px] flex justify-center animate-bounce-slow">
+            {/* RIGHT — image seule (masquée sur mobile et tablette) */}
+            <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
               <Image
                 src="/ending image.png"
                 alt="Aperçu de l’app UpAfrica"
@@ -114,7 +113,7 @@ export default function CtaSection() {
 
             {/* Formulaire droite */}
             <form className="w-full md:w-[412px]">
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-[4px]">
+              <div className="flex flex-row gap-2 sm:gap-[4px]">
                 <label htmlFor="nl-email" className="sr-only">
                   Votre adresse email
                 </label>
@@ -263,7 +262,6 @@ export default function CtaSection() {
          </div>
         </div>
       </section>
-
 
       {/* ===== Barre finale ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-3 border-t border-white/10">
