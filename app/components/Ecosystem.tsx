@@ -141,23 +141,41 @@ export default function EcosystemSection() {
             </span>
           </h3>
 
-          <div className="grid items-center justify-items-center gap-6 sm:gap-[17px] md:grid-cols-5 max-w-[780px] mx-auto">
+          {/* --- Desktop : design d'origine, inchangé --- */}
+          <div className="hidden md:grid items-center justify-items-center gap-6 sm:gap-[17px] md:grid-cols-5 max-w-[780px] mx-auto">
             <StepItem
               icon={<Users size={20} />}
               title="Connectez-vous"
               desc="Rejoignez notre communauté et créez votre profil professionnel"
             />
-
-            <Arrow className="hidden md:flex" />
-
+            <Arrow />{/* flèche 1 */}
             <StepItem
               icon={<Globe size={20} />}
               title="Élevez"
               desc="Découvrez des opportunités et partenaires à travers l’Afrique"
             />
+            <Arrow />{/* flèche 2 */}
+            <StepItem
+              icon={<Rocket size={20} />}
+              title="Collaborez"
+              desc="Lancez des projets ambitieux et créez un impact durable"
+            />
+          </div>
 
-            <Arrow className="hidden md:flex" />
-
+          {/* --- Mobile : flèches verticales uniquement --- */}
+          <div className="flex md:hidden flex-col items-center gap-4 max-w-[780px] mx-auto">
+            <StepItem
+              icon={<Users size={20} />}
+              title="Connectez-vous"
+              desc="Rejoignez notre communauté et créez votre profil professionnel"
+            />
+            <Arrow className="rotate-90 my-2" />
+            <StepItem
+              icon={<Globe size={20} />}
+              title="Élevez"
+              desc="Découvrez des opportunités et partenaires à travers l’Afrique"
+            />
+            <Arrow className="rotate-90 my-2" />
             <StepItem
               icon={<Rocket size={20} />}
               title="Collaborez"
@@ -310,7 +328,7 @@ function StepItem({
 
 function Arrow({ className = "" }: { className?: string }) {
   return (
-    <div className={`items-center justify-center ${className}`}>
+    <div className={`flex items-center justify-center ${className}`}>
       <ArrowRight className="w-5 h-5 text-[#ED6D0B]" />
     </div>
   );
