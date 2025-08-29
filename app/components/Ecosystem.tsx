@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import type { ReactNode } from "react";
 import { Users, Building2, Landmark, ArrowRight, Globe, Rocket } from "lucide-react";
 import { Button } from "@heroui/react";
-import Image from "next/image";
-
 import { Sora } from "next/font/google";
 const sora = Sora({ subsets: ["latin"], weight: ["700"] }); // Bold
 
@@ -142,7 +142,7 @@ export default function EcosystemSection() {
             </span>
           </h3>
 
-          {/* --- Desktop : design d'origine, inchangé --- */}
+          {/* --- Desktop (inchangé) --- */}
           <div className="hidden md:grid items-center justify-items-center gap-6 sm:gap-[17px] md:grid-cols-5 max-w-[780px] mx-auto">
             <StepItem
               icon={<Users size={20} />}
@@ -163,7 +163,7 @@ export default function EcosystemSection() {
             />
           </div>
 
-          {/* --- Mobile : flèches verticales uniquement --- */}
+          {/* --- Mobile : flèches verticales --- */}
           <div className="flex md:hidden flex-col items-center gap-4 max-w-[780px] mx-auto">
             <StepItem
               icon={<Users size={20} />}
@@ -185,8 +185,8 @@ export default function EcosystemSection() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-14 flex justify-center">
+        {/* === CTA + image APRES le bouton === */}
+        <div className="mt-14 flex flex-col items-center gap-6">
           <Button
             className="
               w-[205px] h-[44px] rounded-[8px] px-4
@@ -197,6 +197,23 @@ export default function EcosystemSection() {
           >
             Rejoindre l’écosystème
           </Button>
+
+          {/* ✅ Image placée juste après le bouton (mobile only pour ne rien changer sur PC) */}
+          <div className="md:hidden w-full flex justify-center">
+            <div
+              className="relative w-[92%] max-w-[480px] rounded-2xl overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,.45)] ring-1 ring-white/10 bg-black/10"
+              style={{ aspectRatio: "9 / 16" }} /* évite la mise en page qui saute */
+            >
+              <Image
+                src={"/ending%20image.png"}        /* espace encodé */
+                alt="Aperçu UpAfrica"
+                fill
+                className="object-contain"
+                priority
+                sizes="(max-width: 768px) 92vw, 480px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -213,10 +230,10 @@ function FeatureGlassCard({
   children,
 }: {
   image: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   subtitle: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <article
@@ -310,7 +327,7 @@ function StepItem({
   title,
   desc,
 }: {
-  icon: React.ReactNode;
+  icon: ReactNode;
   title: string;
   desc: string;
 }) {
