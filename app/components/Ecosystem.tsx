@@ -40,7 +40,6 @@ export default function EcosystemSection() {
         {/* === Features — cartes responsives === */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:[grid-template-columns:repeat(3,266px)] gap-6 justify-center">
           <FeatureGlassCard
-            image="/0103.png"
             icon={<Users className="w-[28px] h-[28px]" />}
             title="Diaspora africaine"
             subtitle="15 millions de talents"
@@ -61,7 +60,6 @@ export default function EcosystemSection() {
           </FeatureGlassCard>
 
           <FeatureGlassCard
-            image="/0202.png"
             icon={<Building2 className="w-[28px] h-[28px]" />}
             title="Startups Africaines"
             subtitle="50 000+ entreprises"
@@ -81,7 +79,6 @@ export default function EcosystemSection() {
           </FeatureGlassCard>
 
           <FeatureGlassCard
-            image="/0301.png"
             icon={<Landmark className="w-[28px] h-[28px]" />}
             title="Fonds d’investissement"
             subtitle="Plus de 500 investisseurs"
@@ -186,7 +183,7 @@ export default function EcosystemSection() {
         </div>
 
         {/* CTA */}
-        <div className="mt-14 flex justify-center">
+        <div className="mt-14 flex flex-col items-center gap-6">
           <Button
             className="
               w-[205px] h-[44px] rounded-[8px] px-4
@@ -197,6 +194,18 @@ export default function EcosystemSection() {
           >
             Rejoindre l’écosystème
           </Button>
+
+          {/* Image après le bouton */}
+          <div className="w-[320px] sm:w-[400px] rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/0103.png"
+              alt="UpAfrica preview"
+              width={400}
+              height={250}
+              className="object-cover w-full h-auto"
+              priority
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -206,13 +215,11 @@ export default function EcosystemSection() {
 /* ================= Components ================= */
 
 function FeatureGlassCard({
-  image,
   icon,
   title,
   subtitle,
   children,
 }: {
-  image: string;
   icon: React.ReactNode;
   title: string;
   subtitle: string;
@@ -230,26 +237,14 @@ function FeatureGlassCard({
         flex flex-col
         w-full sm:w-[266px]
       "
-      style={{ minHeight: 389 }}
+      style={{ minHeight: 250 }}
     >
-      {/* Top image */}
-      <div className="relative h-[168px] w-full">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,.55)_70%,rgba(0,0,0,.85)_100%)]" />
-
-        {/* Title inline */}
-        <div className="absolute left-3 bottom-3 flex items-center gap-2">
-          <span className="text-[#ED6D0B] ">{icon}</span>
-          <div className="leading-tight text-left">
-            <h3 className="text-[17.5px] font-semibold text-white">{title}</h3>
-            <p className="text-[12.5px] font-medium text-[#ED6D0B]">{subtitle}</p>
-          </div>
+      {/* Title inline */}
+      <div className="flex items-center gap-2 p-3">
+        <span className="text-[#ED6D0B] ">{icon}</span>
+        <div className="leading-tight text-left">
+          <h3 className="text-[17.5px] font-semibold text-white">{title}</h3>
+          <p className="text-[12.5px] font-medium text-[#ED6D0B]">{subtitle}</p>
         </div>
       </div>
 
