@@ -1,4 +1,3 @@
-//App
 "use client";
 
 import Image from "next/image";
@@ -42,9 +41,9 @@ export default function AppSection() {
         {/* Content */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-12 items-center">
           {/* Col gauche */}
-          <div className="mx-auto w-full max-w-md text-left space-y-6">
+          <div className="mx-auto w-full max-w-md text-left space-y-4">
             {/* Features */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               <FeatureCard
                 icon={<Users size={18} />}
                 title="Réseau Social Professionnel"
@@ -68,7 +67,7 @@ export default function AppSection() {
             </div>
 
             {/* Stores */}
-            <div className="flex flex-col gap-3 pt-4">
+            <div className="flex flex-col gap-3">
               <h4 className="text-white font-semibold leading-tight text-[16px] sm:text-[17.5px]">
                 Téléchargez dès maintenant
               </h4>
