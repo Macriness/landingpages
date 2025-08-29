@@ -18,11 +18,11 @@ export default function CtaSection() {
       {/* ==== CTA ==== */}
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
         <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-8 sm:gap-10 lg:gap-[42px]">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
             {/* LEFT */}
-            <div className="w-full lg:w-[406px] flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 sm:space-y-8">
+            <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-8">
               {/* rating */}
-              <div className="flex items-center gap-2 justify-center lg:justify-start">
+              <div className="flex items-center gap-2 justify-center md:justify-start">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} size={14} className="sm:size-16 text-orange-400 fill-orange-400" />
@@ -36,7 +36,7 @@ export default function CtaSection() {
               {/* heading */}
               <div className="space-y-4 sm:space-y-6">
                 <h1
-                  className={`${dmSans.className} text-[28px] sm:text-[36px] lg:text-[42px] leading-[1.2] font-bold text-white`}
+                  className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
                 >
                   Prêt à transformer
                   <br className="hidden sm:block" />
@@ -49,16 +49,16 @@ export default function CtaSection() {
               </div>
 
               {/* store badges */}
-              <div className="flex flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+              <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
                 <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
               </div>
-              <p className="text-xs text-gray-500 text-center lg:text-left">
+              <p className="text-xs text-gray-500 text-center md:text-left">
                 Disponible sur iOS 15+ et Android 7+
               </p>
 
               {/* features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-[14px] pt-2 w-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
                 <FeatureCard
                   icon={<Download size={20} />}
                   title="Téléchargement gratuit"
@@ -82,8 +82,8 @@ export default function CtaSection() {
               </div>
             </div>
 
-            {/* RIGHT — image seule (affichée seulement sur lg et +) */}
-            <div className="hidden lg:flex w-full lg:w-[406px] justify-center animate-bounce-slow">
+            {/* RIGHT — image seule (masquée sur mobile et tablette) */}
+            <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
               <Image
                 src="/ending image.png"
                 alt="Aperçu de l’app UpAfrica"
@@ -100,9 +100,9 @@ export default function CtaSection() {
       {/* ===== NEWSLETTER ===== */}
       <section className="px-4 sm:px-6 lg:px-12 pb-12 sm:pb-20">
         <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Texte gauche */}
-            <div className="flex-1 max-w-[420px] text-center lg:text-left">
+            <div className="flex-1 max-w-[420px] text-center md:text-left">
               <h3 className={`${dmSans.className} text-[16px] sm:text-[18px] leading-[1.2] font-bold text-white`}>
                 Restez connecté à l&apos;innovation africaine
               </h3>
@@ -112,7 +112,7 @@ export default function CtaSection() {
             </div>
 
             {/* Formulaire droite */}
-            <form className="w-full lg:w-[412px]">
+            <form className="w-full md:w-[412px]">
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-[4px]">
                 <label htmlFor="nl-email" className="sr-only">
                   Votre adresse email
@@ -160,11 +160,128 @@ export default function CtaSection() {
       </section>
 
       {/* ===== FOOTER ===== */}
-      {/* ... le reste de ton footer reste inchangé ... */}
+      <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
+        <div className="mx-auto w-full max-w-[1054px]">
+          <div className="grid grid-cols-1 gap-y-10 md:grid-cols-6 md:gap-x-8">
+            
+            {/* Colonne 1 */}
+            <div className="max-w-[265.5px] md:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
+                  <Zap size={16} className="text-white" />
+                </div>
+                <span className="text-xl font-bold text-white">UpAfrica</span>
+              </div>
+              <p className="text-sm text-[#99A1AF] leading-relaxed text-center md:text-left">
+                La première plateforme qui connecte les entrepreneurs africains avec les investisseurs du
+                continent. Ensemble, nous construisons l’avenir de l’Afrique.
+              </p>
+            </div>
+
+            {/* Colonnes 2 → 5 */}
+            <div className="md:col-span-4 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4">
+              {/* Produit */}
+              <div className="space-y-2.5 text-center md:text-left">
+                <h4 className="text-white font-semibold text-lg">Produit</h4>
+                <ul className="space-y-1 text-sm">
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Fonctionnalités</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Tarifs</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Sécurité</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Mises à jour</a></li>
+                </ul>
+              </div>
+
+              {/* Entreprise */}
+              <div className="space-y-2.5 text-center md:text-left">
+                <h4 className="text-white font-semibold text-lg">Entreprise</h4>
+                <ul className="space-y-1 text-sm">
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">À propos</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Carrières</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Presse</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Partenaires</a></li>
+                </ul>
+              </div>
+
+              {/* Légal */}
+              <div className="space-y-2.5 text-center md:text-left">
+                <h4 className="text-white font-semibold text-lg">Légal</h4>
+                <ul className="space-y-1 text-sm">
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Confidentialité</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Conditions</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Cookies</a></li>
+                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Licences</a></li>
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div className="space-y-2.5 text-center md:text-left">
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
+                    <Mail size={16} className="text-[#ED6D0B]" />
+                    <span>contact@upafrica.com</span>
+                  </div>
+                  <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
+                    <Phone size={16} className="text-[#ED6D0B]" />
+                    <span>+33 1 23 45 67 89</span>
+                  </div>
+                  <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
+                    <MapPin size={16} className="text-[#ED6D0B]" />
+                    <span>Paris, France et Lagos, Nigéria</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-center md:justify-start gap-2 pt-3">
+                  {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
+                    <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
+                      <Icon size={16} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Divider */}
+      <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
+      {/* ===== Présence Afrique ===== */}
+      <section className="px-4 sm:px-6 lg:px-12 py-8">
+        <div className="mx-auto w-full max-w-[1200px]">
+          <h3 className="text-center text-sm font-semibold text-[#F6B27A] mb-6">
+            Notre présence en Afrique
+          </h3>
+          <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-4 sm:gap-[14px] overflow-x-auto md:overflow-visible">
+            <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
+            <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
+            <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
+            <FlagCard country="Ghana" users="6 000+" imgSrc="/3.png" />
+            <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
+            <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
+            <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
+         </div>
+        </div>
+      </section>
+
+
+      {/* ===== Barre finale ===== */}
+      <section className="px-4 sm:px-6 lg:px-12 py-3 border-t border-white/10">
+        <div className="mx-auto w-full max-w-[1026px] flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-[12px] text-center md:text-left text-[#99A1AF]">
+            © 2024 UpAfrica. Tous droits réservés. Construisons ensemble l&apos;avenir de l&apos;Afrique.
+          </p>
+          <nav className="flex flex-wrap justify-center md:justify-end items-center text-[12px] text-[#99A1AF]">
+            <Link href="/privacy" className="px-2 hover:text-[#7F7F7F]">Politique de confidentialité</Link>
+            <span className="hidden sm:inline mx-1">•</span>
+            <Link href="/terms" className="px-2 hover:text-[#7F7F7F]">Conditions</Link>
+            <span className="hidden sm:inline mx-1">•</span>
+            <Link href="/sitemap" className="px-2 hover:text-[#7F7F7F]">Plan du site</Link>
+          </nav>
+        </div>
+      </section>
     </div>
   );
 }
-
 /* ----------- Subcomponents ----------- */
 
 function StoreBadge({ href, src, alt, width, height, external = false }: { href: string; src: string; alt: string; width: number; height: number; external?: boolean; }) {
@@ -184,7 +301,7 @@ function StoreBadge({ href, src, alt, width, height, external = false }: { href:
 
 function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string; }) {
   return (
-    <div className="relative flex items-center h-[110px] w-full lg:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+    <div className="relative flex items-center h-[110px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
         <div className="leading-tight">
