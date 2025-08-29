@@ -2,6 +2,7 @@
 
 import { Users, Building2, Landmark, ArrowRight, Globe, Rocket } from "lucide-react";
 import { Button } from "@heroui/react";
+import Image from "next/image";
 
 import { Sora } from "next/font/google";
 const sora = Sora({ subsets: ["latin"], weight: ["700"] }); // Bold
@@ -232,14 +233,14 @@ function FeatureGlassCard({
       style={{ minHeight: 389 }}
     >
       {/* Top image */}
-      <div
-        className="relative h-[168px] w-full"
-        style={{
-          backgroundImage: `url(${image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+      <div className="relative h-[168px] w-full">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,.55)_70%,rgba(0,0,0,.85)_100%)]" />
 
         {/* Title inline */}
