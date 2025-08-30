@@ -163,11 +163,11 @@ export default function CtaSection() {
       <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
         <div className="mx-auto w-full max-w-[1054px]">
           <div className="grid grid-cols-1 gap-y-10 md:grid-cols-6 md:gap-x-8">
-            
+      
             {/* Colonne 1 */}
             <div className="max-w-[265.5px] md:col-span-2">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
+               <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
                   <Zap size={16} className="text-white" />
                 </div>
                 <span className="text-xl font-bold text-white">UpAfrica</span>
@@ -178,8 +178,8 @@ export default function CtaSection() {
               </p>
             </div>
 
-            {/* Colonnes 2 → 5 */}
-            <div className="md:col-span-4 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4">
+            {/* Colonnes 2 → 4 */}
+            <div className="md:col-span-4 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-3">
               {/* Produit */}
               <div className="space-y-2.5 text-center md:text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
@@ -212,36 +212,40 @@ export default function CtaSection() {
                   <li><a className="text-[#99A1AF] hover:text-white" href="#">Licences</a></li>
                 </ul>
               </div>
+            </div>
+          </div>
 
-              {/* Contact */}
-              <div className="space-y-2.5 text-center md:text-left">
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
-                    <Mail size={16} className="text-[#ED6D0B]" />
-                    <span>contact@upafrica.com</span>
-                  </div>
-                  <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
-                    <Phone size={16} className="text-[#ED6D0B]" />
-                    <span>+33 1 23 45 67 89</span>
-                  </div>
-                  <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
-                    <MapPin size={16} className="text-[#ED6D0B]" />
-                    <span>Paris, France et Lagos, Nigéria</span>
-                  </div>
-                </div>
+          {/* Divider visible uniquement en mobile */}
+          <div className="block md:hidden w-full h-px bg-[#4A5565] opacity-60 my-8"></div>
 
-                <div className="flex justify-center md:justify-start gap-2 pt-3">
-                  {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                    <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
-                      <Icon size={16} />
-                    </a>
-                  ))}
-                </div>
+          {/* Contact séparé sur mobile mais inline sur desktop */}
+          <div className="mt-6 md:mt-0 md:col-span-2">
+            <div className="space-y-2 text-sm text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
+                <Mail size={16} className="text-[#ED6D0B]" />
+                <span>contact@upafrica.com</span>
               </div>
+              <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
+                <Phone size={16} className="text-[#ED6D0B]" />
+                <span>+33 1 23 45 67 89</span>
+              </div>
+              <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
+                <MapPin size={16} className="text-[#ED6D0B]" />
+                <span>Paris, France et Lagos, Nigéria</span>
+              </div>
+            </div>
+
+            <div className="flex justify-center md:justify-start gap-2 pt-3">
+              {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
+                <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
+                  <Icon size={16} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </footer>
+
 
       {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
