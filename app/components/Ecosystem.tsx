@@ -9,17 +9,17 @@ const sora = Sora({ subsets: ["latin"], weight: ["700"] }); // Bold
 
 export default function EcosystemSection() {
   return (
-    <section id="ecosystem" className="relative py-12 md:py-24 text-white">
-      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-6 md:space-y-12">
+    <section id="ecosystem" className="relative py-24 text-white">
+      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12">
         {/* Heading */}
         <div className="space-y-3">
           <h2
             className="
-                 text-[20px] sm:text-3xl md:text-5xl
-                 font-extrabold 
-                 leading-snug 
-                 whitespace-nowrap
-               "
+              text-[20px] sm:text-3xl md:text-5xl
+              font-extrabold 
+              leading-snug 
+              whitespace-nowrap
+            "
           >
             Un{" "}
             <span
@@ -39,9 +39,8 @@ export default function EcosystemSection() {
 
         {/* === Features — cartes responsives === */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:[grid-template-columns:repeat(3,266px)] gap-6 justify-center">
-          {/* Carte 1: Diaspora africaine (Correspond à l'Image 2 fournie) */}
           <FeatureGlassCard
-            image="/0103.png" // L'image fournie pour la diaspora africaine est dans l'Image 2
+            image="/0103.png"
             icon={<Users className="w-[28px] h-[28px]" />}
             title="Diaspora africaine"
             subtitle="15 millions de talents"
@@ -61,9 +60,8 @@ export default function EcosystemSection() {
             />
           </FeatureGlassCard>
 
-          {/* Carte 2: Startups Africaines (Correspond à l'Image 1 fournie) */}
           <FeatureGlassCard
-            image="/0202.png" // L'image fournie pour les startups africaines est dans l'Image 1
+            image="/0202.png"
             icon={<Building2 className="w-[28px] h-[28px]" />}
             title="Startups Africaines"
             subtitle="50 000+ entreprises"
@@ -82,9 +80,8 @@ export default function EcosystemSection() {
             />
           </FeatureGlassCard>
 
-          {/* Carte 3: Fonds d’investissement (Correspond à l'Image 1 fournie) */}
           <FeatureGlassCard
-            image="/0301.png" // L'image fournie pour les fonds d'investissement est dans l'Image 1
+            image="/0301.png"
             icon={<Landmark className="w-[28px] h-[28px]" />}
             title="Fonds d’investissement"
             subtitle="Plus de 500 investisseurs"
@@ -128,15 +125,15 @@ export default function EcosystemSection() {
         {/* === How it works panel === */}
         <div
           className="
-                 mt-10
-                 mx-auto max-w-[854px]
-                 rounded-[21px]
-                 px-[20px] sm:px-[29px] py-[29px]
-                 bg-[rgba(42,42,42,0.40)]
-                 ring-1 ring-inset ring-white/8
-                 backdrop-blur-[40px]
-                 shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-               "
+            mt-10
+            mx-auto max-w-[854px]
+            rounded-[21px]
+            px-[20px] sm:px-[29px] py-[29px]
+            bg-[rgba(42,42,42,0.40)]
+            ring-1 ring-inset ring-white/8
+            backdrop-blur-[40px]
+            shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
+          "
         >
           <h3 className="text-base sm:text-lg font-semibold text-white text-center mb-6">
             Comment ça{" "}
@@ -192,11 +189,11 @@ export default function EcosystemSection() {
         <div className="mt-14 flex flex-col items-center gap-6">
           <Button
             className="
-                 w-[300px] h-[50px] rounded-[8px] px-4
-                 bg-[#ED6D0B] text-white font-semibold
-                 shadow-[0_8px_24px_rgba(237,109,11,0.35),inset_0_1px_0_rgba(255,255,255,0.18)]
-                 hover:brightness-105 active:translate-y-[1px] transition
-               "
+              w-[300px] h-[50px] rounded-[8px] px-4
+              bg-[#ED6D0B] text-white font-semibold
+              shadow-[0_8px_24px_rgba(237,109,11,0.35),inset_0_1px_0_rgba(255,255,255,0.18)]
+              hover:brightness-105 active:translate-y-[1px] transition
+            "
           >
             Rejoindre l’écosystème maintenant
           </Button>
@@ -241,15 +238,15 @@ function FeatureGlassCard({
   return (
     <article
       className="
-             relative overflow-hidden
-             rounded-[14px]
-             bg-[rgba(42,42,42,0.40)]
-             ring-1 ring-inset ring-white/8
-             backdrop-blur-[40px]
-             shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-             flex flex-col
-             w-full sm:w-[266px]
-           "
+        relative overflow-hidden
+        rounded-[14px]
+        bg-[rgba(42,42,42,0.40)]
+        ring-1 ring-inset ring-white/8
+        backdrop-blur-[40px]
+        shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
+        flex flex-col
+        w-full sm:w-[266px]
+      "
       style={{ minHeight: 389 }}
     >
       {/* Top image */}
@@ -305,15 +302,15 @@ function StatCard({
   return (
     <div
       className="
-             w-full sm:w-[198px] min-h-[132px]
-             px-[22px] py-[9px]
-             rounded-[12.75px]
-             bg-[rgba(42,42,42,0.40)]
-             ring-1 ring-inset ring-white/8
-             backdrop-blur-[40px]
-             shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-             grid place-items-center text-center
-           "
+        w-full sm:w-[198px] min-h-[132px]
+        px-[22px] py-[9px]
+        rounded-[12.75px]
+        bg-[rgba(42,42,42,0.40)]
+        ring-1 ring-inset ring-white/8
+        backdrop-blur-[40px]
+        shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
+        grid place-items-center text-center
+      "
     >
       <div className="space-y-1.5">
         <div className="text-[22px] font-semibold text-[var(--text-orange-2,#F5AA71)]">{value}</div>

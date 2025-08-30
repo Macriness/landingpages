@@ -54,7 +54,7 @@ export default function CtaSection() {
                 <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
               </div>
               <p className="text-xs text-gray-500 text-center md:text-left">
-                Disponible sur iOS 15+ et Android 7+
+                Disponible sur iOS 13+ et Android 7+
               </p>
 
               {/* features */}
