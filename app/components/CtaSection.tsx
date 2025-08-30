@@ -231,25 +231,18 @@ export default function CtaSection() {
             </div>
           </div>
 
-          {/* Réseaux sociaux */}
-          <div className="flex md:justify-end gap-1.5 pt-3 md:pt-0">
+          <div className="flex md:justify-end gap-2 pt-3 md:pt-0">
             {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] 
-                border border-[#4A5565] text-white/80 hover:text-white 
-                hover:border-[#ED6D0B] transition transform hover:scale-110"
-              >
+              <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
                 <Icon size={16} />
               </a>
             ))}
           </div>
         </div>
-
-        {/* Ligne de séparation visible uniquement sur mobile */}
-        <div className="block md:hidden h-px bg-[#4A5565] opacity-60 my-4"></div>
       </footer>
+
+      {/* Divider */}
+      <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
 
       {/* ===== Présence Afrique ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-8">
@@ -257,7 +250,7 @@ export default function CtaSection() {
           <h3 className="text-center text-sm font-semibold text-[#F6B27A] mb-6">
             Notre présence en Afrique
           </h3>
-          <div className="grid grid-cols-3 sm:grid-cols-3 md:flex md:justify-between gap-4 sm:gap-[14px]">
+          <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-4 sm:gap-[14px] overflow-x-auto md:overflow-visible">
             <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
             <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
             <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
@@ -329,4 +322,3 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
-
