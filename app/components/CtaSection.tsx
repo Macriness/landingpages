@@ -113,7 +113,7 @@ export default function CtaSection() {
 
             {/* Formulaire droite */}
             <form className="w-full md:w-[412px]">
-              <div className="flex flex-row gap-2 sm:gap-[4px]">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-[4px]">
                 <label htmlFor="nl-email" className="sr-only">
                   Votre adresse email
                 </label>
@@ -164,23 +164,22 @@ export default function CtaSection() {
         <div className="mx-auto w-full max-w-[1054px]">
           <div className="grid grid-cols-1 gap-y-10 md:grid-cols-6 md:gap-x-8">
             
-            {/* Colonne 1 — Logo */}
-            <div className="max-w-[265.5px] md:col-span-2 text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+            {/* Colonne 1 */}
+            <div className="max-w-[265.5px] md:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
                   <Zap size={16} className="text-white" />
                 </div>
                 <span className="text-xl font-bold text-white">UpAfrica</span>
               </div>
-              <p className="text-sm text-[#99A1AF] leading-relaxed">
-                La première plateforme qui connecte la diaspora africaine avec les entrepreneurs du continent.
-                Ensemble, nous construisons l’avenir de l’Afrique.
+              <p className="text-sm text-[#99A1AF] leading-relaxed text-center md:text-left">
+                La première plateforme qui connecte les entrepreneurs africains avec les investisseurs du
+                continent. Ensemble, nous construisons l’avenir de l’Afrique.
               </p>
             </div>
 
             {/* Colonnes 2 → 5 */}
-            <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
-              
+            <div className="md:col-span-4 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-4">
               {/* Produit */}
               <div className="space-y-2.5 text-center md:text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
@@ -204,7 +203,7 @@ export default function CtaSection() {
               </div>
 
               {/* Légal */}
-              <div className="space-y-2.5 text-center md:text-left sm:col-span-2 md:col-span-1">
+              <div className="space-y-2.5 text-center md:text-left">
                 <h4 className="text-white font-semibold text-lg">Légal</h4>
                 <ul className="space-y-1 text-sm">
                   <li><a className="text-[#99A1AF] hover:text-white" href="#">Confidentialité</a></li>
@@ -215,7 +214,7 @@ export default function CtaSection() {
               </div>
 
               {/* Contact */}
-              <div className="space-y-2.5 text-center md:text-left sm:col-span-2 md:col-span-1">
+              <div className="space-y-2.5 text-center md:text-left">
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
                     <Mail size={16} className="text-[#ED6D0B]" />
@@ -246,7 +245,6 @@ export default function CtaSection() {
 
       {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
-
       {/* ===== Présence Afrique ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-8">
         <div className="mx-auto w-full max-w-[1200px]">
@@ -264,6 +262,7 @@ export default function CtaSection() {
          </div>
         </div>
       </section>
+
 
       {/* ===== Barre finale ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-3 border-t border-white/10">
@@ -283,7 +282,6 @@ export default function CtaSection() {
     </div>
   );
 }
-
 /* ----------- Subcomponents ----------- */
 
 function StoreBadge({ href, src, alt, width, height, external = false }: { href: string; src: string; alt: string; width: number; height: number; external?: boolean; }) {
