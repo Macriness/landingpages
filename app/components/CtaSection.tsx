@@ -303,14 +303,16 @@ function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: 
     <div className="relative flex items-center h-[110px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
-        <div className="leading-tight">
-          <h4 className="text-[14px] font-semibold text-white mb-[4px]">{title}</h4>
-          <p className="text-[12px] text-[#99A1AF]">{subtitle}</p>
+        {/* Texte bien aligné à gauche */}
+        <div className="flex flex-col text-left">
+          <h4 className="text-[14px] font-semibold text-white">{title}</h4>
+          <p className="text-[12px] text-[#99A1AF] leading-snug">{subtitle}</p>
         </div>
       </div>
     </div>
   );
 }
+
 function FlagCard({ country, users, imgSrc }: { country: string; users: string; imgSrc: string; }) {
   return (
     <div className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
@@ -322,3 +324,4 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
+
