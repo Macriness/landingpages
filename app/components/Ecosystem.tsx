@@ -9,8 +9,8 @@ const sora = Sora({ subsets: ["latin"], weight: ["700"] }); // Bold
 
 export default function EcosystemSection() {
   return (
-    <section id="ecosystem" className="relative py-12 md:py-24 text-white"> {/* Le padding vertical est réduit à py-12 sur mobile */}
-      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-6 md:space-y-12"> {/* L'espacement entre les blocs est réduit à space-y-6 sur mobile */}
+    <section id="ecosystem" className="relative py-12 md:py-24 text-white">
+      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-6 md:space-y-12">
         {/* Heading */}
         <div className="space-y-3">
           <h2
@@ -39,8 +39,9 @@ export default function EcosystemSection() {
 
         {/* === Features — cartes responsives === */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:[grid-template-columns:repeat(3,266px)] gap-6 justify-center">
+          {/* Carte 1: Diaspora africaine (Correspond à l'Image 2 fournie) */}
           <FeatureGlassCard
-            image="/0103.png"
+            image="/0103.png" // L'image fournie pour la diaspora africaine est dans l'Image 2
             icon={<Users className="w-[28px] h-[28px]" />}
             title="Diaspora africaine"
             subtitle="15 millions de talents"
@@ -60,8 +61,9 @@ export default function EcosystemSection() {
             />
           </FeatureGlassCard>
 
+          {/* Carte 2: Startups Africaines (Correspond à l'Image 1 fournie) */}
           <FeatureGlassCard
-            image="/0202.png"
+            image="/0202.png" // L'image fournie pour les startups africaines est dans l'Image 1
             icon={<Building2 className="w-[28px] h-[28px]" />}
             title="Startups Africaines"
             subtitle="50 000+ entreprises"
@@ -80,8 +82,9 @@ export default function EcosystemSection() {
             />
           </FeatureGlassCard>
 
+          {/* Carte 3: Fonds d’investissement (Correspond à l'Image 1 fournie) */}
           <FeatureGlassCard
-            image="/0301.png"
+            image="/0301.png" // L'image fournie pour les fonds d'investissement est dans l'Image 1
             icon={<Landmark className="w-[28px] h-[28px]" />}
             title="Fonds d’investissement"
             subtitle="Plus de 500 investisseurs"
