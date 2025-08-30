@@ -40,7 +40,7 @@ export default function CtaSection() {
                 >
                   Prêt à transformer
                   <br className="hidden sm:block" />
-                  votre avenir ?
+                   votre avenir ?
                 </h1>
                 <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
                   Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
