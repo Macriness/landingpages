@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Star, Globe, TrendingUp, X, ArrowRight} from "lucide-react";
+import { Download, Star, Globe, TrendingUp, X, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect } from "react";
 
 function Navbar() {
@@ -20,8 +20,11 @@ function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-300">
-        <div className="relative w-[92%] max-w-6xl mt-4">
+      <nav
+        className="fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-300"
+        style={{ height: "72px", "--header-h": "72px" } as React.CSSProperties}
+      >
+        <div className="relative w-[92%] max-w-6xl">
           <div
             className="
               relative overflow-hidden
@@ -117,7 +120,7 @@ function Navbar() {
             ${open ? "translate-x-0" : "-translate-x-[261px]"}
             shadow-[0_8px_32px_rgba(0,0,0,0.4)]
           `}
-          style={{ 
+          style={{
             // Ajustements basés sur les images fournies
             width: "223px",
             minHeight: "100%",
@@ -140,7 +143,7 @@ function Navbar() {
               </a>
               <button
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
+                className="flex items-center justify-9xl rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
               >
                 <X size={18} className="text-white" />
               </button>
@@ -185,32 +188,32 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section 
+    <section
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
+        mt-0 md:mt-0 xl:-mt-12
       "
+      style={{ paddingTop: "0px" }}
     >
-      <div className="h-[80px]" /> 
       <div
         className="
           w-[92%] xl:w-[76%] max-w-6xl
-          grid grid-cols-1 xl:grid-cols-[560px_auto] items-center gap-4 xl:gap-24
+          grid grid-cols-1 xl:grid-cols-[560px_auto] items-center gap-4 xl:gap-20
           mx-auto xl:mx-0 xl:ml-auto xl:mr-[9vw]
-          pt-0 xl:pt-0
         "
         style={{ minHeight: "calc(90dvh - var(--header-h, 0px))" }}
       >
-        <div className="w-full flex flex-col items-center xl:items-start text-center xl:text-left space-y-4 xl:space-y-[35px] order-1 xl:order-1">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-extrabold leading-tight">
+        <div className="w-full flex flex-col items-center xl:items-start text-center xl:text-left space-y-4 xl:space-y-[30px] order-1 xl:order-1 xl:mb-20">
+          <h1 className="font-sora text-4xl lg:text-5xl font-extrabold leading-tight">
             Connectez-vous à{" "}
             <span className="whitespace-nowrap">
               <span
-                className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
+                className="font-sora font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
                 style={{
                   filter: `
-                    drop-shadow(0 4px 10px rgba(0,0,0,0.25))
-                    drop-shadow(0 15px 25px rgba(255,122,26,0.35))
-                    drop-shadow(0 0 40px rgba(255,148,79,0.75))
+                    drop-shadow(0 0 20px rgba(255,148,79,1))
+                    drop-shadow(0 0 60px rgba(255,122,26,0.8))
+                    drop-shadow(0 0 100px rgba(255,148,79,1))
                   `,
                 }}
               >
@@ -218,12 +221,12 @@ function Hero() {
               </span>{" "}
               qui{" "}
               <span
-                className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
+                className="font-sora font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
                 style={{
                   filter: `
-                    drop-shadow(0 4px 10px rgba(0,0,0,0.25))
-                    drop-shadow(0 15px 25px rgba(255,122,26,0.35))
-                    drop-shadow(0 0 40px rgba(255,148,79,0.75))
+                    drop-shadow(0 0 20px rgba(255,148,79,1))
+                    drop-shadow(0 0 60px rgba(255,122,26,0.8))
+                    drop-shadow(0 0 100px rgba(255,148,79,1))
                   `,
                 }}
               >
@@ -232,7 +235,7 @@ function Hero() {
             </span>
           </h1>
 
-          <p className="text-[var(--text-grey-2,#D1D5DC)] text-base lg:text-lg xl:text-lg max-w-lg xl:max-w-xl leading-relaxed px-4 xl:px-0">
+          <p className="font-dm-sans text-[var(--text-grey-2,#D1D5DC)] text-base lg:text-lg xl:text-lg max-w-lg xl:max-w-xl leading-relaxed px-4 xl:px-0">
             UpAfrica révolutionne la façon dont la diaspora africaine et les
             entrepreneurs du continent collaborent. Découvrez des opportunités uniques,
             créez des partenariats stratégiques et participez à la transformation
@@ -240,7 +243,10 @@ function Hero() {
           </p>
 
           <div className="w-full flex justify-center xl:hidden">
-            <div className="relative h-[80vh] sm:h-[90vh] max-h-[850px] aspect-[9/19.5] animate-bounce-slow" style={{ width: "195%" }}>
+            <div
+              className="relative h-[80vh] sm:h-[90vh] max-h-[850px] aspect-[9/19.5] animate-bounce-slow"
+              style={{ width: "195%" }}
+            >
               <img
                 src="/hero.png"
                 alt="UpAfrica App"
@@ -263,20 +269,21 @@ function Hero() {
             >
               <Download size={18} />
               Télécharger maintenant
-              <ArrowRight size={18}/>
+              <ArrowRight size={18} />
             </a>
 
             <a
               href="#features"
-              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] font-medium text-white w-full sm:flex-1 whitespace-nowrap"
+              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] gap-[6px] font-medium text-white w-full sm:flex-1 whitespace-nowrap"
               style={{
-                background: "var(--btn-base-grey, #333333)",
+                background: "var(--btn-base-grey, #232323)",
                 boxShadow: [
                   "0 2px 6px rgba(0,0,0,0.25)",
                   "0 1px 20px rgba(237,109,11,0.20)",
                 ].join(", "),
               }}
             >
+                <Play size={18}/>
               Voir la démo
             </a>
           </div>
@@ -302,10 +309,17 @@ function Hero() {
                   ].join(", "),
                 }}
               >
-                <Icon className="text-[var(--text-orange-3,#ED6D0B)] flex-shrink-0" size={16} />
+                <Icon
+                  className="text-[var(--text-orange-3,#ED6D0B)] flex-shrink-0"
+                  size={16}
+                />
                 <div className="text-left leading-tight min-w-0">
-                  <p className="font-bold text-base xl:text-lg text-[var(--text-orange-3,#ED6D0B)] whitespace-nowrap">{value}</p>
-                  <p className="text-xs text-[var(--text-grey-2,#D1D5DC)] whitespace-nowrap">{label}</p>
+                  <p className="font-bold text-base xl:text-lg text-[var(--text-orange-3,#ED6D0B)] whitespace-nowrap">
+                    {value}
+                  </p>
+                  <p className="text-xs text-[var(--text-grey-2,#D1D5DC)] whitespace-nowrap">
+                    {label}
+                  </p>
                 </div>
               </div>
             ))}
@@ -313,7 +327,7 @@ function Hero() {
         </div>
 
         <div className="hidden xl:flex w-full justify-start order-2 xl:order-2">
-          <div className="relative h-[110dvh] lg:h-[130dvh] max-h-[920px] aspect-[9/19.5] animate-bounce-slow" style={{ width: "135%"}}>
+          <div className="relative h-[110dvh] lg:h-[130dvh] max-h-[920px] aspect-[9/19.5] animate-bounce-slow xl:w-[100%] xl:mb-8">
             <img
               src="/hero.png"
               alt="UpAfrica App"

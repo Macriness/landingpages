@@ -1,50 +1,46 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import {
-  Users,
-  Briefcase,
-  TrendingUp,
-  MessageCircle,
-  Globe2,
-  ShieldCheck,
-  ArrowRight,
-} from "lucide-react";
-import { DM_Sans } from "next/font/google";
+import { useState, useEffect } from "react";
+import { Users, Briefcase, TrendingUp, MessageCircle, Globe, Shield, ArrowRight, Zap } from "lucide-react";
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
+// Les polices, liens et images de Next.js ne fonctionnent pas
+// dans cet environnement. J'ai retiré ces importations et
+// remplacé les composants par des balises HTML standard.
+// J'utilise également des chemins d'image par défaut.
 
 const features = [
   { title: "Réseau Global Ultra-Connecté", desc: "Connectez-vous avec une communauté d'élite d'entrepreneurs, d'investisseurs et d'innovateurs africains répartis dans 120+ pays.", icon: Users, img: "/Container.png", kicker: "Plus de 50 000 entrepreneurs vérifiés" },
   { title: "Opportunités Business Premium", kicker: "500M+ d'opportunités disponibles", desc: "Accédez à des milliers d'opportunités d'investissement exclusives, des partenariats stratégiques et des projets d'impact à travers l'Afrique.", icon: Briefcase, img: "/Container-1.png" },
   { title: "Intelligence Marché Avancée", kicker: "Des informations basées sur l'IA en temps réel", desc: "Bénéficiez d'analyses prédictives, de rapports sectoriels exclusifs et d'insights basés sur l'IA pour optimiser vos décisions d'investissement.", icon: TrendingUp, img: "/Container-2.png" },
   { title: "Communication Sécurisée", desc: "Bénéficiez d'une messagerie instantanée protégée pour vos échanges confidentiels.", icon: MessageCircle, img: "/Container-3.png" },
-  { title: "Impact Continental Mesurable", desc: "Suivez vos collaborations et mesurez leur impact réel sur le développement en Afrique.", icon: Globe2, img: "/Container-4.png" },
-  { title: "KYC/AML Ultra-Robuste", desc: "Une infrastructure de conformité intégrée, conforme aux standards internationaux.", icon: ShieldCheck, img: "/Container-5.png" },
+  { title: "Impact Continental Mesurable", desc: "Suivez vos collaborations et mesurez leur impact réel sur le développement en Afrique.", icon: Globe, img: "/Container-4.png" },
+  { title: "KYC/AML Ultra-Robuste", desc: "Une infrastructure de conformité intégrée, conforme aux standards internationaux.", icon: Shield, img: "/Container-5.png" },
 ];
 
-export default function Features() {
+export default function FeaturesSection() {
   return (
-    <section id="features" className={`relative py-12 md:py-24 ${dmSans.className} text-[24px]`}>
+    <section id="features" className={`relative py-8 md:py-0 lg:-mt-16 text-[24px]`}>
       {/* --- Header --- */}
-      <div className="relative text-center mb-8 md:mb-12 px-4">
+      <div className="relative text-center mb-6 md:mb-8 px-4">
         <div
           className="
-            inline-flex items-center gap-2 rounded-full px-4 md:px-5 py-1.5
-            text-[10px] md:text-[11px] uppercase tracking-[0.12em]
-            border border-orange-400/40 text-orange-300
-            bg-[linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02))]
-            shadow-[inset_0_1px_0_rgba(255,255,255,.14)]
+            inline-flex items-center gap-1.5 mb-4  // Gap réduit, marge inférieure réduite
+            px-3 py-1.5                           // Padding réduit pour la version mobile
+            rounded-full uppercase tracking-[0.12em]
+            text-[10px] font-semibold select-none // Taille de police réduite
+            text-[#ED6D0B]
+            bg-[#232323]
+            backdrop-blur-[20px]
+            ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
+            shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
+            md:px-[22px] md:py-[8px] md:text-[12px] md:gap-2 md:mb-6 // Styles pour les écrans md et plus
           "
         >
-          ⚡ Propulsé par l'IA et la Blockchain
+          <Zap size={14} aria-hidden className="shrink-0" /> {/* Icône Zap */}
+          <span>Propulsé par l'IA et la Blockchain</span>
         </div>
 
-        <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-snug px-2">
+        <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-snug px-2 font-sora">
           <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]">
             Fonctionnalités<br />
           </span>{" "}
@@ -52,9 +48,9 @@ export default function Features() {
             className="font-black tracking-[-1.58px] text-[var(--text-orange-2,#FF944F)]"
             style={{
               filter: `
-                drop-shadow(0 2px 6px rgba(0,0,0,0.25))
-                drop-shadow(0 10px 18px rgba(255,122,26,0.28))
-                drop-shadow(0 0 24px rgba(255,148,79,0.55))
+                drop-shadow(0 0 20px rgba(255,148,79,1))
+                drop-shadow(0 0 60px rgba(255,122,26,0.8))
+                drop-shadow(0 0 100px rgba(255,148,79,1))
               `,
             }}
           >
@@ -83,12 +79,10 @@ export default function Features() {
                 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.45)]
               "
             >
-              <Image
+              <img
                 src={f.img}
                 alt={f.title}
-                fill
-                sizes="(max-width:768px) 100vw, 33vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
               />
               <div
                 className="absolute inset-0 rounded-none"
@@ -98,7 +92,7 @@ export default function Features() {
                 }}
               />
               <div className="relative z-10 flex h-full">
-                <div className="mt-auto w-full px-4 md:px-5 pb-5 md:pb-6">
+                <div className="mt-auto w-full px-10 pb-12 flex flex-col items-start text-left">
                   <div
                     className="
                       inline-grid place-items-center h-12 w-12 md:h-14 md:w-14 rounded-[12px] md:rounded-[14px]
@@ -110,17 +104,17 @@ export default function Features() {
                     <f.icon size={22} className="text-white hidden md:block" />
                   </div>
 
-                  <h3 className="text-[18px] md:text-[21px] font-bold leading-tight text-white">
+                  <h3 className="text-[24.8px] font-bold leading-tight text-white">
                     {f.title}
                   </h3>
 
                   {"kicker" in f && (
-                    <p className="mt-2 md:mt-3 text-[9.5px] md:text-[10.5px] font-medium text-gray-200/95">
-                      {(f as any).kicker}
+                    <p className="mt-2 md:mt-3 text-[13.28px] font-semibold text-[#D9D9D9]">
+                      {(f).kicker}
                     </p>
                   )}
 
-                  <p className="mt-2 text-[14px] md:text-[15.8px] leading-relaxed text-gray-300/90">
+                  <p className="mt-2 text-[15.53px] font-normal leading-relaxed text-[#D1D5DC]">
                     {f.desc}
                   </p>
                 </div>
@@ -145,12 +139,10 @@ export default function Features() {
                       transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)]
                     "
                   >
-                    <Image
+                    <img
                       src={f.img}
                       alt={f.title}
-                      fill
-                      sizes="(max-width:1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                     />
                     <div
                       className="absolute inset-0 rounded-none"
@@ -160,7 +152,7 @@ export default function Features() {
                       }}
                     />
                     <div className="relative z-10 flex h-full">
-                      <div className="mt-auto w-full px-5 pb-6">
+                      <div className="mt-auto w-full px-10 pb-12 flex flex-col items-start text-left">
                         <div
                           className="
                             inline-grid place-items-center h-14 w-14 rounded-[14px]
@@ -176,12 +168,12 @@ export default function Features() {
                         </h3>
 
                         {"kicker" in f && (
-                          <p className="mt-3 text-[10.5px] font-medium text-gray-200/95">
-                            {(f as any).kicker}
+                          <p className="mt-3 text-[10.5px] font-medium text-[#D9D9D9]">
+                            {(f).kicker}
                           </p>
                         )}
 
-                        <p className="mt-2 text-[15.8px] leading-relaxed text-gray-300/90">
+                        <p className="mt-2 text-[15.8px] font-normal leading-relaxed text-[#D1D5DC]">
                           {f.desc}
                         </p>
                       </div>
@@ -192,7 +184,7 @@ export default function Features() {
           ))}
         </div>
 
-        {/* DESKTOP: Layout en grille (3 colonnes) - Inchangé */}
+        {/* DESKTOP: Layout en grille (3 colonnes) */}
         <div className="hidden lg:flex lg:flex-col lg:gap-[32px]">
           {Array.from({ length: Math.ceil(features.length / 3) }, (_, rowIndex) => (
             <div key={rowIndex} className="flex gap-[32px] justify-center flex-wrap">
@@ -208,12 +200,10 @@ export default function Features() {
                       transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.45)]
                     "
                   >
-                    <Image
+                    <img
                       src={f.img}
                       alt={f.title}
-                      fill
-                      sizes="(max-width:768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
                     />
                     <div
                       className="absolute inset-0 rounded-none"
@@ -223,7 +213,7 @@ export default function Features() {
                       }}
                     />
                     <div className="relative z-10 flex h-full">
-                      <div className="mt-auto w-full px-5 pb-6">
+                      <div className="mt-auto w-full px-10 pb-12 flex flex-col items-start text-left">
                         <div
                           className="
                             inline-grid place-items-center h-14 w-14 rounded-[14px]
@@ -239,12 +229,12 @@ export default function Features() {
                         </h3>
 
                         {"kicker" in f && (
-                          <p className="mt-3 text-[10.5px] font-medium text-gray-200/95">
-                            {(f as any).kicker}
+                          <p className="mt-3 text-[12.5px] font-medium text-[#D9D9D9]">
+                            {(f).kicker}
                           </p>
                         )}
 
-                        <p className="mt-2 text-[15.8px] leading-relaxed text-gray-300/90">
+                        <p className="mt-2 text-[15.8px] font-normal leading-relaxed text-[#D1D5DC]">
                           {f.desc}
                         </p>
                       </div>
@@ -271,12 +261,12 @@ export default function Features() {
             Prêt à transformer votre approche du business en Afrique ?
           </h2>
 
-          <p className="text-[#D1D5DC] mb-6 max-w-2xl mx-auto leading-relaxed text-[14px] md:text-[17.5px] px-2">
+          <p className="text-[#7F7F7F] mb-6 max-w-2xl mx-auto leading-relaxed text-[14px] md:text-[17.5px] px-2">
             Rejoignez l'élite des entrepreneurs africains qui utilisent déjà UpAfrica
             pour révolutionner leurs stratégies de développement continental.
           </p>
 
-          <Link
+          <a
             href="#contact"
             aria-label="Commencer maintenant"
             className="
@@ -295,7 +285,7 @@ export default function Features() {
           >
             Commencer maintenant
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </a>
         </div>
       </div>
     </section>
