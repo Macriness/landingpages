@@ -19,7 +19,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section id="features" className={`relative py-8 md:py-0 lg:-mt-16 text-[24px]`}>
+    <section id="features" className={`relative py-8 md:py-0 lg:-mt-2 text-[24px]`}>
       {/* --- Header --- */}
       <div className="relative text-center mb-6 md:mb-8 px-4">
         <div
