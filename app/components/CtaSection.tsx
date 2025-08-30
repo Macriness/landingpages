@@ -161,94 +161,89 @@ export default function CtaSection() {
 
       {/* ===== FOOTER ===== */}
       <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
-        <div className="mx-auto w-full max-w-[1054px]">
-          <div className="grid grid-cols-1 gap-y-10 md:grid-cols-6 md:gap-x-8">
-      
-            {/* Colonne 1 */}
-            <div className="max-w-[265.5px] md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-               <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
-                  <Zap size={16} className="text-white" />
-                </div>
-                <span className="text-xl font-bold text-white">UpAfrica</span>
+        <div className="mx-auto w-full max-w-[1054px] grid grid-cols-1 md:grid-cols-5 gap-10">
+          
+          {/* Colonne gauche */}
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
+                <Zap size={16} className="text-white" />
               </div>
-              <p className="text-sm text-[#99A1AF] leading-relaxed text-center md:text-left">
-                La première plateforme qui connecte les entrepreneurs africains avec les investisseurs du
-                continent. Ensemble, nous construisons l’avenir de l’Afrique.
-              </p>
+              <span className="text-xl font-bold text-white">UpAfrica</span>
+            </div>
+            <p className="text-sm text-[#99A1AF] leading-relaxed text-left">
+              La première plateforme qui connecte les entrepreneurs africains avec les investisseurs du
+              continent. Ensemble, nous construisons l’avenir de l’Afrique.
+            </p>
+          </div>
+
+          {/* Colonnes droites */}
+          <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            {/* Produit */}
+            <div className="space-y-2.5 text-left">
+              <h4 className="text-white font-semibold text-lg">Produit</h4>
+              <ul className="space-y-1 text-sm">
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Fonctionnalités</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Tarifs</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Sécurité</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Mises à jour</a></li>
+              </ul>
             </div>
 
-            {/* Colonnes 2 → 4 */}
-            <div className="md:col-span-4 grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-3">
-              {/* Produit */}
-              <div className="space-y-2.5 text-center md:text-left">
-                <h4 className="text-white font-semibold text-lg">Produit</h4>
-                <ul className="space-y-1 text-sm">
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Fonctionnalités</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Tarifs</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Sécurité</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Mises à jour</a></li>
-                </ul>
-              </div>
+            {/* Entreprise */}
+            <div className="space-y-2.5 text-left">
+              <h4 className="text-white font-semibold text-lg">Entreprise</h4>
+              <ul className="space-y-1 text-sm">
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">À propos</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Carrières</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Presse</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Partenaires</a></li>
+              </ul>
+            </div>
 
-              {/* Entreprise */}
-              <div className="space-y-2.5 text-center md:text-left">
-                <h4 className="text-white font-semibold text-lg">Entreprise</h4>
-                <ul className="space-y-1 text-sm">
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">À propos</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Carrières</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Presse</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Partenaires</a></li>
-                </ul>
-              </div>
+            {/* Légal */}
+            <div className="space-y-2.5 text-left">
+              <h4 className="text-white font-semibold text-lg">Légal</h4>
+              <ul className="space-y-1 text-sm">
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Confidentialité</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Conditions</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Cookies</a></li>
+                <li><a className="text-[#99A1AF] hover:text-white" href="#">Licences</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-              {/* Légal */}
-              <div className="space-y-2.5 text-center md:text-left">
-                <h4 className="text-white font-semibold text-lg">Légal</h4>
-                <ul className="space-y-1 text-sm">
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Confidentialité</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Conditions</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Cookies</a></li>
-                  <li><a className="text-[#99A1AF] hover:text-white" href="#">Licences</a></li>
-                </ul>
-              </div>
+        {/* Contact + Réseaux sociaux alignés */}
+        <div className="mx-auto w-full max-w-[1054px] mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2 text-sm text-left">
+            <div className="flex items-center gap-2 text-[#99A1AF]">
+              <Mail size={16} className="text-[#ED6D0B]" />
+              <span>contact@upafrica.com</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#99A1AF]">
+              <Phone size={16} className="text-[#ED6D0B]" />
+              <span>+33 1 23 45 67 89</span>
+            </div>
+            <div className="flex items-center gap-2 text-[#99A1AF]">
+              <MapPin size={16} className="text-[#ED6D0B]" />
+              <span>Paris, France et Lagos, Nigéria</span>
             </div>
           </div>
 
-          {/* Divider visible uniquement en mobile */}
-          <div className="block md:hidden w-full h-px bg-[#4A5565] opacity-60 my-8"></div>
-
-          {/* Contact séparé sur mobile mais inline sur desktop */}
-          <div className="mt-6 md:mt-0 md:col-span-2">
-            <div className="space-y-2 text-sm text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
-                <Mail size={16} className="text-[#ED6D0B]" />
-                <span>contact@upafrica.com</span>
-              </div>
-              <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
-                <Phone size={16} className="text-[#ED6D0B]" />
-                <span>+33 1 23 45 67 89</span>
-              </div>
-              <div className="flex items-center justify-center md:justify-start gap-2 text-[#99A1AF]">
-                <MapPin size={16} className="text-[#ED6D0B]" />
-                <span>Paris, France et Lagos, Nigéria</span>
-              </div>
-            </div>
-
-            <div className="flex justify-center md:justify-start gap-2 pt-3">
-              {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
+          <div className="flex md:justify-end gap-2 pt-3 md:pt-0">
+            {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
+              <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
+                <Icon size={16} />
+              </a>
+            ))}
           </div>
         </div>
       </footer>
 
-
       {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
+
       {/* ===== Présence Afrique ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-8">
         <div className="mx-auto w-full max-w-[1200px]">
@@ -263,7 +258,7 @@ export default function CtaSection() {
             <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
             <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
             <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
-         </div>
+          </div>
         </div>
       </section>
 
