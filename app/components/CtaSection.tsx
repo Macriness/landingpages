@@ -263,32 +263,16 @@ export default function CtaSection() {
             <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
             <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
           </div>
-
-          {/* Liens légaux version mobile (cartes, centrées, empilées) */}
-          <div className="mt-6 md:hidden flex flex-col items-center gap-3">
-            <Link
-              href="/privacy"
-              className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex items-center justify-center text-center"
-            >
-              <span className="text-[12px] font-semibold text-white leading-tight">
-                Politique de confidentialité
-              </span>
+          {/* Liens légaux version mobile (centrés, un en dessous de l'autre) */}
+          <div className="mt-6 flex flex-col items-center gap-2 text-[12px] text-[#99A1AF] md:hidden">
+            <Link href="/privacy" className="hover:text-white">
+              Politique de confidentialité
             </Link>
-            <Link
-              href="/terms"
-              className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex items-center justify-center text-center"
-            >
-              <span className="text-[12px] font-semibold text-white leading-tight">
-                Conditions d&apos;utilisation
-              </span>
+            <Link href="/terms" className="hover:text-white">
+              Conditions d&apos;utilisation
             </Link>
-            <Link
-              href="/sitemap"
-              className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex items-center justify-center text-center"
-            >
-              <span className="text-[12px] font-semibold text-white leading-tight">
-                Plan du site
-              </span>
+            <Link href="/sitemap" className="hover:text-white">
+              Plan du site
             </Link>
           </div>
         </div>
