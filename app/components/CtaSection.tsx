@@ -234,7 +234,7 @@ export default function CtaSection() {
             </div>
           </div>
 
-          <div className="flex justify-center md:justify-end gap-2 pt-1 md:pt-0">
+          <div className="flex justify-start md:justify-end gap-2 pt-1 md:pt-0">
             {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
               <Link key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
                 <Icon size={16} />
@@ -242,9 +242,12 @@ export default function CtaSection() {
             ))}
           </div>
         </div>
+
+        {/* --- Divider mobile APRÈS Contact (PLEINE LARGEUR écran) --- */}
+        <div className="block md:hidden w-screen -mx-4 h-px bg-[#4A5565] opacity-60 my-6"></div>
       </footer>
 
-      {/* Divider */}
+      {/* Divider (existant, desktop style) */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
 
       {/* ===== Présence Afrique ===== */}
@@ -263,6 +266,8 @@ export default function CtaSection() {
             <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
           </div>
         </div>
+        {/* --- Divider mobile APRÈS Notre présence (PLEINE LARGEUR écran) --- */}
+        <div className="block md:hidden w-screen -mx-4 h-px bg-[#4A5565] opacity-60 my-6"></div>
       </section>
 
       {/* ===== Barre finale ===== */}
@@ -306,7 +311,6 @@ function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: 
     <div className="relative flex items-center h-[110px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
-        {/* Texte bien aligné à gauche */}
         <div className="flex flex-col text-left">
           <h4 className="text-[14px] font-semibold text-white">{title}</h4>
           <p className="text-[12px] text-[#99A1AF] leading-snug">{subtitle}</p>
