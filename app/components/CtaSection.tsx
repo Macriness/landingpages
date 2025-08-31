@@ -242,9 +242,6 @@ export default function CtaSection() {
             ))}
           </div>
         </div>
-
-        {/* --- Divider mobile APRÈS Contact (PLEINE LARGEUR écran) --- */}
-        <div className="block md:hidden w-screen -mx-4 h-px bg-[#4A5565] opacity-60 my-6"></div>
       </footer>
 
       {/* Divider (existant, desktop style) */}
