@@ -10,7 +10,7 @@ const sora = Sora({ subsets: ["latin"], weight: ["700"] }); // Bold
 export default function EcosystemSection() {
   return (
     <section id="ecosystem" className="relative py-24 text-white">
-      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-6 sm:space-y-12">
+      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-1 sm:space-y-12">
         {/* Heading */}
         <div className="space-y-3">
           <h2
