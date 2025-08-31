@@ -73,7 +73,7 @@ export default function FeaturesSection() {
             <div
               key={i}
               className="
-                group relative w-full max-w-[350px] mx-auto h-[480px] overflow-hidden
+                group relative w-full max-w-[354px] mx-auto h-[630px] overflow-hidden
                 rounded-[16px] md:rounded-[20px] border border-white/10 bg-black/10
                 shadow-[0_8px_24px_rgba(0,0,0,0.35)]
                 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(0,0,0,0.45)]

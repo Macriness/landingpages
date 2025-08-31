@@ -23,24 +23,26 @@ export default function WhyChoose() {
         <div className="relative text-center mb-12">
           {/* Badge pill glossy */}
           <div
-            className="
-              inline-flex items-center gap-2 mb-6
-              px-[22px] py-[8px]
-              rounded-full uppercase tracking-[0.12em]
-              text-[12px] font-semibold select-none
-              text-[#ED6D0B]
-              bg-[#232323]
-              backdrop-blur-[20px]
-              ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
-              shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
-              // Mobile styles
-              px-3 py-1.5 text-[10px] gap-1.5 md:px-[22px] md:py-[8px] md:text-[12px] md:gap-2
-            "
-          >
-            <Dot size={24} className="opacity-90" />
-            <span>PLUS DE 50 000 ENTREPRENEURS NOUS FONT DEMENTER</span>
-            <Zap size={14} className="opacity-90" />
-          </div>
+  className="
+    inline-flex items-center gap-1.5 mb-6 flex-nowrap
+    max-w-full justify-center
+    px-2 py-1
+    rounded-full uppercase tracking-[0.12em]
+    font-semibold select-none
+    text-[#ED6D0B]
+    bg-[#232323]
+    backdrop-blur-[20px]
+    ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
+    shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
+    overflow-hidden
+  "
+>
+  <Dot size={14} className="opacity-90 shrink-0" />
+  <span className="whitespace-nowrap text-[clamp(10px,2.5vw,14px)] leading-tight">
+    PLUS DE 50 000 ENTREPRENEURS NOUS FONT DEMENTER
+  </span>
+  <Zap size={12} className="opacity-90 shrink-0" />
+</div>
 
           {/* glow badge */}
           <div
@@ -55,7 +57,7 @@ export default function WhyChoose() {
           <h2
             className="
               mt-4
-              text-[35.53px] sm:text-[46px] md:text-[55.5px]
+              text-2xl sm:text-3xl md:text-5xl lg:text-6xl
               font-black
               font-bold
               leading-snug md:leading-[65.6px]
@@ -293,7 +295,7 @@ export default function WhyChoose() {
               "
             >
               Rejoindre l'élite
-              <ArrowRight className="w-5 h-5 ml-1 sm:w-4 sm:h-4" /> {/* Adjusted size for mobile */}
+              <ArrowRight className="w-7 h-7 sm:w-4 sm:h-4" /> {/* Adjusted size for mobile */}
             </Button>
 
             <Button

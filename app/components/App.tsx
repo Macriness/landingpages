@@ -1,17 +1,13 @@
 "use client";
 
-import Image from "next/image";
-import { Users, MessageSquare, BarChart3, Globe, Star } from "lucide-react";
-import { DM_Sans } from "next/font/google";
-
-// Police DM 
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "700", "900"] });
+import { Users, MessageSquare, BarChart3, Globe, Star, MessageCircle, TrendingUp, Heart } from "lucide-react";
+import React from 'react';
 
 export default function AppSection() {
   return (
     <section
       id="app"
-      className={`${dmSans.className} relative py-16 sm:py-20 lg:py-24 text-white text-[16px] sm:text-[18px] overflow-hidden`}
+      className="relative py-16 sm:py-20 lg:py-24 text-white text-[16px] sm:text-[18px] overflow-hidden -mt-20"
     >
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-10 sm:space-y-12">
         {/* Heading */}
@@ -39,7 +35,7 @@ export default function AppSection() {
         </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] lg:gap-12 items-center mt-6">
           {/* Col gauche */}
           <div className="mx-auto w-full max-w-md text-left space-y-4">
             {/* Features */}
@@ -50,30 +46,30 @@ export default function AppSection() {
                 desc="Connectez-vous avec des entrepreneurs africains du monde entier."
               />
               <FeatureCard
-                icon={<MessageSquare size={18} />}
+                icon={<MessageCircle size={18} />}
                 title="Messagerie Sécurisée"
                 desc={<>Communiquez en toute sécurité avec vos <br /> partenaires.</>}
               />
               <FeatureCard
-                icon={<BarChart3 size={18} />}
+                icon={<TrendingUp size={18} />}
                 title="Analytique de Marché"
                 desc="Accédez aux dernières tendances et opportunités."
               />
               <FeatureCard
-                icon={<Globe size={18} />}
+                icon={<Heart size={18} />}
                 title="Impact Social"
                 desc={<>Suivez l'impact de vos investissements sur le <br />continent.</>}
               />
             </div>
 
             {/* Stores */}
-            <div className="flex flex-col gap-3">
-              <h4 className="text-white font-semibold leading-tight text-[16px] sm:text-[17.5px]">
+            <div className="flex flex-col gap-3 items-center sm:items-start">
+              <h4 className="text-white font-semibold leading-tight text-[16px] sm:text-[17.5px] text-center sm:text-left">
                 Téléchargez dès maintenant
               </h4>
-              <div className="flex flex-wrap gap-3">
-                <Image src="/Google_Play.png" alt="Google Play" width={130} height={42} className="w-[120px] sm:w-[140px] h-auto" />
-                <Image src="/App_Store.png" alt="App Store" width={130} height={42} className="w-[120px] sm:w-[140px] h-auto" />
+              <div className="flex flex-wrap justify-center sm:justify-start gap-3">
+                <img src="/Google_Play.png" alt="Google Play" width={130} height={42} className="w-[120px] sm:w-[140px] h-auto" />
+                <img src="/App_Store.png" alt="App Store" width={130} height={42} className="w-[120px] sm:w-[140px] h-auto" />
               </div>
             </div>
 
@@ -109,13 +105,12 @@ export default function AppSection() {
           </div>
 
           {/* Col droite (image) */}
-          <div className="relative flex justify-center w-full h-[400px] sm:h-[500px] lg:h-[850px] lg:-ml-20 lg:scale-145">
-            <Image
+          <div className="relative flex justify-center w-full h-[400px] sm:h-[500px] lg:h-[850px] lg:-ml-20 -mt-10 lg:scale-145">
+            <img
               src="/contain.png"
               alt="Aperçu application UpAfrica"
-              fill
-              className="object-contain"
-              priority
+              style={{ objectFit: 'contain' }}
+              className="w-full h-full"
             />
           </div>
         </div>
@@ -158,7 +153,7 @@ function FeatureCard({
           <h5 className="text-white font-semibold leading-tight text-[15px] sm:text-[17.5px]">
             {title}
           </h5>
-          <p className="mt-1 text-[13px] sm:text-[14px] leading-relaxed text-[#D1D5DC]">
+          <p className="mt-1 text-[14px] sm:text-[14px] leading-relaxed text-[#D1D5DC]">
             {desc}
           </p>
         </div>
@@ -166,4 +161,3 @@ function FeatureCard({
     </div>
   );
 }
-
