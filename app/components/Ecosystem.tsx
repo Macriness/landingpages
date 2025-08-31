@@ -1,29 +1,25 @@
 "use client";
 
-import Image from "next/image";
 import type { ReactNode } from "react";
-import { Users, Building2, Landmark, ArrowRight, Globe, Rocket } from "lucide-react";
-import { Button } from "@heroui/react";
-import { Sora } from "next/font/google";
-const sora = Sora({ subsets: ["latin"], weight: ["700"] }); // Bold
+import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
 
 export default function EcosystemSection() {
   return (
-    <section id="ecosystem" className="relative py-24 text-white">
-      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12">
+    <section id="ecosystem" className="relative text-white">
+      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12 -mt-10">
         {/* Heading */}
         <div className="space-y-3">
           <h2
             className="
-              text-[20px] sm:text-3xl md:text-5xl
-              font-extrabold 
-              leading-snug 
+              text-2xl sm:text-3xl md:text-5xl
+              font-extrabold
+              leading-snug
               whitespace-nowrap
             "
           >
             Un{" "}
             <span
-              className={`${sora.className} font-bold text-[#ED6D0B]`}
+              className="font-bold text-[#ED6D0B]"
               style={{ textShadow: "0px 1px 40px #ED6D0B" }}
             >
               écosystème
@@ -32,7 +28,7 @@ export default function EcosystemSection() {
           </h2>
 
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            UpAfrica unit trois piliers fondamentaux de l&apos;innovation africaine :
+            UpAfrica unit trois piliers fondamentaux de l'innovation africaine :
             la diaspora talentueuse, les startups ambitieuses et les investisseurs visionnaires.
           </p>
         </div>
@@ -62,7 +58,7 @@ export default function EcosystemSection() {
 
           <FeatureGlassCard
             image="/0202.png"
-            icon={<Building2 className="w-[28px] h-[28px]" />}
+            icon={<Building className="w-[28px] h-[28px]" />}
             title="Startups Africaines"
             subtitle="50 000+ entreprises"
           >
@@ -82,11 +78,11 @@ export default function EcosystemSection() {
 
           <FeatureGlassCard
             image="/0301.png"
-            icon={<Landmark className="w-[28px] h-[28px]" />}
+            icon={<Rocket className="w-[28px] h-[28px]" />}
             title="Fonds d’investissement"
             subtitle="Plus de 500 investisseurs"
           >
-            <p className="text-[#D1D5DC] text-sm">
+            <p className="text-[#D1DDC] text-sm">
               VCs, business angels et fonds spécialisés dans l'innovation africaine
             </p>
             <ul className="space-y-1.5 text-[12.5px] tracking-wide text-[#99A1AF]">
@@ -137,13 +133,13 @@ export default function EcosystemSection() {
         >
           <h3 className="text-base sm:text-lg font-semibold text-white text-center mb-6">
             Comment ça{" "}
-            <span className={`${sora.className} text-[#ED6D0B]`} style={{ textShadow: "0px 1px 40px #ED6D0B" }}>
+            <span className="text-[#ED6D0B]" style={{ textShadow: "0px 1px 40px #ED6D0B" }}>
               fonctionne
             </span>
           </h3>
 
           {/* --- Desktop (inchangé) --- */}
-          <div className="hidden md:grid items-center justify-items-center gap-6 sm:gap-[17px] md:grid-cols-5 max-w-[780px] mx-auto">
+          <div className="hidden md:grid items-center justify-items-center gap-4 sm:gap-[0px] md:grid-cols-5 max-w-[1000px] mx-auto">
             <StepItem
               icon={<Users size={20} />}
               title="Connectez-vous"
@@ -187,30 +183,27 @@ export default function EcosystemSection() {
 
         {/* === CTA + image APRES le bouton === */}
         <div className="mt-14 flex flex-col items-center gap-6">
-          <Button
+          <button
             className="
-              w-[300px] h-[50px] rounded-[8px] px-4
+              w-[200px] h-[45px] rounded-[8px] px-4
               bg-[#ED6D0B] text-white font-semibold
-              shadow-[0_8px_24px_rgba(237,109,11,0.35),inset_0_1px_0_rgba(255,255,255,0.18)]
+              shadow-[0_0_24px_rgba(237,109,11,0.75),inset_0_1px_0_rgba(255,255,255,0.18)]
               hover:brightness-105 active:translate-y-[1px] transition
             "
           >
-            Rejoindre l’écosystème maintenant
-          </Button>
+            Rejoindre l’écosystème
+          </button>
 
           {/* ✅ Image placée juste après le bouton (mobile only pour ne rien changer sur PC) */}
           <div className="md:hidden w-full flex justify-center">
             <div
-              className="relative w-[92%] max-w-[480px] rounded-2xl overflow-hidden shadow-[0_8px_24px_rgba(0,0,0,.45)] ring-1 ring-white/10 bg-black/10"
+              className="relative w-[100%] max-w-[780px] mt-10"
               style={{ aspectRatio: "9 / 16" }} /* évite la mise en page qui saute */
             >
-              <Image
-                src={"/ending%20image.png"}        /* espace encodé */
+              <img
+                src={"/ending_image.png"}      /* espace encodé */
                 alt="Aperçu UpAfrica"
-                fill
-                className="object-contain"
-                priority
-                sizes="(max-width: 768px) 92vw, 480px"
+                className="object-contain w-full h-full"
               />
             </div>
           </div>
@@ -219,8 +212,6 @@ export default function EcosystemSection() {
     </section>
   );
 }
-
-/* ================= Components ================= */
 
 function FeatureGlassCard({
   image,
@@ -238,25 +229,23 @@ function FeatureGlassCard({
   return (
     <article
       className="
-        relative overflow-hidden
-        rounded-[14px]
-        bg-[rgba(42,42,42,0.40)]
-        ring-1 ring-inset ring-white/8
-        backdrop-blur-[40px]
-        shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-        flex flex-col
-        w-full sm:w-[266px]
-      "
-      style={{ minHeight: 389 }}
+          relative overflow-hidden
+          rounded-[14px]
+          bg-[rgba(42,42,42,0.40)]
+          ring-1 ring-inset ring-white/8
+          backdrop-blur-[40px]
+          shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
+          flex flex-col
+          w-full max-w-[270px] mx-auto sm:w-[256px]
+        "
+      style={{ minHeight: 517 }}
     >
       {/* Top image */}
-      <div className="relative h-[168px] w-full">
-        <Image
+      <div className="relative h-[233px] w-full">
+        <img
           src={image}
           alt={title}
-          fill
-          className="object-cover"
-          priority
+          className="object-cover absolute inset-0 w-full h-full"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,.55)_70%,rgba(0,0,0,.85)_100%)]" />
 
@@ -271,7 +260,7 @@ function FeatureGlassCard({
       </div>
 
       {/* Body */}
-      <div className="p-4 sm:p-5 space-y-4 text-left">{children}</div>
+      <div className="p-8 sm:p-6 space-y-4 text-left">{children}</div>
     </article>
   );
 }
@@ -302,20 +291,20 @@ function StatCard({
   return (
     <div
       className="
-        w-full sm:w-[198px] min-h-[132px]
-        px-[22px] py-[9px]
-        rounded-[12.75px]
-        bg-[rgba(42,42,42,0.40)]
-        ring-1 ring-inset ring-white/8
-        backdrop-blur-[40px]
-        shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-        grid place-items-center text-center
-      "
+          w-full sm:w-[198px] min-h-[132px]
+          px-[22px] py-[9px]
+          rounded-[12.75px]
+          bg-[rgba(42,42,42,0.40)]
+          ring-1 ring-inset ring-white/8
+          backdrop-blur-[40px]
+          shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
+          grid place-items-center text-center
+        "
     >
       <div className="space-y-1.5">
         <div className="text-[22px] font-semibold text-[var(--text-orange-2,#F5AA71)]">{value}</div>
         <div className="text-[15px] font-semibold text-white">{title}</div>
-        <div className="text-[12px] text-[#99A1AF]">{sub}</div>
+        <div className="text-[15.75px] sm:text-[11.70px] text-[#99A1AF]">{sub}</div>
       </div>
     </div>
   );
@@ -332,12 +321,12 @@ function StepItem({
   desc: string;
 }) {
   return (
-    <div className="flex flex-col items-center text-center max-w-[230px] gap-2">
-      <div className="w-12 h-12 rounded-full bg-[#ED6D0B] grid place-items-center shadow-[0_6px_16px_rgba(237,109,11,.4)]">
-        <span className="text-white">{icon}</span>
+    <div className="flex flex-col items-center text-center max-w-[270px] sm:max-w-[450px] gap-2">
+      <div className="w-16 h-16 rounded-full bg-[#ED6D0B] grid place-items-center shadow-[0_6px_16px_rgba(237,109,11,.4)]">
+        <span className="text-white text-3xl">{icon}</span>
       </div>
-      <div className="font-semibold text-[#7F7F7F]">{title}</div>
-      <div className="text-[10px] text-[#99A1AF] leading-relaxed break-words">
+      <div className="font-semibold text-lg text-white">{title}</div>
+      <div className="text-[15px] sm:text-[9.5px] text-[#99A1AF] leading-relaxed break-words">
         {desc}
       </div>
     </div>
@@ -347,7 +336,7 @@ function StepItem({
 function Arrow({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center justify-center ${className}`}>
-      <ArrowRight className="w-5 h-5 text-[#ED6D0B]" />
+      <ArrowRight className="w-8 h-8 md:w-7 md:h-7 text-[#ED6D0B] md:-mt-10" />
     </div>
   );
 }

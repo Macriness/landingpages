@@ -37,9 +37,9 @@ export default function WhyChoose() {
     overflow-hidden
   "
 >
-  <Dot size={14} className="opacity-90 shrink-0" />
+  <Dot size={24} className="opacity-90 shrink-0" />
   <span className="whitespace-nowrap text-[clamp(10px,2.5vw,14px)] leading-tight">
-    PLUS DE 50 000 ENTREPRENEURS NOUS FONT DEMENTER
+    PLUS DE 50 000 ENTREPRENEURS NOUS FONT CONFIANCE
   </span>
   <Zap size={12} className="opacity-90 shrink-0" />
 </div>

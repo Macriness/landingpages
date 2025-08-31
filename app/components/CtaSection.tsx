@@ -14,7 +14,7 @@ const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function CtaSection() {
   return (
-    <div className="relative isolate text-white">
+    <div className="relative isolate text-white -mt-10 md:mt-20"> {/* <--- Marge ajustée ici */}
       {/* ==== CTA ==== */}
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
         <div className="mx-auto w-full max-w-[854px]">
@@ -25,7 +25,7 @@ export default function CtaSection() {
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} className="sm:size-16 text-orange-400 fill-orange-400" />
+                    <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
                   ))}
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-orange-400/90">
@@ -161,88 +161,89 @@ export default function CtaSection() {
 
       {/* ===== FOOTER ===== */}
       <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
-        <div className="mx-auto w-full max-w-[1054px] grid grid-cols-1 md:grid-cols-5 gap-10">
-          
-          {/* Colonne gauche */}
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
-                <Zap size={16} className="text-white" />
+        <div className="mx-auto w-full max-w-[1054px]">
+          {/* Section supérieure du footer (Logo, Liens, Contact) */}
+          <div className="flex flex-col md:flex-row md:justify-between gap-10">
+            
+            {/* Colonne gauche (Logo & Description) */}
+            <div className="w-full md:w-auto md:max-w-xs">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
+                  <Zap size={16} className="text-white" />
+                </div>
+                <span className="text-xl font-bold text-white">UpAfrica</span>
               </div>
-              <span className="text-xl font-bold text-white">UpAfrica</span>
-            </div>
-            <p className="text-sm text-[#99A1AF] leading-relaxed text-left">
-              La première plateforme qui connecte les entrepreneurs africains avec les investisseurs du
-              continent. Ensemble, nous construisons l’avenir de l’Afrique.
-            </p>
-          </div>
-
-          {/* Colonnes droites */}
-          <div className="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {/* Produit */}
-            <div className="space-y-2.5 text-left">
-              <h4 className="text-white font-semibold text-lg">Produit</h4>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Fonctionnalités</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Tarifs</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Sécurité</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Mises à jour</Link></li>
-              </ul>
+              <p className="text-sm text-[#99A1AF] leading-relaxed text-left">
+                La première plateforme qui connecte les entrepreneurs africains avec les investisseurs du continent. Ensemble, nous construisons l’avenir de l’Afrique.
+              </p>
             </div>
 
-            {/* Entreprise */}
-            <div className="space-y-2.5 text-left">
-              <h4 className="text-white font-semibold text-lg">Entreprise</h4>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">À propos</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Carrières</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Presse</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Partenaires</Link></li>
-              </ul>
+            {/* Colonnes du milieu (Liens Produit, Entreprise, Légal) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
+              {/* Produit */}
+              <div className="space-y-2.5 text-left">
+                <h4 className="text-white font-semibold text-lg">Produit</h4>
+                <ul className="space-y-1 text-base">
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Fonctionnalités</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Tarifs</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Sécurité</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Mises à jour</Link></li>
+                </ul>
+              </div>
+
+              {/* Entreprise */}
+              <div className="space-y-2.5 text-left">
+                <h4 className="text-white font-semibold text-lg">Entreprise</h4>
+                <ul className="space-y-1 text-base">
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">À propos</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Carrières</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Presse</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Partenaires</Link></li>
+                </ul>
+              </div>
+
+              {/* Légal */}
+              <div className="space-y-2.5 text-left">
+                <h4 className="text-white font-semibold text-lg">Légal</h4>
+                <ul className="space-y-1 text-base">
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Confidentialité</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Conditions</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Cookies</Link></li>
+                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Licences</Link></li>
+                </ul>
+              </div>
             </div>
 
-            {/* Légal */}
-            <div className="space-y-2.5 text-left">
-              <h4 className="text-white font-semibold text-lg">Légal</h4>
-              <ul className="space-y-1 text-sm">
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Confidentialité</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Conditions</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Cookies</Link></li>
-                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Licences</Link></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+            {/* Séparateur vertical (visible sur PC) */}
+            <div className="block md:hidden h-px w-[80%] bg-white/10 mx-8"></div>
 
-        {/* --- Divider mobile entre Légal et Contact (PLEINE LARGEUR écran) --- */}
-        <div className="block md:hidden w-screen -mx-4 h-px bg-[#4A5565] opacity-60 my-6"></div>
 
-        {/* Contact + Réseaux sociaux alignés */}
-        <div className="mx-auto w-full max-w-[1054px] mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="space-y-2 text-sm text-left">
-            <div className="flex items-center gap-2 text-[#99A1AF]">
-              <Mail size={16} className="text-[#ED6D0B]" />
-              <span>contact@upafrica.com</span>
+            {/* Colonne de droite (Contact & Réseaux sociaux) */}
+            <div className="text-left">
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2 text-[#99A1AF]">
+                  <Mail size={16} className="text-[#ED6D0B]" />
+                  <span>contact@upafrica.com</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#99A1AF]">
+                  <Phone size={16} className="text-[#ED6D0B]" />
+                  <span>+33 1 23 45 67 89</span>
+                </div>
+                <div className="flex items-center gap-2 text-[#99A1AF]">
+                  <MapPin size={16} className="text-[#ED6D0B]" />
+                  <span>Paris, France et Lagos, Nigéria</span>
+                </div>
+              </div>
+              <div className="flex justify-start gap-2 pt-4">
+                {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
+                  <Link key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
+                    <Icon size={16} />
+                  </Link>
+                ))}
+              </div>
             </div>
-            <div className="flex items-center gap-2 text-[#99A1AF]">
-              <Phone size={16} className="text-[#ED6D0B]" />
-              <span>+33 1 23 45 67 89</span>
-            </div>
-            <div className="flex items-center gap-2 text-[#99A1AF]">
-              <MapPin size={16} className="text-[#ED6D0B]" />
-              <span>Paris, France et Lagos, Nigéria</span>
-            </div>
-          </div>
-
-          <div className="flex justify-start md:justify-end gap-2 pt-1 md:pt-0">
-            {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-              <Link key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
-                <Icon size={16} />
-              </Link>
-            ))}
           </div>
         </div>
-
       </footer>
 
       {/* Divider (existant, desktop style) */}
@@ -254,24 +255,26 @@ export default function CtaSection() {
           <h3 className="text-center text-sm font-semibold text-[#F6B27A] mb-6">
             Notre présence en Afrique
           </h3>
-          <div className="flex flex-wrap md:flex-nowrap justify-center md:justify-between gap-4 sm:gap-[14px] overflow-x-auto md:overflow-visible">
+          <div className="grid grid-cols-3 gap-4 md:flex md:flex-nowrap md:justify-between md:gap-[14px] overflow-x-auto md:overflow-visible">
             <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
             <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
             <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
             <FlagCard country="Ghana" users="6 000+" imgSrc="/3.png" />
             <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
             <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
-            <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
+            <div className="col-start-2">
+              <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
+            </div>
           </div>
           {/* Liens légaux version mobile (centrés, un en dessous de l'autre) */}
           <div className="mt-6 flex flex-col items-center gap-2 text-[12px] text-[#99A1AF] md:hidden">
-            <Link href="/privacy" className="hover:text-white">
+            <Link href="/privacy" className="hover:text-white underline hover:no-underline">
               Politique de confidentialité
             </Link>
-            <Link href="/terms" className="hover:text-white">
+            <Link href="/terms" className="hover:text-white underline hover:no-underline">
               Conditions d&apos;utilisation
             </Link>
-            <Link href="/sitemap" className="hover:text-white">
+            <Link href="/sitemap" className="hover:text-white underline hover:no-underline">
               Plan du site
             </Link>
           </div>
@@ -320,7 +323,7 @@ function StoreBadge({
 
 function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string; }) {
   return (
-    <div className="relative flex items-center h-[110px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+    <div className="relative flex items-top md:h-[130px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
         <div className="flex flex-col text-left">
@@ -334,7 +337,7 @@ function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: 
 
 function FlagCard({ country, users, imgSrc }: { country: string; users: string; imgSrc: string; }) {
   return (
-    <div className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
+    <div className="w-[115px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
       <Image src={imgSrc} alt={`Drapeau ${country}`} width={24} height={16} className="rounded-[2px] object-cover" />
       <div className="text-center leading-tight">
         <div className="text-[12px] font-semibold text-white">{country}</div>
@@ -343,6 +346,3 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
-
-
-
