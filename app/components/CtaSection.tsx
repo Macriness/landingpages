@@ -242,6 +242,7 @@ export default function CtaSection() {
             ))}
           </div>
         </div>
+
       </footer>
 
       {/* Divider (existant, desktop style) */}
@@ -263,8 +264,6 @@ export default function CtaSection() {
             <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
           </div>
         </div>
-        {/* --- Divider mobile APRÈS Notre présence (PLEINE LARGEUR écran) --- */}
-        <div className="block md:hidden w-screen -mx-4 h-px bg-[#4A5565] opacity-60 my-6"></div>
       </section>
 
       {/* ===== Barre finale ===== */}
@@ -328,4 +327,5 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
+
 
