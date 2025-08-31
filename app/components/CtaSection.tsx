@@ -263,6 +263,34 @@ export default function CtaSection() {
             <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
             <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
           </div>
+
+          {/* Liens légaux version mobile (cartes, centrées, empilées) */}
+          <div className="mt-6 md:hidden flex flex-col items-center gap-3">
+            <Link
+              href="/privacy"
+              className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex items-center justify-center text-center"
+            >
+              <span className="text-[12px] font-semibold text-white leading-tight">
+                Politique de confidentialité
+              </span>
+            </Link>
+            <Link
+              href="/terms"
+              className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex items-center justify-center text-center"
+            >
+              <span className="text-[12px] font-semibold text-white leading-tight">
+                Conditions d&apos;utilisation
+              </span>
+            </Link>
+            <Link
+              href="/sitemap"
+              className="w-[150px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex items-center justify-center text-center"
+            >
+              <span className="text-[12px] font-semibold text-white leading-tight">
+                Plan du site
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -272,7 +300,7 @@ export default function CtaSection() {
           <p className="text-[12px] text-center md:text-left text-[#99A1AF]">
             © 2024 UpAfrica. Tous droits réservés. Construisons ensemble l&apos;avenir de l&apos;Afrique.
           </p>
-          <nav className="flex flex-wrap justify-center md:justify-end items-center text-[12px] text-[#99A1AF]">
+          <nav className="hidden md:flex flex-wrap justify-center md:justify-end items-center text-[12px] text-[#99A1AF]">
             <Link href="/privacy" className="px-2 hover:text-[#7F7F7F]">Politique de confidentialité</Link>
             <span className="hidden sm:inline mx-1">•</span>
             <Link href="/terms" className="px-2 hover:text-[#7F7F7F]">Conditions</Link>
@@ -287,7 +315,11 @@ export default function CtaSection() {
 
 /* ----------- Subcomponents ----------- */
 
-function StoreBadge({ href, src, alt, width, height, external = false }: { href: string; src: string; alt: string; width: number; height: number; external?: boolean; }) {
+function StoreBadge({
+  href, src, alt, width, height, external = false,
+}: {
+  href: string; src: string; alt: string; width: number; height: number; external?: boolean;
+}) {
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
@@ -327,5 +359,6 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
+
 
 
