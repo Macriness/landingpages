@@ -214,6 +214,9 @@ export default function CtaSection() {
           </div>
         </div>
 
+        {/* --- Divider mobile entre Légal et Contact (desktop inchangé) --- */}
+        <div className="block md:hidden w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto my-6"></div>
+
         {/* Contact + Réseaux sociaux alignés */}
         <div className="mx-auto w-full max-w-[1054px] mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 text-sm text-left">
@@ -231,7 +234,7 @@ export default function CtaSection() {
             </div>
           </div>
 
-          <div className="flex md:justify-end gap-2 pt-3 md:pt-0">
+          <div className="flex md:justify-end gap-2 pt-1 md:pt-0">
             {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
               <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
                 <Icon size={16} />
@@ -241,7 +244,7 @@ export default function CtaSection() {
         </div>
       </footer>
 
-      {/* Divider */}
+      {/* Divider (existant, inchangé) */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
 
       {/* ===== Présence Afrique ===== */}
