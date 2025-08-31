@@ -25,7 +25,7 @@ export default function CtaSection() {
               <div className="flex items-center gap-2 justify-center md:justify-start">
                 <div className="flex items-center gap-1">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} className="text-orange-400 fill-orange-400" />
+                    <Star key={i} size={14} className="sm:size-16 text-orange-400 fill-orange-400" />
                   ))}
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-orange-400/90">
@@ -38,10 +38,9 @@ export default function CtaSection() {
                 <h1
                   className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
                 >
-                  Prêt à transformer
-                  <br className="block sm:hidden" />
-                  votre avenir ?
+                  Prêt à transformer{" "}
                   <br className="hidden sm:block" />
+                  votre avenir ?
                 </h1>
                 <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
                   Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
@@ -83,7 +82,7 @@ export default function CtaSection() {
               </div>
             </div>
 
-            {/* RIGHT — image (masquée sur mobile et tablette) */}
+            {/* RIGHT — image seule (masquée sur mobile et tablette) */}
             <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
               <Image
                 src="/ending image.png"
@@ -163,6 +162,7 @@ export default function CtaSection() {
       {/* ===== FOOTER ===== */}
       <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
         <div className="mx-auto w-full max-w-[1054px] grid grid-cols-1 md:grid-cols-5 gap-10">
+          
           {/* Colonne gauche */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2 mb-4">
@@ -214,7 +214,7 @@ export default function CtaSection() {
           </div>
         </div>
 
-        {/* Contact + Réseaux sociaux */}
+        {/* Contact + Réseaux sociaux alignés */}
         <div className="mx-auto w-full max-w-[1054px] mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2 text-sm text-left">
             <div className="flex items-center gap-2 text-[#99A1AF]">
@@ -233,11 +233,7 @@ export default function CtaSection() {
 
           <div className="flex md:justify-end gap-2 pt-3 md:pt-0">
             {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110"
-              >
+              <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
                 <Icon size={16} />
               </a>
             ))}
@@ -287,11 +283,7 @@ export default function CtaSection() {
 
 /* ----------- Subcomponents ----------- */
 
-function StoreBadge({
-  href, src, alt, width, height, external = false,
-}: {
-  href: string; src: string; alt: string; width: number; height: number; external?: boolean;
-}) {
+function StoreBadge({ href, src, alt, width, height, external = false }: { href: string; src: string; alt: string; width: number; height: number; external?: boolean; }) {
   if (external) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
@@ -306,15 +298,12 @@ function StoreBadge({
   );
 }
 
-function FeatureCard({
-  icon, title, subtitle,
-}: {
-  icon: React.ReactNode; title: string; subtitle: string;
-}) {
+function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string; }) {
   return (
     <div className="relative flex items-center h-[110px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
+        {/* Texte bien aligné à gauche */}
         <div className="flex flex-col text-left">
           <h4 className="text-[14px] font-semibold text-white">{title}</h4>
           <p className="text-[12px] text-[#99A1AF] leading-snug">{subtitle}</p>
@@ -335,5 +324,4 @@ function FlagCard({ country, users, imgSrc }: { country: string; users: string; 
     </div>
   );
 }
-
 
