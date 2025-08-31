@@ -2,14 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import * as React from "react";
+import { DM_Sans } from "next/font/google";
 import {
   Star, Download, Users, Shield, Zap,
   Mail, Phone, MapPin,
   Facebook, Twitter, Instagram, Linkedin, Youtube
 } from "lucide-react";
 
-import * as React from "react";
-import { DM_Sans } from "next/font/google";
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function CtaSection() {
@@ -183,10 +183,10 @@ export default function CtaSection() {
             <div className="space-y-2.5 text-left">
               <h4 className="text-white font-semibold text-lg">Produit</h4>
               <ul className="space-y-1 text-sm">
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Fonctionnalités</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Tarifs</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Sécurité</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Mises à jour</a></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Fonctionnalités</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Tarifs</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Sécurité</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Mises à jour</Link></li>
               </ul>
             </div>
 
@@ -194,10 +194,10 @@ export default function CtaSection() {
             <div className="space-y-2.5 text-left">
               <h4 className="text-white font-semibold text-lg">Entreprise</h4>
               <ul className="space-y-1 text-sm">
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">À propos</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Carrières</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Presse</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Partenaires</a></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">À propos</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Carrières</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Presse</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Partenaires</Link></li>
               </ul>
             </div>
 
@@ -205,17 +205,17 @@ export default function CtaSection() {
             <div className="space-y-2.5 text-left">
               <h4 className="text-white font-semibold text-lg">Légal</h4>
               <ul className="space-y-1 text-sm">
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Confidentialité</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Conditions</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Cookies</a></li>
-                <li><a className="text-[#99A1AF] hover:text-white" href="#">Licences</a></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Confidentialité</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Conditions</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Cookies</Link></li>
+                <li><Link href="#" className="text-[#99A1AF] hover:text-white">Licences</Link></li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* --- Divider mobile entre Légal et Contact (desktop inchangé) --- */}
-        <div className="block md:hidden w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto my-6"></div>
+        {/* --- Divider mobile entre Légal et Contact (PLEINE LARGEUR écran) --- */}
+        <div className="block md:hidden w-screen -mx-4 h-px bg-[#4A5565] opacity-60 my-6"></div>
 
         {/* Contact + Réseaux sociaux alignés */}
         <div className="mx-auto w-full max-w-[1054px] mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -234,17 +234,17 @@ export default function CtaSection() {
             </div>
           </div>
 
-          <div className="flex md:justify-end gap-2 pt-1 md:pt-0">
+          <div className="flex justify-center md:justify-end gap-2 pt-1 md:pt-0">
             {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-              <a key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
+              <Link key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
                 <Icon size={16} />
-              </a>
+              </Link>
             ))}
           </div>
         </div>
       </footer>
 
-      {/* Divider (existant, inchangé) */}
+      {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
 
       {/* ===== Présence Afrique ===== */}
