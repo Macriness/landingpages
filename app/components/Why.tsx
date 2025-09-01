@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+import { useRef, useEffect } from "react";
 import {
   ArrowUpRight,
   TrendingUp,
@@ -11,38 +13,85 @@ import {
   Dot,
   Heart,
 } from "lucide-react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import { Button } from "@heroui/react";
-import Image from "next/image"; // Importe le composant Image de Next.js
+import Image from "next/image";
+import ParticlesBackground from "./ParticlesBackground";
+
+/* -----------------------------------------------------------
+    Compteur animé : 0 ➜ valeur finale, formaté fr-FR
+    Options: prefix/suffix, décimales, déclenchement au scroll
+------------------------------------------------------------ */
+function AnimatedCounter({
+  value,
+  duration = 2.2,
+  decimals = 0,
+  prefix = "",
+  suffix = "",
+}: {
+  value: number;
+  duration?: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+}) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: false }); // ✅ rejoue à chaque scroll
+  const mv = useMotionValue(0);
+
+  const formatted = useTransform(mv, (latest) => {
+    const n = Number(latest);
+    const text = n.toLocaleString("fr-FR", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+    });
+    return `${prefix}${text}${suffix}`;
+  });
+
+  useEffect(() => {
+    if (!inView) return;
+    mv.set(0);
+    const controls = animate(mv, value, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, mv, value, duration]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{formatted}</motion.span>
+    </span>
+  );
+}
 
 /* --- Section WhyChoose --- */
 export default function WhyChoose() {
   return (
     <section id="why" className="relative py-24 text-white">
-      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20">
+      <ParticlesBackground />
+      <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20 z-10 relative">
         {/* HEADER */}
         <div className="relative text-center mb-12">
           {/* Badge pill glossy */}
           <div
-  className="
-    inline-flex items-center gap-1.5 mb-6 flex-nowrap
-    max-w-full justify-center
-    px-2 py-1
-    rounded-full uppercase tracking-[0.12em]
-    font-semibold select-none
-    text-[#ED6D0B]
-    bg-[#232323]
-    backdrop-blur-[20px]
-    ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
-    shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
-    overflow-hidden
-  "
->
-  <Dot size={24} className="opacity-90 shrink-0" />
-  <span className="whitespace-nowrap text-[clamp(10px,2.5vw,14px)] leading-tight">
-    PLUS DE 50 000 ENTREPRENEURS NOUS FONT CONFIANCE
-  </span>
-  <Zap size={12} className="opacity-90 shrink-0" />
-</div>
+            className="
+              inline-flex items-center gap-1.5 mb-6 flex-nowrap
+              max-w-full justify-center
+              px-2 py-1
+              rounded-full uppercase tracking-[0.12em]
+              font-semibold select-none
+              text-[#ED6D0B]
+              bg-[#232323]
+              backdrop-blur-[20px]
+              ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
+              shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
+              overflow-hidden
+            "
+          >
+            <Dot size={24} className="opacity-90 shrink-0" />
+            <span className="whitespace-nowrap text-[clamp(10px,2.5vw,14px)] leading-tight">
+              PLUS DE <AnimatedCounter value={50000} /> ENTREPRENEURS NOUS FONT CONFIANCE
+            </span>
+            <Zap size={12} className="opacity-90 shrink-0" />
+          </div>
 
           {/* glow badge */}
           <div
@@ -67,11 +116,9 @@ export default function WhyChoose() {
             <span className="text-white [filter:drop-shadow(0_2px_6px_rgba(0,0,0,0.25))]">
               Pourquoi choisir{" "}
             </span>
-
-            {/* UpAfrica : utilise la variable --frame-full-orange-3 */}
             <span
               style={{
-                color: "#E86A0C", // orange soutenu, plus chaud et plus foncé
+                color: "#E86A0C",
                 filter: "drop-shadow(0 1px 30px #E86A0C)",
                 textShadow: "0 1px 30px #E86A0C",
               }}
@@ -79,11 +126,8 @@ export default function WhyChoose() {
             >
               UpAfrica
             </span>
-
             <span className="text-white font-bold"> ?</span>
           </h2>
-
-          {/* Sous-texte */}
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
             Plus qu&apos;une plateforme, UpAfrica est l&apos;écosystème qui
             propulse l&apos;innovation africaine. Découvrez pourquoi les
@@ -92,7 +136,7 @@ export default function WhyChoose() {
           </p>
         </div>
 
-        {/* MOBILE: Layout en colonne unique - Ajustement du gap pour plus de compacité */}
+        {/* MOBILE: Layout en colonne unique */}
         <div className="flex flex-col items-center gap-4 md:hidden max-w-[1100px] mx-auto mt-16">
           <FeatureCard
             icon={TrendingUp}
@@ -102,20 +146,20 @@ export default function WhyChoose() {
             badge={
               <>
                 <ArrowUpRight size={14} className="ml-1 opacity-90" />
-                +150% par rapport à 2023
+                +<AnimatedCounter value={150} />% par rapport à 2023
               </>
             }
           />
           <FeatureCard
             icon={Award}
-            title="99.2%"
+            title={<><AnimatedCounter value={99.2} decimals={1} />%</>}
             subtitle="Satisfaction client"
             description="Net Promoter Score exceptionnel de notre communauté premium"
             badge="#1 Plateforme Afrique"
           />
           <FeatureCard
             icon={Heart}
-            title="5000+"
+            title={<><AnimatedCounter value={5000} />+</>}
             subtitle="Histoires de réussite"
             description="Partenariats et collaborations fructueuses créées"
             badge="Record historique"
@@ -133,13 +177,13 @@ export default function WhyChoose() {
             badge={
               <>
                 <ArrowUpRight size={14} className="ml-1 opacity-90" />
-                +150% par rapport à 2023
+                +<AnimatedCounter value={150} />% par rapport à 2023
               </>
             }
           />
           <FeatureCard
             icon={Award}
-            title="99.2%"
+            title={<><AnimatedCounter value={99.2} decimals={1} />%</>}
             subtitle="Satisfaction client"
             description="Net Promoter Score exceptionnel de notre communauté premium"
             badge="#1 Plateforme Afrique"
@@ -147,7 +191,7 @@ export default function WhyChoose() {
           />
           <FeatureCard
             icon={Heart}
-            title="5000+"
+            title={<><AnimatedCounter value={5000} />+</>}
             subtitle="Histoires de réussite"
             description="Partenariats et collaborations fructueuses créées"
             badge="Record historique"
@@ -165,13 +209,13 @@ export default function WhyChoose() {
             badge={
               <>
                 <ArrowUpRight size={14} className="ml-1 opacity-90" />
-                +150% par rapport à 2023
+                +<AnimatedCounter value={150}/>% par rapport à 2023
               </>
             }
           />
           <FeatureCard
             icon={Award}
-            title="99.2%"
+            title={<><AnimatedCounter value={99.2} decimals={1} />%</>}
             subtitle="Satisfaction client"
             description="Net Promoter Score exceptionnel de notre communauté premium"
             badge="#1 Plateforme Afrique"
@@ -179,16 +223,15 @@ export default function WhyChoose() {
           />
           <FeatureCard
             icon={Heart}
-            title="5000+"
+            title={<><AnimatedCounter value={5000} />+</>}
             subtitle="Histoires de réussite"
             description="Partenariats et collaborations fructueuses créées"
             badge="Record historique"
             className="ml-[-50px]"
           />
         </div>
-        
+
         {/* --- Stat Block Glassmorphism --- */}
-        {/* Conteneur principal pour les stats desktop (caché sur mobile) */}
         <div
           className="
             relative w-full max-w-[925px] mx-auto
@@ -199,7 +242,6 @@ export default function WhyChoose() {
             hidden md:block
           "
         >
-          {/* hotspot orangé */}
           <div
             className="
               pointer-events-none absolute -top-16 right-10 h-56 w-63 rounded-full
@@ -207,22 +249,20 @@ export default function WhyChoose() {
               blur-3xl shadow-[0_0_40px_#232323]
             "
           />
-
-          {/* Desktop: Liste horizontale comme avant */}
           <ul className="flex flex-wrap justify-center items-center gap-x-5 gap-y-3">
-            <StatV2 imgSrc="/ico.png" alt="Icone utilisateurs" value="25 000+" label="Emplois créés" />
-            <StatV2 imgSrc="/ico3.png" alt="Icone fusée" value="500+" label="Startups financées" />
-            <StatV2 imgSrc="/ico2.png" alt="Icone globe terrestre" value="54" label="Pays impactés" />
-            <StatV2 imgSrc="/ico1.png" alt="Icone dollar" value="750 millions d'euros" label="Capital mobilisé" />
+            <StatV2 imgSrc="/ico.png" alt="Icone utilisateurs" value={<><AnimatedCounter value={25000} />+</>} label="Emplois créés" />
+            <StatV2 imgSrc="/ico3.png" alt="Icone fusée" value={<><AnimatedCounter value={500} />+</>} label="Startups financées" />
+            <StatV2 imgSrc="/ico2.png" alt="Icone globe terrestre" value={<AnimatedCounter value={54} />} label="Pays impactés" />
+            <StatV2 imgSrc="/ico1.png" alt="Icone dollar" value={<><AnimatedCounter value={750} /> millions d&apos;euros</>} label="Capital mobilisé" />
           </ul>
         </div>
 
         {/* Conteneur pour les stats mobiles (caché sur desktop) */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:hidden">
-            <StatV2Card imgSrc="/ico.png" alt="Icone utilisateurs" value="25 000+" label="Emplois créés" />
-            <StatV2Card imgSrc="/ico3.png" alt="Icone fusée" value="500+" label="Startups financées" />
-            <StatV2Card imgSrc="/ico2.png" alt="Icone globe terrestre" value="54" label="Pays impactés" />
-            <StatV2Card imgSrc="/ico1.png" alt="Icone dollar" value="€750 M" label="Capital mobilisé" />
+          <StatV2Card imgSrc="/ico.png" alt="Icone utilisateurs" value={<><AnimatedCounter value={25000} />+</>} label="Emplois créés" />
+          <StatV2Card imgSrc="/ico3.png" alt="Icone fusée" value={<><AnimatedCounter value={500} />+</>} label="Startups financées" />
+          <StatV2Card imgSrc="/ico2.png" alt="Icone globe terrestre" value={<AnimatedCounter value={54} />} label="Pays impactés" />
+          <StatV2Card imgSrc="/ico1.png" alt="Icone dollar" value={<><AnimatedCounter value={750} prefix="€" suffix="M" /></>} label="Capital mobilisé" />
         </div>
 
         {/* === CTA Néomorphique === */}
@@ -251,7 +291,6 @@ export default function WhyChoose() {
             <User size={14} aria-hidden className="shrink-0" />
             <span>REJOIGNEZ L&apos;ÉLITE</span>
           </div>
-
           {/* Title */}
           <h3 className="text-2xl sm:text-3xl font-bold mb-4 leading-snug">
             L&apos;Afrique a besoin de{" "}
@@ -269,23 +308,21 @@ export default function WhyChoose() {
               ses talents
             </span>
           </h3>
-
           {/* Description */}
           <p className="text-gray-400 max-w-3xl mx-auto mb-8 text-[15px] text-lg leading-relaxed">
             Rejoignez l&apos;écosystème d&apos;innovation le plus exclusif d&apos;Afrique.
             Connectez-vous avec l&apos;élite entrepreneuriale et participez à la révolution
             économique du continent.
           </p>
-
           {/* Boutons */}
           <div className="flex flex-row justify-center gap-2">
             <Button
               className="
-                relative 
-                w-auto h-9 
-                px-3 py-1.5 gap-1.5 
-                rounded-lg 
-                bg-[#ED6D0B] 
+                relative
+                w-auto h-9
+                px-3 py-1.5 gap-1.5
+                rounded-lg
+                bg-[#ED6D0B]
                 text-white font-semibold text-[13px]
                 shadow-[0px_1px_20px_rgba(237,109,11,0.5),0px_4px_12px_rgba(0,0,0,0.15)]
                 transition-transform duration-200 ease-in-out
@@ -294,14 +331,13 @@ export default function WhyChoose() {
               "
             >
               Rejoindre l'élite
-              <ArrowRight className="w-7 h-7 sm:w-4 sm:h-4" /> {/* Adjusted size for mobile */}
+              <ArrowRight className="w-7 h-7 sm:w-4 sm:h-4" />
             </Button>
-
             <Button
               className="
                 inline-flex items-center justify-center
                 h-9 px-3 py-1.5 rounded-lg
-                bg-[#2B2B2B] text-white font-semibold text-[13px] /* token Buttons/Full/Base grey */
+                bg-[#2B2B2B] text-white font-semibold text-[13px]
                 shadow-[0_1px_20px_rgba(237,109,11,0.20),0_4px_12px_rgba(0,0,0,0.15)]
                 transition-colors duration-200
                 hover:brightness-110
@@ -327,19 +363,16 @@ function FeatureCard({
   className = "",
 }: {
   icon: LucideIcon;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   description: string;
   badge: React.ReactNode;
   isTablet?: boolean;
   className?: string;
 }) {
-  // Dimensions adaptées pour tablette
-  const cardWidth = isTablet ? "w-[240px]" : "w-[90%] max-w-[280px]"; // Ajustement ici pour mobile
+  const cardWidth = isTablet ? "w-[240px]" : "w-[90%] max-w-[280px]";
   const cardPadding = isTablet ? "p-[22px]" : "p-6 sm:p-[28px]";
   const cardGap = isTablet ? "gap-[10px]" : "gap-[10px]";
-
-  // Hauteur fixe pour l'uniformité
   const fixedHeight = isTablet ? "h-[290px]" : "h-[280px] sm:h-[310px]";
 
   return (
@@ -349,18 +382,15 @@ function FeatureCard({
         ${cardWidth} ${fixedHeight} ${cardPadding} ${cardGap}
         rounded-[20px] bg-[#232323] border border-white/6
         shadow-[20px_20px_40px_rgba(0,0,0,0.40),-20px_-20px_40px_rgba(255,255,255,0.06),inset_2px_2px_6px_rgba(0,0,0,0.35),inset_-2px_-2px_6px_rgba(255,255,255,0.06)]
-        mx-auto // Pour centrer la carte sur mobile si elle n'est pas pleine largeur
+        mx-auto
         ${className}
       `}
     >
-      {/* halo derrière l'icône */}
       <span
         className="pointer-events-none absolute top-6 h-24 w-24 rounded-[18px] -z-10
           bg-[radial-gradient(60%_60%_at_50%_50%,rgba(255,148,79,0.35),transparent_65%)]
           blur-xl"
       />
-
-      {/* Icône */}
       <div
         className={`
           grid place-items-center rounded-[14px]
@@ -374,8 +404,6 @@ function FeatureCard({
       >
         <Icon className={`text-white ${isTablet ? "w-5 h-5" : "w-7 h-7"}`} />
       </div>
-
-      {/* Titre */}
       <h3
         className={`
           leading-tight font-extrabold
@@ -387,32 +415,28 @@ function FeatureCard({
       >
         {title}
       </h3>
-
       {subtitle && (
         <h4 className={`font-semibold text-white/95 ${isTablet ? "text-[14px]" : "text-[15px]"}`}>
           {subtitle}
         </h4>
       )}
-
       <p className={`leading-relaxed text-gray-400 ${isTablet ? "text-[14px]" : "text-[15px]"}`}>
         {description}
       </p>
-
-      {/* Badge */}
       <span
         className="
           inline-flex items-center gap-1.5
           px-3 py-1.5 rounded-full uppercase tracking-[0.12em]
-          text-[9px] font-semibold select-none
+          text-[8.5px] font-semibold select-none
           text-[#ED6D0B]
           bg-[#232323]
           backdrop-blur-[20px]
           ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
           shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
-          md:text-[8.5px] md:px-[22px] md:py-[8px] md:gap-2
+          md:text-[7.5px] md:px-[22px] md:py-[8px] md:gap-2
         "
       >
-          {badge}
+        {badge}
       </span>
     </div>
   );
@@ -427,12 +451,11 @@ function StatV2({
 }: {
   imgSrc: string;
   alt: string;
-  value: string;
+  value: ReactNode;
   label: string;
 }) {
   return (
     <li className="flex flex-col items-center text-center select-none">
-      {/* Icône */}
       <div className="relative mb-2">
         <Image src={imgSrc} alt={alt} width={32} height={32} className="w-8 h-8 opacity-90" />
         <span
@@ -443,8 +466,6 @@ function StatV2({
           "
         />
       </div>
-
-      {/* Valeur */}
       <div
         className="
           text-base md:text-lg font-bold tracking-tight
@@ -456,8 +477,6 @@ function StatV2({
       >
         {value}
       </div>
-
-      {/* Label */}
       <div className="mt-1 text-[12px] md:text-[13px] text-gray-400/90">
         {label}
       </div>
@@ -474,7 +493,7 @@ function StatV2Card({
 }: {
   imgSrc: string;
   alt: string;
-  value: string;
+  value: ReactNode;
   label: string;
 }) {
   return (
@@ -487,7 +506,6 @@ function StatV2Card({
         backdrop-blur-sm
       "
     >
-      {/* Halo subtil derrière l'icône */}
       <div
         className="
           pointer-events-none absolute top-2 left-1/2 -translate-x-1/2
@@ -496,8 +514,6 @@ function StatV2Card({
           blur-lg -z-10
         "
       />
-
-      {/* Icône */}
       <div className="relative mb-3">
         <Image src={imgSrc} alt={alt} width={32} height={32} className="w-8 h-8 opacity-90" />
         <span
@@ -508,8 +524,6 @@ function StatV2Card({
           "
         />
       </div>
-
-      {/* Valeur */}
       <div
         className="
           text-sm sm:text-base font-bold tracking-tight mb-1
@@ -520,8 +534,6 @@ function StatV2Card({
       >
         {value}
       </div>
-
-      {/* Label */}
       <div className="text-[11px] sm:text-[12px] text-gray-400/90 leading-tight">
         {label}
       </div>

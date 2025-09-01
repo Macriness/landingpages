@@ -2,11 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Users, Briefcase, TrendingUp, MessageCircle, Globe, Shield, ArrowRight, Zap } from "lucide-react";
-
-// Les polices, liens et images de Next.js ne fonctionnent pas
-// dans cet environnement. J'ai retiré ces importations et
-// remplacé les composants par des balises HTML standard.
-// J'utilise également des chemins d'image par défaut.
+import ParticlesBackground from "./ParticlesBackground";
 
 const features = [
   { title: "Réseau Global Ultra-Connecté", desc: "Connectez-vous avec une communauté d'élite d'entrepreneurs, d'investisseurs et d'innovateurs africains répartis dans 120+ pays.", icon: Users, img: "/Container.png", kicker: "Plus de 50 000 entrepreneurs vérifiés" },
@@ -20,8 +16,8 @@ const features = [
 export default function FeaturesSection() {
   return (
     <section id="features" className={`relative py-8 md:py-0 lg:-mt-2 text-[24px]`}>
-      {/* --- Header --- */}
-      <div className="relative text-center mb-6 md:mb-8 px-4">
+      <ParticlesBackground/>
+      <div className="relative text-center mb-6 md:mb-8 px-4 z-10">
         <div
           className="
             inline-flex items-center gap-1.5 mb-4  // Gap réduit, marge inférieure réduite

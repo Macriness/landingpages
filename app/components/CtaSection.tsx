@@ -11,93 +11,95 @@ import {
   Facebook, Twitter, Instagram, Linkedin, Youtube
 } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import PartBackground from "./PointBackground";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function CtaSection() {
   return (
     <div className="relative isolate text-white -mt-10 md:mt-20">
+      <PartBackground />
       {/* ==== CTA ==== */}
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
-        <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
-            {/* LEFT */}
-            <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-8">
-              {/* rating */}
-              <div className="flex items-center gap-2 justify-center md:justify-start">
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
-                  ))}
-                </div>
-                <span className="text-xs sm:text-sm font-medium text-orange-400/90">
-                  4.9/5 · 50 000+ téléchargements
-                </span>
+      <div className="mx-auto w-full max-w-[854px]">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
+          {/* LEFT */}
+          <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-2">
+            {/* rating */}
+            <div className="flex items-center gap-2 justify-center md:justify-start">
+              <div className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
+                ))}
               </div>
-
-              {/* heading */}
-              <div className="space-y-4 sm:space-y-6">
-                <h1
-                  className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
-                >
-                  Prêt à transformer{" "}
-                  <br className="hidden sm:block" />
-                  votre avenir ?
-                </h1>
-                <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-                  Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
-                  pour développer leurs projets et créer des partenariats durables.
-                </p>
-              </div>
-
-              {/* store badges */}
-              <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-                <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
-                <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
-              </div>
-              <p className="text-xs text-gray-500 text-center md:text-left">
-                Disponible sur iOS 13+ et Android 7+
-              </p>
-
-              {/* features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
-                <FeatureCard
-                  icon={<Download size={20} />}
-                  title="Téléchargement gratuit"
-                  subtitle="Applications entièrement gratuites avec toutes les fonctionnalités"
-                />
-                <FeatureCard
-                  icon={<Users size={20} />}
-                  title="Réseau vérifié"
-                  subtitle="Tous les membres sont vérifiés pour garantir la qualité"
-                />
-                <FeatureCard
-                  icon={<Shield size={20} />}
-                  title="Sécurisé"
-                  subtitle="Vos données sont protégées avec un cryptage de niveau bancaire"
-                />
-                <FeatureCard
-                  icon={<Zap size={20} />}
-                  title="Mises à jour"
-                  subtitle="Nouvelles fonctionnalités ajoutées chaque mois"
-                />
-              </div>
+              <span className="text-xs sm:text-sm font-medium text-orange-400/90">
+                4.9/5 · 50 000+ téléchargements
+              </span>
             </div>
 
-            {/* RIGHT — image seule (masquée sur mobile et tablette) */}
-            <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
-              <Image
-                src="/ending image.png"
-                alt="Aperçu de l’app UpAfrica"
-                width={406}
-                height={670}
-                priority
-                className="w-4/5 sm:w-full h-auto rounded-2xl shadow-2xl"
+            {/* heading */}
+            <div className="space-y-4 sm:space-y-6">
+              <h1
+                className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
+              >
+                Prêt à transformer{" "}
+                <br className="hidden sm:block" />
+                votre avenir ?
+              </h1>
+              <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+                Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
+                pour développer leurs projets et créer des partenariats durables.
+              </p>
+            </div>
+
+            {/* store badges */}
+            <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
+              <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
+            </div>
+            <p className="text-xs text-gray-500 text-center md:text-left">
+              Disponible sur iOS 13+ et Android 7+
+            </p>
+
+            {/* features */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
+              <FeatureCard
+                icon={<Download size={20} />}
+                title="Téléchargement gratuit"
+                subtitle="Applications entièrement gratuites avec toutes les fonctionnalités"
+              />
+              <FeatureCard
+                icon={<Users size={20} />}
+                title="Réseau vérifié"
+                subtitle="Tous les membres sont vérifiés pour garantir la qualité"
+              />
+              <FeatureCard
+                icon={<Shield size={20} />}
+                title="Sécurisé"
+                subtitle="Vos données sont protégées avec un cryptage de niveau bancaire"
+              />
+              <FeatureCard
+                icon={<Zap size={20} />}
+                title="Mises à jour"
+                subtitle="Nouvelles fonctionnalités ajoutées chaque mois"
               />
             </div>
           </div>
+
+          {/* RIGHT — image seule (masquée sur mobile et tablette) */}
+          <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
+            <Image
+              src="/ending_image.png"
+              alt="Aperçu de l’app UpAfrica"
+              width={406}
+              height={670}
+              priority
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ===== NEWSLETTER ===== */}
       <section className="px-4 sm:px-6 lg:px-12 pb-12 sm:pb-20">

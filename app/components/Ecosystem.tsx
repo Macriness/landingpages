@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useRef, useEffect } from "react";
 import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import PartBackground from "./PointBackground";
 
 /* -----------------------------------------------------------
    Compteur animé : 0 ➜ valeur finale, formaté fr-FR
@@ -56,6 +57,7 @@ function AnimatedCounter({
 export default function EcosystemSection() {
   return (
     <section id="ecosystem" className="relative text-white">
+      <PartBackground />
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12 -mt-10">
         {/* Heading */}
         <div className="space-y-3">

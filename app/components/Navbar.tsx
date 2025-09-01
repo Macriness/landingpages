@@ -1,7 +1,10 @@
 "use client";
 
 import { Download, Star, Globe, TrendingUp, X, ArrowRight, Play, Zap } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+//import DotsBackground from "./DotsBackground";
+import ParticlesBackground from "./ParticlesBackground";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
@@ -233,6 +236,50 @@ function Navbar() {
   );
 }
 
+function AnimatedCounter({
+  value,
+  duration = 2.2,
+  decimals = 0,
+  prefix = "",
+  suffix = "",
+}: {
+  value: number;
+  duration?: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+}) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: false }); // ✅ rejoue à chaque scroll
+  const mv = useMotionValue(0);
+
+  const formatted = useTransform(mv, (latest) => {
+    const n = Number(latest);
+    const text = n.toLocaleString("fr-FR", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+    });
+    return `${prefix}${text}${suffix}`;
+  });
+
+  useEffect(() => {
+    if (!inView) return;
+    // ✅ reset à 0 à chaque fois qu’il revient visible
+    mv.set(0);
+    const controls = animate(mv, value, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, mv, value, duration]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{formatted}</motion.span>
+    </span>
+  );
+}
+
+/* ===========================================================
+    SECTION
+=========================================================== */
 function Hero() {
   return (
     <section
@@ -337,10 +384,10 @@ function Hero() {
 
           <div className="flex flex-row justify-center xl:justify-start gap-2 xl:gap-4 w-full px-2 xl:px-0">
             {[
-              { icon: Star, value: "50 000+", label: "Utilisateurs actifs" },
-              { icon: Globe, value: "500+", label: "Entreprises" },
-              { icon: TrendingUp, value: "54", label: "Pays africains" },
-            ].map(({ icon: Icon, value, label }) => (
+              { icon: Star, value: 50000, label: "Utilisateurs actifs", suffix: "+" },
+              { icon: Globe, value: 500, label: "Entreprises", suffix: "+" },
+              { icon: TrendingUp, value: 54, label: "Pays africains" },
+            ].map(({ icon: Icon, value, label, suffix }) => (
               <div
                 key={label}
                 className="relative rounded-[14px] h-[75.5px] px-2 xl:px-3 py-2.5 flex items-center gap-[8px] xl:gap-[10px] select-none w-full sm:flex-1"
@@ -362,7 +409,7 @@ function Hero() {
                 />
                 <div className="text-left leading-tight min-w-0">
                   <p className="font-bold text-base xl:text-lg text-[var(--text-orange-3,#ED6D0B)] whitespace-nowrap">
-                    {value}
+                    <AnimatedCounter value={value} suffix={suffix} />
                   </p>
                   <p className="text-xs text-[var(--text-grey-2,#D1D5DC)] whitespace-nowrap">
                     {label}
@@ -391,6 +438,7 @@ export default function LandingPage() {
   return (
     <>
       <Navbar />
+              <ParticlesBackground/>
       <Hero />
     </>
   );

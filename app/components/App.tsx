@@ -1,7 +1,54 @@
 "use client";
 
+import { useRef, useEffect } from "react";
 import { Users, MessageSquare, BarChart3, Globe, Star, MessageCircle, TrendingUp, Heart } from "lucide-react";
-import React from 'react';
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import React, { ReactNode } from "react";
+import PartBackground from "./PointBackground";
+
+/* -----------------------------------------------------------
+    Compteur animé : 0 ➜ valeur finale, formaté fr-FR
+    Options: prefix/suffix, décimales, déclenchement au scroll
+------------------------------------------------------------ */
+function AnimatedCounter({
+  value,
+  duration = 2.2,
+  decimals = 0,
+  prefix = "",
+  suffix = "",
+}: {
+  value: number;
+  duration?: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+}) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: false });
+  const mv = useMotionValue(0);
+
+  const formatted = useTransform(mv, (latest) => {
+    const n = Number(latest);
+    const text = n.toLocaleString("fr-FR", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+    });
+    return `${prefix}${text}${suffix}`;
+  });
+
+  useEffect(() => {
+    if (!inView) return;
+    mv.set(0);
+    const controls = animate(mv, value, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, mv, value, duration]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{formatted}</motion.span>
+    </span>
+  );
+}
 
 export default function AppSection() {
   return (
@@ -9,6 +56,7 @@ export default function AppSection() {
       id="app"
       className="relative py-16 sm:py-20 lg:py-24 text-white text-[16px] sm:text-[18px] overflow-hidden -mt-20"
     >
+      <PartBackground />
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-10 sm:space-y-12">
         {/* Heading */}
         <div className="space-y-3">
@@ -27,7 +75,6 @@ export default function AppSection() {
               UpAfrica
             </span>
           </h2>
-
           <p className="text-gray-400 max-w-3xl mx-auto text-[14px] sm:text-[15px] leading-relaxed">
             Découvrez une expérience fluide et des fonctionnalités puissantes de notre application mobile.
             Tout ce dont vous avez besoin pour réussir en Afrique, dans votre poche.
@@ -75,7 +122,7 @@ export default function AppSection() {
 
             <div
               className="
-                mt-6 w-full sm:w-[406px] min-h-[120px] sm:min-h-[149px] 
+                mt-6 w-full sm:w-[406px] min-h-[120px] sm:min-h-[149px]
                 p-[12px] sm:p-[15px] rounded-[12.75px]
                 bg-[rgba(42,42,42,0.40)]
                 ring-1 ring-inset ring-white/8
@@ -90,15 +137,15 @@ export default function AppSection() {
                     <Star key={i} className="w-4 h-4 text-[#E86A0C]" fill="currentColor" stroke="none" />
                   ))}
                 </div>
-                <span className="text-white font-bold text-[16px] sm:text-[18px]">4,9/5</span>
+                <span className="text-white font-bold text-[16px] sm:text-[18px]">
+                  <AnimatedCounter value={4.9} decimals={1} />/5
+                </span>
               </div>
-
               <p className="text-[#D1D5DC] leading-relaxed text-[13px] sm:text-[15px]">
                 "La meilleure application pour connecter avec l’écosystème entrepreneurial africain"
               </p>
-
               <p className="mt-2 sm:mt-3 text-[12px] sm:text-[13px] text-[#99A1AF]">
-                Basé sur plus de 2 500 avis
+                Basé sur plus de <AnimatedCounter value={2500} /> avis
               </p>
             </div>
           </div>
@@ -147,7 +194,6 @@ function FeatureCard({
         >
           {icon}
         </span>
-
         <div className="flex-1">
           <h5 className="text-white font-semibold leading-tight text-[15px] sm:text-[17.5px]">
             {title}
