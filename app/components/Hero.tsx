@@ -21,7 +21,6 @@ export default function Hero() {
         "
         style={{ minHeight: "calc(90dvh - var(--header-h, 0px))" }}
       >
-        {/* === COLONNE TEXTE === */}
         <div className="w-full flex flex-col items-center xl:items-start text-center xl:text-left space-y-6 xl:space-y-[35px] order-1 xl:order-1">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-extrabold leading-tight">
             Connectez-vous à{" "}

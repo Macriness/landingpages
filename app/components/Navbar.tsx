@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-1 left-0 right-0 z-[100] flex justify-center transition-all duration-300"
+        className="fixed top-1 left-0 right-0 z-[100] flex justify-center transition-all duration-300 mt-10"
         style={{ height: "72px", "--header-h": "72px" } as React.CSSProperties}
       >
         <div className="relative w-[92%] max-w-6xl">
@@ -107,7 +107,6 @@ function Navbar() {
       }`}
       aria-hidden={!open}
     >
-      {/* Backdrop */}
       <div
         className={`absolute inset-0 transition-opacity duration-300 ${
           open ? "opacity-100" : "opacity-0"

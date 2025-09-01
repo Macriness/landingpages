@@ -65,7 +65,6 @@ export default function FeaturesSection() {
         </p>
       </div>
 
-      {/* --- Grid des features --- */}
       <div className="w-[92%] max-w-6xl mx-auto flex flex-col gap-6 md:gap-[32px]">
         {/* MOBILE: Layout en colonne unique */}
         <div className="flex flex-col gap-6 md:hidden">

@@ -92,7 +92,6 @@ export default function WhyChoose() {
           </p>
         </div>
 
-        {/* --- Feature Cards --- */}
         {/* MOBILE: Layout en colonne unique - Ajustement du gap pour plus de compacité */}
         <div className="flex flex-col items-center gap-4 md:hidden max-w-[1100px] mx-auto mt-16">
           <FeatureCard

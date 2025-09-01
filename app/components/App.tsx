@@ -73,7 +73,6 @@ export default function AppSection() {
               </div>
             </div>
 
-            {/* Avis */}
             <div
               className="
                 mt-6 w-full sm:w-[406px] min-h-[120px] sm:min-h-[149px] 
