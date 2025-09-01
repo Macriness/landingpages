@@ -1,3 +1,4 @@
+//cta
 "use client";
 
 import Image from "next/image";
@@ -9,12 +10,13 @@ import {
   Mail, Phone, MapPin,
   Facebook, Twitter, Instagram, Linkedin, Youtube
 } from "lucide-react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function CtaSection() {
   return (
-    <div className="relative isolate text-white -mt-10 md:mt-20"> {/* <--- Marge ajustée ici */}
+    <div className="relative isolate text-white -mt-10 md:mt-20">
       {/* ==== CTA ==== */}
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
         <div className="mx-auto w-full max-w-[854px]">
@@ -134,12 +136,10 @@ export default function CtaSection() {
                   type="submit"
                   className="
                     h-[44px] px-5
-                    rounded-[12px]
-                    font-semibold text-white
+                    rounded-[12px] font-semibold text-white
                     bg-[#ED6D0B] hover:brightness-110
                     shadow-[0_6px_20px_rgba(237,109,11,0.35)]
-                    transition
-                    flex items-center justify-center gap-2
+                    transition flex items-center justify-center gap-2
                   "
                 >
                   S’abonner
@@ -178,16 +178,16 @@ export default function CtaSection() {
               </p>
             </div>
 
-            {/* Colonnes du milieu (Liens Produit, Entreprise, Légal) */}
+            {/* Colonnes du milieu */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
               {/* Produit */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Fonctionnalités</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Tarifs</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Sécurité</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Mises à jour</Link></li>
+                  <li><Link href="#">Fonctionnalités</Link></li>
+                  <li><Link href="#">Tarifs</Link></li>
+                  <li><Link href="#">Sécurité</Link></li>
+                  <li><Link href="#">Mises à jour</Link></li>
                 </ul>
               </div>
 
@@ -195,10 +195,10 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Entreprise</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">À propos</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Carrières</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Presse</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Partenaires</Link></li>
+                  <li><Link href="#">À propos</Link></li>
+                  <li><Link href="#">Carrières</Link></li>
+                  <li><Link href="#">Presse</Link></li>
+                  <li><Link href="#">Partenaires</Link></li>
                 </ul>
               </div>
 
@@ -206,17 +206,13 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Légal</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Confidentialité</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Conditions</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Cookies</Link></li>
-                  <li><Link href="#" className="text-[#99A1AF] hover:text-white underline md:no-underline hover:no-underline">Licences</Link></li>
+                  <li><Link href="#">Confidentialité</Link></li>
+                  <li><Link href="#">Conditions</Link></li>
+                  <li><Link href="#">Cookies</Link></li>
+                  <li><Link href="#">Licences</Link></li>
                 </ul>
               </div>
             </div>
-
-            {/* Séparateur vertical (visible sur PC) */}
-            <div className="block md:hidden h-px w-[80%] bg-white/10 mx-8"></div>
-
 
             {/* Colonne de droite (Contact & Réseaux sociaux) */}
             <div className="text-left">
@@ -246,7 +242,7 @@ export default function CtaSection() {
         </div>
       </footer>
 
-      {/* Divider (existant, desktop style) */}
+      {/* Divider */}
       <div className="w-[80%] h-px bg-[#4A5565] opacity-60 mx-auto"></div>
 
       {/* ===== Présence Afrique ===== */}
@@ -256,27 +252,15 @@ export default function CtaSection() {
             Notre présence en Afrique
           </h3>
           <div className="grid grid-cols-3 gap-4 md:flex md:flex-nowrap md:justify-between md:gap-[14px] overflow-x-auto md:overflow-visible">
-            <FlagCard country="Nigeria" users="15 000+" imgSrc="/5.png" />
-            <FlagCard country="Kenya" users="8 000+" imgSrc="/4.png" />
-            <FlagCard country="Afrique du Sud" users="12 000+" imgSrc="/7.png" />
-            <FlagCard country="Ghana" users="6 000+" imgSrc="/3.png" />
-            <FlagCard country="Sénégal" users="3 000+" imgSrc="/6.png" />
-            <FlagCard country="Éthiopie" users="4k+" imgSrc="/2.png" />
+            <FlagCard country="Nigeria" value={15000} imgSrc="/5.png" />
+            <FlagCard country="Kenya" value={8000} imgSrc="/4.png" />
+            <FlagCard country="Afrique du Sud" value={12000} imgSrc="/7.png" />
+            <FlagCard country="Ghana" value={6000} imgSrc="/3.png" />
+            <FlagCard country="Sénégal" value={3000} imgSrc="/6.png" />
+            <FlagCard country="Éthiopie" value={4000} imgSrc="/2.png" />
             <div className="col-start-2">
-              <FlagCard country="Bénin" users="4k+" imgSrc="/1.png" />
+              <FlagCard country="Bénin" value={4000} imgSrc="/1.png" />
             </div>
-          </div>
-          {/* Liens légaux version mobile (centrés, un en dessous de l'autre) */}
-          <div className="mt-6 flex flex-col items-center gap-2 text-[12px] text-[#99A1AF] md:hidden">
-            <Link href="/privacy" className="hover:text-white underline hover:no-underline">
-              Politique de confidentialité
-            </Link>
-            <Link href="/terms" className="hover:text-white underline hover:no-underline">
-              Conditions d&apos;utilisation
-            </Link>
-            <Link href="/sitemap" className="hover:text-white underline hover:no-underline">
-              Plan du site
-            </Link>
           </div>
         </div>
       </section>
@@ -335,14 +319,51 @@ function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: 
   );
 }
 
-function FlagCard({ country, users, imgSrc }: { country: string; users: string; imgSrc: string; }) {
+/* ----------- Animated Counter ----------- */
+function AnimatedCounter({
+  value, duration = 2, decimals = 0, suffix = "+"
+}: {
+  value: number; duration?: number; decimals?: number; suffix?: string;
+}) {
+  const ref = React.useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: false }); // 👈 relance à chaque scroll
+  const mv = useMotionValue(0);
+
+  const formatted = useTransform(mv, (latest) => {
+    const n = Number(latest);
+    const text = n.toLocaleString("fr-FR", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+    });
+    return `${text}${suffix}`;
+  });
+
+  React.useEffect(() => {
+    if (!inView) return;
+    mv.set(0); // reset avant chaque animation
+    const controls = animate(mv, value, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, value, duration, mv]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{formatted}</motion.span>
+    </span>
+  );
+}
+
+/* ----------- Flag Card ----------- */
+function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string; }) {
   return (
     <div className="w-[115px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
       <Image src={imgSrc} alt={`Drapeau ${country}`} width={24} height={16} className="rounded-[2px] object-cover" />
       <div className="text-center leading-tight">
         <div className="text-[12px] font-semibold text-white">{country}</div>
-        <div className="text-[12px] font-medium text-[#F6B27A]">{users}</div>
+        <div className="text-[12px] font-medium text-[#F6B27A]">
+          <AnimatedCounter value={value} suffix="+" />
+        </div>
       </div>
     </div>
   );
 }
+

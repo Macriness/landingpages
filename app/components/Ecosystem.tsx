@@ -1,8 +1,58 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { useRef, useEffect } from "react";
 import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
+import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
+/* -----------------------------------------------------------
+   Compteur animé : 0 ➜ valeur finale, formaté fr-FR
+   Options: prefix/suffix, décimales, déclenchement au scroll
+------------------------------------------------------------ */
+function AnimatedCounter({
+  value,
+  duration = 2.2,
+  decimals = 0,
+  prefix = "",
+  suffix = "",
+}: {
+  value: number;
+  duration?: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+}) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: false }); // ✅ rejoue à chaque scroll
+  const mv = useMotionValue(0);
+
+  const formatted = useTransform(mv, (latest) => {
+    const n = Number(latest);
+    const text = n.toLocaleString("fr-FR", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+    });
+    return `${prefix}${text}${suffix}`;
+  });
+
+  useEffect(() => {
+    if (!inView) return;
+    // ✅ reset à 0 à chaque fois qu’il revient visible
+    mv.set(0);
+    const controls = animate(mv, value, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, mv, value, duration]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{formatted}</motion.span>
+    </span>
+  );
+}
+
+/* ===========================================================
+   SECTION
+=========================================================== */
 export default function EcosystemSection() {
   return (
     <section id="ecosystem" className="relative text-white">
@@ -35,11 +85,16 @@ export default function EcosystemSection() {
 
         {/* === Features — cartes responsives === */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:[grid-template-columns:repeat(3,266px)] gap-6 justify-center">
+          {/* Diaspora */}
           <FeatureGlassCard
             image="/0103.png"
             icon={<Users className="w-[28px] h-[28px]" />}
             title="Diaspora africaine"
-            subtitle="15 millions de talents"
+            subtitle={
+              <>
+                <AnimatedCounter value={2.1} decimals={1} suffix=" millions" /> de talents
+              </>
+            }
           >
             <p className="text-[#D1D5DC] text-sm">
               Professionnels, entrepreneurs et investisseurs africains répartis
@@ -48,19 +103,24 @@ export default function EcosystemSection() {
 
             <StatsList
               items={[
-                ["USA", "2,1 millions"],
-                ["France", "1,8 M"],
-                ["ROYAUME–UNI", "1,2 M"],
-                ["Canada", "850 000"],
+                ["USA", <AnimatedCounter key="usa" value={2.1} decimals={1} suffix=" millions" />],
+                ["France", <AnimatedCounter key="fr" value={1.8} decimals={1} suffix=" M" />],
+                ["ROYAUME–UNI", <AnimatedCounter key="uk" value={1.2} decimals={1} suffix=" M" />],
+                ["Canada", <AnimatedCounter key="ca" value={850000} />],
               ]}
             />
           </FeatureGlassCard>
 
+          {/* Startups */}
           <FeatureGlassCard
             image="/0202.png"
             icon={<Building className="w-[28px] h-[28px]" />}
             title="Startups Africaines"
-            subtitle="50 000+ entreprises"
+            subtitle={
+              <>
+                <AnimatedCounter value={50000} />+ entreprises
+              </>
+            }
           >
             <p className="text-[#D1D5DC] text-sm">
               Écosystème dynamique de startups et PME innovantes à travers le continent
@@ -68,28 +128,41 @@ export default function EcosystemSection() {
 
             <StatsList
               items={[
-                ["Nigeria", "15 000"],
-                ["Kenya", "8k"],
-                ["Afrique du Sud", "12 000"],
-                ["Ghana", "5k"],
+                ["Nigeria", <AnimatedCounter key="ng" value={15000} />],
+                ["Kenya", <AnimatedCounter key="ke" value={8} suffix="k" />],
+                ["Afrique du Sud", <AnimatedCounter key="za" value={12000} />],
+                ["Ghana", <AnimatedCounter key="gh" value={5} suffix="k" />],
               ]}
             />
           </FeatureGlassCard>
 
+          {/* Fonds */}
           <FeatureGlassCard
             image="/0301.png"
             icon={<Rocket className="w-[28px] h-[28px]" />}
             title="Fonds d’investissement"
-            subtitle="Plus de 500 investisseurs"
+            subtitle={
+              <>
+                Plus de <AnimatedCounter value={500} /> investisseurs
+              </>
+            }
           >
-            <p className="text-[#D1DDC] text-sm">
-              VCs, business angels et fonds spécialisés dans l'innovation africaine
+            <p className="text-[#D1D5DC] text-sm">
+              VCs, business angels et fonds spécialisés dans l&apos;innovation africaine
             </p>
             <ul className="space-y-1.5 text-[12.5px] tracking-wide text-[#99A1AF]">
-              <li>2,5&nbsp;milliards d&apos;euros levés</li>
-              <li>Plus de 300 offres</li>
-              <li>25% de croissance</li>
-              <li>15 pays</li>
+              <li>
+                <AnimatedCounter value={2.5} decimals={1} suffix=" milliards d’euros levés" />
+              </li>
+              <li>
+                <AnimatedCounter value={300} prefix="Plus de " suffix=" offres" />
+              </li>
+              <li>
+                <AnimatedCounter value={25} suffix="%" /> de croissance
+              </li>
+              <li>
+                <AnimatedCounter value={15} suffix=" pays" />
+              </li>
             </ul>
           </FeatureGlassCard>
         </div>
@@ -97,22 +170,26 @@ export default function EcosystemSection() {
         {/* === Stats — responsive === */}
         <div className="mt-14 grid grid-cols-2 sm:[grid-template-columns:repeat(4,198px)] gap-4 justify-center">
           <StatCard
-            value="54"
+            value={<AnimatedCounter value={54} />}
             title="Pays africains"
             sub="Présence sur tout le continent"
           />
           <StatCard
-            value="120+"
+            value={<AnimatedCounter value={120} suffix="+" />}
             title="Pays de la diaspora"
             sub="Communauté mondiale"
           />
           <StatCard
-            value="€500M"
+            value={
+              <>
+                <AnimatedCounter value={500} prefix="€" suffix="M" />
+              </>
+            }
             title="Investissements"
             sub="Installations depuis 2020"
           />
           <StatCard
-            value="15 000+"
+            value={<AnimatedCounter value={15000} suffix="+" />}
             title="Emplois créés"
             sub="Impact social direct"
           />
@@ -138,7 +215,7 @@ export default function EcosystemSection() {
             </span>
           </h3>
 
-          {/* --- Desktop (inchangé) --- */}
+          {/* Desktop */}
           <div className="hidden md:grid items-center justify-items-center gap-4 sm:gap-[0px] md:grid-cols-5 max-w-[1000px] mx-auto">
             <StepItem
               icon={<Users size={20} />}
@@ -159,7 +236,7 @@ export default function EcosystemSection() {
             />
           </div>
 
-          {/* --- Mobile : flèches verticales --- */}
+          {/* Mobile */}
           <div className="flex md:hidden flex-col items-center gap-4 max-w-[780px] mx-auto">
             <StepItem
               icon={<Users size={20} />}
@@ -185,23 +262,24 @@ export default function EcosystemSection() {
         <div className="mt-14 flex flex-col items-center gap-6">
           <button
             className="
-              w-[200px] h-[45px] rounded-[8px] px-4
+              w-full max-w-[200px] h-[45px] rounded-[8px] px-4
               bg-[#ED6D0B] text-white font-semibold
               shadow-[0_0_24px_rgba(237,109,11,0.75),inset_0_1px_0_rgba(255,255,255,0.18)]
               hover:brightness-105 active:translate-y-[1px] transition
+              text-[clamp(12px,3.5vw,16px)] whitespace-nowrap
             "
           >
             Rejoindre l’écosystème
           </button>
 
-          {/* ✅ Image placée juste après le bouton (mobile only pour ne rien changer sur PC) */}
+          {/* Image mobile uniquement */}
           <div className="md:hidden w-full flex justify-center">
             <div
               className="relative w-[100%] max-w-[780px] mt-10"
-              style={{ aspectRatio: "9 / 16" }} /* évite la mise en page qui saute */
+              style={{ aspectRatio: "9 / 16" }}
             >
               <img
-                src={"/ending_image.png"}      /* espace encodé */
+                src={"/ending_image.png"}
                 alt="Aperçu UpAfrica"
                 className="object-contain w-full h-full"
               />
@@ -213,6 +291,9 @@ export default function EcosystemSection() {
   );
 }
 
+/* -----------------------------------------------------------
+   Cartes vitrées
+------------------------------------------------------------ */
 function FeatureGlassCard({
   image,
   icon,
@@ -223,7 +304,7 @@ function FeatureGlassCard({
   image: string;
   icon: ReactNode;
   title: string;
-  subtitle: string;
+  subtitle: ReactNode;
   children: ReactNode;
 }) {
   return (
@@ -265,7 +346,10 @@ function FeatureGlassCard({
   );
 }
 
-function StatsList({ items }: { items: [string, string][] }) {
+/* -----------------------------------------------------------
+   Liste de stats (dans les cartes)
+------------------------------------------------------------ */
+function StatsList({ items }: { items: [string, ReactNode][] }) {
   return (
     <div className="mt-2 space-y-2">
       {items.map(([k, v]) => (
@@ -278,13 +362,15 @@ function StatsList({ items }: { items: [string, string][] }) {
   );
 }
 
-/* --- Stats block --- */
+/* -----------------------------------------------------------
+   StatCard (bas de section)
+------------------------------------------------------------ */
 function StatCard({
   value,
   title,
   sub,
 }: {
-  value: string;
+  value: ReactNode;
   title: string;
   sub: string;
 }) {
@@ -302,7 +388,9 @@ function StatCard({
         "
     >
       <div className="space-y-1.5">
-        <div className="text-[22px] font-semibold text-[var(--text-orange-2,#F5AA71)]">{value}</div>
+        <div className="text-[22px] font-semibold text-[var(--text-orange-2,#F5AA71)]">
+          {value}
+        </div>
         <div className="text-[15px] font-semibold text-white">{title}</div>
         <div className="text-[15.75px] sm:text-[11.70px] text-[#99A1AF]">{sub}</div>
       </div>
@@ -310,7 +398,9 @@ function StatCard({
   );
 }
 
-/* --- How it works elements --- */
+/* -----------------------------------------------------------
+   Etapes + flèches
+------------------------------------------------------------ */
 function StepItem({
   icon,
   title,
@@ -340,3 +430,4 @@ function Arrow({ className = "" }: { className?: string }) {
     </div>
   );
 }
+
