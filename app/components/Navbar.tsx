@@ -2,14 +2,12 @@
 
 import { Download, Star, Globe, TrendingUp, X, ArrowRight, Play, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-//import DotsBackground from "./DotsBackground";
 import ParticlesBackground from "./ParticlesBackground";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // Bloquer le scroll quand le menu est ouvert
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
@@ -24,10 +22,10 @@ function Navbar() {
   return (
     <>
       <nav
-        className="fixed top-1 left-0 right-0 z-[100] flex justify-center transition-all duration-300 mt-10"
+        className="fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-300 w-full"
         style={{ height: "72px", "--header-h": "72px" } as React.CSSProperties}
       >
-        <div className="relative w-[92%] max-w-6xl">
+        <div className="relative w-[92%] max-w-6xl mt-10">
           <div
             className="
               relative overflow-hidden
@@ -104,134 +102,125 @@ function Navbar() {
       </nav>
 
       <div
-      id="mobile-sidebar"
-      className={`fixed inset-0 z-[200] sm:hidden ${
-        open ? "pointer-events-auto" : "pointer-events-none"
-      }`}
-      aria-hidden={!open}
-    >
-      <div
-        className={`absolute inset-0 transition-opacity duration-300 ${
-          open ? "opacity-100" : "opacity-0"
-        } bg-black/60 backdrop-blur-sm`}
-        onClick={() => setOpen(false)}
-      />
-
-      {/* PANEL */}
-      <aside
-        className={`
-          fixed left-2 top-2 bottom-2
-          transform transition-transform duration-300 ease-out
-          ${open ? "translate-x-0" : "-translate-x-[calc(100%+8px)]"}
-          w-[280px] rounded-[10px] overflow-hidden
-          shadow-[0_8px_32px_rgba(0,0,0,0.40)]
-          border border-white/10
-          bg-[rgba(26,27,31,0.85)] backdrop-blur-[24px]
-          relative
-        `}
+        id="mobile-sidebar"
+        className={`fixed inset-0 z-[200] sm:hidden ${
+          open ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        aria-hidden={!open}
       >
-        {/* verre : lueur / éclairage -45° */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[10px]"
-          style={{
-            background:
-              // lueur de surface (lumière venant du coin haut-gauche)
-              "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0) 35%)",
-          }}
-        />
-        {/* léger bord interne */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[10px]"
-          style={{
-            boxShadow:
-              "inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04)",
-          }}
-        />
-        {/* halo orange derrière le logo */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -z-0"
-          style={{
-            left: 16,
-            top: 12,
-            width: 96,
-            height: 96,
-            borderRadius: 24,
-            background:
-              "radial-gradient(60px 60px at 24px 24px, rgba(255,122,26,0.45), rgba(255,122,26,0.18) 48%, rgba(255,122,26,0.05) 70%, transparent 80%)",
-            filter: "blur(8px)",
-          }}
+        <div
+          className={`absolute inset-0 transition-opacity duration-300 ${
+            open ? "opacity-100" : "opacity-0"
+          } bg-black/60 backdrop-blur-sm`}
+          onClick={() => setOpen(false)}
         />
 
-        {/* contenu */}
-        <div className="relative z-10 h-[760] flex flex-col">
-          {/* header */}
-          <div className="flex items-center justify-between px-5 py-4">
-            <a
-              href="/"
-              onClick={() => setOpen(false)}
-              className="flex items-center gap-3"
-            >
-              <div className="relative">
-                <div className="w-10 h-10 rounded-2xl grid place-items-center
-                  shadow-[0_6px_18px_rgba(255,122,26,0.35)]
-                  border border-white/10
-                  bg-gradient-to-br from-[#FF8A1A] to-[#FF6A00]">
-                  <Zap size={18} className="text-white" />
+        <aside
+          className={`
+            fixed left-2 top-2 bottom-2
+            transform transition-transform duration-300 ease-out
+            ${open ? "translate-x-0" : "-translate-x-[calc(100%+8px)]"}
+            w-[280px] rounded-[10px] overflow-hidden
+            shadow-[0_8px_32px_rgba(0,0,0,0.40)]
+            border border-white/10
+            bg-[rgba(26,27,31,0.85)] backdrop-blur-[24px]
+            relative
+          `}
+        >
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-[10px]"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0) 35%)",
+            }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-[10px]"
+            style={{
+              boxShadow:
+                "inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.04)",
+            }}
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -z-0"
+            style={{
+              left: 16,
+              top: 12,
+              width: 96,
+              height: 96,
+              borderRadius: 24,
+              background:
+                "radial-gradient(60px 60px at 24px 24px, rgba(255,122,26,0.45), rgba(255,122,26,0.18) 48%, rgba(255,122,26,0.05) 70%, transparent 80%)",
+              filter: "blur(8px)",
+            }}
+          />
+
+          <div className="relative z-10 h-[760] flex flex-col">
+            <div className="flex items-center justify-between px-5 py-4">
+              <a
+                href="/"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3"
+              >
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-2xl grid place-items-center
+                    shadow-[0_6px_18px_rgba(255,122,26,0.35)]
+                    border border-white/10
+                    bg-gradient-to-br from-[#FF8A1A] to-[#FF6A00]">
+                    <Zap size={18} className="text-white" />
+                  </div>
                 </div>
-              </div>
-              <span className="font-bold text-white text-[22px] leading-none">
-                UpAfrica
-              </span>
-            </a>
-          </div>
+                <span className="font-bold text-white text-[22px] leading-none">
+                  UpAfrica
+                </span>
+              </a>
+            </div>
 
-          {/* nav */}
-          <nav className=" px-4 pt-4">
-            <ul className="space-y-4">
-              {[
-                ["#features", "Fonctionnalités"],
-                ["#why", "Pourquoi UpAfrica"],
-                ["#ecosystem", "Ecosystème"],
-                ["#app", "L’App"],
-              ].map(([href, label]) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    onClick={() => setOpen(false)}
-                    className="block w-full px-4 py-3 rounded-xl
-                               text-white/95 text-[18px] font-medium
-                               hover:bg-white/10 active:bg-white/15
-                               transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav className=" px-4 pt-4">
+              <ul className="space-y-4">
+                {[
+                  ["#features", "Fonctionnalités"],
+                  ["#why", "Pourquoi UpAfrica"],
+                  ["#ecosystem", "Ecosystème"],
+                  ["#app", "L'App"],
+                ].map(([href, label]) => (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      onClick={() => setOpen(false)}
+                      className="block w-full px-4 py-3 rounded-xl
+                                 text-white/95 text-[18px] font-medium
+                                 hover:bg-white/10 active:bg-white/15
+                                 transition-colors"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* CTA */}
-          <div className="p-6">
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center w-full h-12 rounded-xl
-                          text-[16px] font-semibold text-white
-                          bg-gradient-to-b from-[#FF8A1A] to-[#FF6A00]
-                          shadow-[0_8px_24px_rgba(255,122,26,0.35)]
-                          border border-white/10
-                          hover:shadow-[0_10px_28px_rgba(255,122,26,0.45)]
-                          active:translate-y-[1px] transition-all"
-            >
-              Nous contacter
-            </a>
+            <div className="p-6">
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center w-full h-12 rounded-xl
+                           text-[16px] font-semibold text-white
+                           bg-gradient-to-b from-[#FF8A1A] to-[#FF6A00]
+                           shadow-[0_8px_24px_rgba(255,122,26,0.35)]
+                           border border-white/10
+                           hover:shadow-[0_10px_28px_rgba(255,122,26,0.45)]
+                           active:translate-y-[1px] transition-all"
+              >
+                Nous contacter
+              </a>
+            </div>
           </div>
-        </div>
-      </aside>
-    </div>
+        </aside>
+      </div>
     </>
   );
 }
@@ -250,7 +239,7 @@ function AnimatedCounter({
   suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const inView = useInView(ref, { once: false }); // ✅ rejoue à chaque scroll
+  const inView = useInView(ref, { once: false });
   const mv = useMotionValue(0);
 
   const formatted = useTransform(mv, (latest) => {
@@ -264,7 +253,6 @@ function AnimatedCounter({
 
   useEffect(() => {
     if (!inView) return;
-    // ✅ reset à 0 à chaque fois qu’il revient visible
     mv.set(0);
     const controls = animate(mv, value, { duration, ease: "easeOut" });
     return () => controls.stop();
@@ -277,17 +265,14 @@ function AnimatedCounter({
   );
 }
 
-/* ===========================================================
-    SECTION
-=========================================================== */
 function Hero() {
   return (
     <section
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
-        mt-5 md:mt-0 xl:-mt-12
+        mt-5 md:mt-0 xl:mt-20 bg-cover bg-center bg-no-repeat
       "
-      style={{ paddingTop: "0px" }}
+      style={{ paddingTop: "0px", backgroundImage: "url('/back1.png')" }}
     >
       <div
         className="
@@ -438,7 +423,6 @@ export default function LandingPage() {
   return (
     <>
       <Navbar />
-              <ParticlesBackground/>
       <Hero />
     </>
   );

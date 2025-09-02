@@ -113,7 +113,7 @@ export default function ParticlesBackground() {
       background: { color: "transparent" },
       detectRetina: true,
       particles: {
-        number: { value: 300, density: { enable: true, area: 900 } },
+        number: { value: 500, density: { enable: true, area: 900 } },
         color: { value: "#ff8c32" }, // La couleur orange
         shape: { type: "circle" },
         size: { value: 2, random: { enable: true, minimumValue: 0.8 } },

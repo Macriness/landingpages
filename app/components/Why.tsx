@@ -65,8 +65,8 @@ function AnimatedCounter({
 /* --- Section WhyChoose --- */
 export default function WhyChoose() {
   return (
-    <section id="why" className="relative py-24 text-white">
-      <ParticlesBackground />
+    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/back2.png')" }}>
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20 z-10 relative">
         {/* HEADER */}
         <div className="relative text-center mb-12">
@@ -140,7 +140,7 @@ export default function WhyChoose() {
         <div className="flex flex-col items-center gap-4 md:hidden max-w-[1100px] mx-auto mt-16">
           <FeatureCard
             icon={TrendingUp}
-            title="Plus de 750M d'euros"
+            title={<>Plus de <AnimatedCounter value={750} />M d&apos;euros</>}
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             badge={
@@ -170,7 +170,7 @@ export default function WhyChoose() {
         <div className="hidden md:flex lg:hidden justify-center gap-[20px] max-w-[1100px] mx-auto mt-16">
           <FeatureCard
             icon={TrendingUp}
-            title="Plus de 750M d'euros"
+            title={<>Plus de <AnimatedCounter value={750} />M d&apos;euros</>}
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             isTablet={true}
@@ -203,13 +203,13 @@ export default function WhyChoose() {
         <div className="hidden lg:flex flex-wrap justify-center max-w-[1100px] mx-auto mt-24">
           <FeatureCard
             icon={TrendingUp}
-            title="Plus de 750M d'euros"
+            title={<>Plus de <AnimatedCounter value={750} />M d&apos;euros</>}
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             badge={
               <>
                 <ArrowUpRight size={14} className="ml-1 opacity-90" />
-                +<AnimatedCounter value={150}/>% par rapport à 2023
+                +<AnimatedCounter value={150} />% par rapport à 2023
               </>
             }
           />
@@ -262,7 +262,7 @@ export default function WhyChoose() {
           <StatV2Card imgSrc="/ico.png" alt="Icone utilisateurs" value={<><AnimatedCounter value={25000} />+</>} label="Emplois créés" />
           <StatV2Card imgSrc="/ico3.png" alt="Icone fusée" value={<><AnimatedCounter value={500} />+</>} label="Startups financées" />
           <StatV2Card imgSrc="/ico2.png" alt="Icone globe terrestre" value={<AnimatedCounter value={54} />} label="Pays impactés" />
-          <StatV2Card imgSrc="/ico1.png" alt="Icone dollar" value={<><AnimatedCounter value={750} prefix="€" suffix="M" /></>} label="Capital mobilisé" />
+          <StatV2Card imgSrc="/ico1.png" alt="Icone dollar" value={<><AnimatedCounter value={750} /> millions d&apos;euros</>} label="Capital mobilisé" />
         </div>
 
         {/* === CTA Néomorphique === */}
