@@ -234,7 +234,7 @@ export default function CtaSection() {
               </div>
               <div className="flex justify-start gap-2 pt-4">
                 {[Facebook, Twitter, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                  <Link key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#7F7F7F] border border-[#4A5565] text-white/80 hover:text-white hover:border-[#ED6D0B] transition transform hover:scale-110">
+                  <Link key={i} href="#" className="w-8 h-8 rounded-lg grid place-items-center bg-[#232323] border border-[#232323] text-white/80 hover:text-white hover:border-[#232323] transition transform hover:scale-110">
                     <Icon size={16} />
                   </Link>
                 ))}
