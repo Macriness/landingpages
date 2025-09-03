@@ -4,6 +4,8 @@ import { useRef, useEffect } from "react";
 import { Users, MessageSquare, BarChart3, Globe, Star, MessageCircle, TrendingUp, Heart } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import React, { ReactNode } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 
 /* -----------------------------------------------------------
@@ -113,9 +115,9 @@ export default function AppSection() {
               <h4 className="text-white font-semibold leading-tight text-[16px] sm:text-[17.5px] text-center sm:text-left">
                 Téléchargez dès maintenant
               </h4>
-              <div className="flex flex-wrap justify-center sm:justify-start gap-3">
-                <img src="/Google_Play.png" alt="Google Play" width={160} height={48} className="w-[120px] sm:w-[140px] h-auto" />
-                <img src="/App_Store.png" alt="App Store" width={160} height={48} className="w-[120px] sm:w-[140px] h-auto" />
+	       <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+                 <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
+                 <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
               </div>
             </div>
 
@@ -163,7 +165,25 @@ export default function AppSection() {
     </section>
   );
 }
-
+/* ----------- Subcomponents ----------- */
+function StoreBadge({
+  href, src, alt, width, height, external = false,
+}: {
+  href: string; src: string; alt: string; width: number; height: number; external?: boolean;
+}) {
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
+        <Image src={src} alt={alt} width={width} height={height} priority />
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className="inline-block">
+      <Image src={src} alt={alt} width={width} height={height} priority />
+    </Link>
+  );
+}
 // Feature Card
 function FeatureCard({
   icon,
