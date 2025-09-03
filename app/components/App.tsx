@@ -4,7 +4,7 @@ import { useRef, useEffect } from "react";
 import { Users, MessageSquare, BarChart3, Globe, Star, MessageCircle, TrendingUp, Heart } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import React, { ReactNode } from "react";
-import PartBackground from "./PointBackground";
+
 
 /* -----------------------------------------------------------
     Compteur animé : 0 ➜ valeur finale, formaté fr-FR
@@ -56,7 +56,6 @@ export default function AppSection() {
       id="app"
       className="relative py-16 sm:py-20 lg:py-24 text-white text-[16px] sm:text-[18px] overflow-hidden -mt-20"
     >
-      <PartBackground />
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-10 sm:space-y-12">
         {/* Heading */}
         <div className="space-y-3">

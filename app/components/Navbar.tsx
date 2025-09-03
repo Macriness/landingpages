@@ -2,7 +2,6 @@
 
 import { Download, Star, Globe, TrendingUp, X, ArrowRight, Play, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import ParticlesBackground from "./ParticlesBackground";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
 function Navbar() {
@@ -67,39 +66,40 @@ function Navbar() {
               </ul>
             </div>
 
-            <div className="hidden sm:block relative z-10">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white"
-                style={{
-                  background: "var(--btn-base-orange, #FF7A1A)",
-                  boxShadow:
-                    "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
-                }}
-              >
-                Nous contacter
-              </a>
-            </div>
-
-            <button
-              onClick={() => setOpen(true)}
-              aria-controls="mobile-sidebar"
-              aria-expanded={open}
-              className="sm:hidden ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full relative z-[120] hover:bg-white/10 transition-colors"
+            <div className="hidden md:block relative z-10"> {/* CHANGEMENT ICI: sm:block devient md:block */}
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white"
               style={{
-                background: "rgba(255,255,255,0.06)",
-                border: "1px solid rgba(255,255,255,0.10)",
+                background: "var(--btn-base-orange, #FF7A1A)",
+                boxShadow:
+                  "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
               }}
             >
-              <div className="h-3 w-4 grid gap-0.5">
-                <span className="block h-[1.5px] bg-white/90 rounded-full" />
-                <span className="block h-[1.5px] bg-white/90 rounded-full" />
-                <span className="block h-[1.5px] bg-white/90 rounded-full" />
-              </div>
-            </button>
+              Nous contacter
+            </a>
           </div>
+
+          {/* --- Icône du menu burger --- */}
+          <button
+            onClick={() => setOpen(true)}
+            aria-controls="mobile-sidebar"
+            aria-expanded={open}
+            className="md:hidden ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full relative z-[120] hover:bg-white/10 transition-colors"
+            style={{
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.10)",
+            }}
+          >
+            <div className="h-3 w-4 grid gap-0.5">
+              <span className="block h-[1.5px] bg-white/90 rounded-full" />
+              <span className="block h-[1.5px] bg-white/90 rounded-full" />
+              <span className="block h-[1.5px] bg-white/90 rounded-full" />
+            </div>
+          </button>
         </div>
-      </nav>
+      </div>
+    </nav>
 
       <div
         id="mobile-sidebar"
@@ -270,7 +270,7 @@ function Hero() {
     <section
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
-        mt-5 md:mt-0 xl:mt-20 bg-cover bg-center bg-no-repeat
+        mt-29 md:mt-29 xl:mt-20 bg-cover bg-center bg-no-repeat
       "
       style={{ paddingTop: "0px", backgroundImage: "url('/back1.png')" }}
     >

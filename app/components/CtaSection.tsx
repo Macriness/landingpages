@@ -11,15 +11,14 @@ import {
   Facebook, Twitter, Instagram, Linkedin, Youtube
 } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
-import PartBackground from "./PointBackground";
+
 
 const dmSans = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
 export default function CtaSection() {
   return (
     <div className="relative isolate text-white -mt-10 md:mt-20">
-      <PartBackground />
-      {/* ==== CTA ==== */}
+
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
       <div className="mx-auto w-full max-w-[854px]">
         <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">

@@ -16,12 +16,8 @@ import {
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 import { Button } from "@heroui/react";
 import Image from "next/image";
-import ParticlesBackground from "./ParticlesBackground";
 
-/* -----------------------------------------------------------
-    Compteur animé : 0 ➜ valeur finale, formaté fr-FR
-    Options: prefix/suffix, décimales, déclenchement au scroll
------------------------------------------------------------- */
+
 function AnimatedCounter({
   value,
   duration = 2.2,

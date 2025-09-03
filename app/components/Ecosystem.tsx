@@ -4,12 +4,8 @@ import type { ReactNode } from "react";
 import { useRef, useEffect } from "react";
 import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
-import PartBackground from "./PointBackground";
 
-/* -----------------------------------------------------------
-   Compteur animé : 0 ➜ valeur finale, formaté fr-FR
-   Options: prefix/suffix, décimales, déclenchement au scroll
------------------------------------------------------------- */
+
 function AnimatedCounter({
   value,
   duration = 2.2,
