@@ -5,7 +5,6 @@ import { useRef, useEffect } from "react";
 import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
-
 function AnimatedCounter({
   value,
   duration = 2.2,
@@ -20,7 +19,7 @@ function AnimatedCounter({
   suffix?: string;
 }) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const inView = useInView(ref, { once: false }); // ✅ rejoue à chaque scroll
+  const inView = useInView(ref, { once: false }); // rejoue à chaque scroll
   const mv = useMotionValue(0);
 
   const formatted = useTransform(mv, (latest) => {
@@ -34,7 +33,6 @@ function AnimatedCounter({
 
   useEffect(() => {
     if (!inView) return;
-    // ✅ reset à 0 à chaque fois qu’il revient visible
     mv.set(0);
     const controls = animate(mv, value, { duration, ease: "easeOut" });
     return () => controls.stop();
@@ -52,8 +50,11 @@ function AnimatedCounter({
 =========================================================== */
 export default function EcosystemSection() {
   return (
-    <section id="ecosystem" className="relative text-white relative bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url('/back3.png')" }}>
+    <section
+      id="ecosystem"
+      className="relative text-white bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/back3.png')" }}
+    >
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12 -mt-10">
         {/* Heading */}
         <div className="space-y-3">
@@ -76,7 +77,7 @@ export default function EcosystemSection() {
           </h2>
 
           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-            UpAfrica unit trois piliers fondamentaux de l'innovation africaine :
+            UpAfrica unit trois piliers fondamentaux de l&apos;innovation africaine :
             la diaspora talentueuse, les startups ambitieuses et les investisseurs visionnaires.
           </p>
         </div>
@@ -178,11 +179,7 @@ export default function EcosystemSection() {
             sub="Communauté mondiale"
           />
           <StatCard
-            value={
-              <>
-                <AnimatedCounter value={500} prefix="€" suffix="M" />
-              </>
-            }
+            value={<AnimatedCounter value={500} prefix="€" suffix="M" />}
             title="Investissements"
             sub="Installations depuis 2020"
           />
@@ -272,15 +269,8 @@ export default function EcosystemSection() {
 
           {/* Image mobile uniquement */}
           <div className="md:hidden w-full flex justify-center">
-            <div
-              className="relative w-[100%] max-w-[780px] mt-10"
-              style={{ aspectRatio: "9 / 16" }}
-            >
-              <img
-                src={"/ending_image.png"}
-                alt="Aperçu UpAfrica"
-                className="object-contain w-full h-full"
-              />
+            <div className="relative w-[100%] max-w-[780px] mt-10" style={{ aspectRatio: "9 / 16" }}>
+              <img src="/ending_image.png" alt="Aperçu UpAfrica" className="object-contain w-full h-full" />
             </div>
           </div>
         </div>
@@ -290,7 +280,7 @@ export default function EcosystemSection() {
 }
 
 /* -----------------------------------------------------------
-   Cartes vitrées
+   Cartes vitrées (espaces bas réduits)
 ------------------------------------------------------------ */
 function FeatureGlassCard({
   image,
@@ -308,29 +298,26 @@ function FeatureGlassCard({
   return (
     <article
       className="
-          relative overflow-hidden
-          rounded-[14px]
-          bg-[rgba(42,42,42,0.40)]
-          ring-1 ring-inset ring-white/8
-          backdrop-blur-[40px]
-          shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-          flex flex-col
-          w-full max-w-[270px] mx-auto sm:w-[256px]
-        "
-      style={{ minHeight: 517 }}
+        relative overflow-hidden
+        rounded-[14px]
+        bg-[rgba(42,42,42,0.40)]
+        ring-1 ring-inset ring-white/8
+        backdrop-blur-[40px]
+        shadow-[0_8px_32px_rgba(0,0,0,0.40),
+                inset_0_1px_0_rgba(255,255,255,0.10),
+                inset_0_-1px_0_rgba(0,0,0,0.20)]
+        flex flex-col
+        w-full max-w-[270px] mx-auto sm:w-[256px]
+      "
     >
       {/* Top image */}
       <div className="relative h-[233px] w-full">
-        <img
-          src={image}
-          alt={title}
-          className="object-cover absolute inset-0 w-full h-full"
-        />
+        <img src={image} alt={title} className="object-cover absolute inset-0 w-full h-full" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,.55)_70%,rgba(0,0,0,.85)_100%)]" />
 
         {/* Title inline */}
         <div className="absolute left-3 bottom-3 flex items-center gap-2">
-          <span className="text-[#ED6D0B] ">{icon}</span>
+          <span className="text-[#ED6D0B]">{icon}</span>
           <div className="leading-tight text-left">
             <h3 className="text-[17.5px] font-semibold text-white">{title}</h3>
             <p className="text-[12.5px] font-medium text-[#ED6D0B]">{subtitle}</p>
@@ -338,8 +325,8 @@ function FeatureGlassCard({
         </div>
       </div>
 
-      {/* Body */}
-      <div className="p-8 sm:p-6 space-y-4 text-left">{children}</div>
+      {/* Body (padding réduit) */}
+      <div className="px-5 py-6 sm:p-6 space-y-3 text-left">{children}</div>
     </article>
   );
 }
@@ -375,15 +362,17 @@ function StatCard({
   return (
     <div
       className="
-          w-full sm:w-[198px] min-h-[132px]
-          px-[22px] py-[9px]
-          rounded-[12.75px]
-          bg-[rgba(42,42,42,0.40)]
-          ring-1 ring-inset ring-white/8
-          backdrop-blur-[40px]
-          shadow-[0_8px_32px_rgba(0,0,0,0.40),inset_0_1px_0_rgba(255,255,255,0.10),inset_0_-1px_0_rgba(0,0,0,0.20)]
-          grid place-items-center text-center
-        "
+        w-full sm:w-[198px] min-h-[132px]
+        px-[22px] py-[9px]
+        rounded-[12.75px]
+        bg-[rgba(42,42,42,0.40)]
+        ring-1 ring-inset ring-white/8
+        backdrop-blur-[40px]
+        shadow-[0_8px_32px_rgba(0,0,0,0.40),
+                inset_0_1px_0_rgba(255,255,255,0.10),
+                inset_0_-1px_0_rgba(0,0,0,0.20)]
+        grid place-items-center text-center
+      "
     >
       <div className="space-y-1.5">
         <div className="text-[22px] font-semibold text-[var(--text-orange-2,#F5AA71)]">
@@ -409,12 +398,12 @@ function StepItem({
   desc: string;
 }) {
   return (
-    <div className="flex flex-col items-center text-center max-w-[270px] sm:max-w-[450px] gap-2">
-      <div className="w-16 h-16 rounded-full bg-[#ED6D0B] grid place-items-center shadow-[0_6px_16px_rgba(237,109,11,.4)]">
+    <div className="flex flex-col items-center text-center max-w-[270px] sm:max-w-[450px]">
+      <div className="w-16 h-16 rounded-full bg-[#ED6D0B] grid place-items-center shadow-[0_6px_16px_rgba(237,109,11,.4)] mb-3">
         <span className="text-white text-3xl">{icon}</span>
       </div>
       <div className="font-semibold text-lg text-white">{title}</div>
-      <div className="text-[15px] sm:text-[9.5px] text-[#99A1AF] leading-relaxed break-words">
+      <div className="text-[15px] sm:text-[11px] text-[#99A1AF] leading-snug mt-[1px]">
         {desc}
       </div>
     </div>

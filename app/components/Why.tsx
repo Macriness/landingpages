@@ -199,7 +199,12 @@ export default function WhyChoose() {
         <div className="hidden lg:flex flex-wrap justify-center max-w-[1100px] mx-auto mt-24">
           <FeatureCard
             icon={TrendingUp}
-            title={<>Plus de <AnimatedCounter value={750} />M d&apos;euros</>}
+            title={
+              <>
+                Plus de <AnimatedCounter value={750} /> M
+                <span className="ml-1"> d&apos;euros</span>
+              </>
+            }
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             badge={
