@@ -114,8 +114,8 @@ export default function AppSection() {
                 Téléchargez dès maintenant
               </h4>
               <div className="flex flex-wrap justify-center sm:justify-start gap-3">
-                <img src="/Google_Play.png" alt="Google Play" width={130} height={42} className="w-[120px] sm:w-[140px] h-auto" />
-                <img src="/App_Store.png" alt="App Store" width={130} height={42} className="w-[120px] sm:w-[140px] h-auto" />
+                <img src="/Google_Play.png" alt="Google Play" width={160} height={48} className="w-[120px] sm:w-[140px] h-auto" />
+                <img src="/App_Store.png" alt="App Store" width={160} height={48} className="w-[120px] sm:w-[140px] h-auto" />
               </div>
             </div>
 
