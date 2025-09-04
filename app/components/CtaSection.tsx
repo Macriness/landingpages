@@ -19,86 +19,87 @@ export default function CtaSection() {
   return (
     <div className="relative isolate text-white -mt-10 md:mt-20">
 
+      {/* ===== CTA ===== */}
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
-      <div className="mx-auto w-full max-w-[854px]">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
-          {/* LEFT */}
-          <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-2">
-            {/* rating */}
-            <div className="flex items-center gap-2 justify-center md:justify-start">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
-                ))}
+        <div className="mx-auto w-full max-w-[854px]">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
+            {/* LEFT */}
+            <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-2">
+              {/* rating */}
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <div className="flex items-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
+                  ))}
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-orange-400/90">
+                  4.9/5 · 50 000+ téléchargements
+                </span>
               </div>
-              <span className="text-xs sm:text-sm font-medium text-orange-400/90">
-                4.9/5 · 50 000+ téléchargements
-              </span>
-            </div>
 
-            {/* heading */}
-            <div className="space-y-4 sm:space-y-6">
-              <h1
-                className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
-              >
-                Prêt à transformer{" "}
-                <br className="hidden sm:block" />
-                votre avenir ?
-              </h1>
-              <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-                Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
-                pour développer leurs projets et créer des partenariats durables.
+              {/* heading */}
+              <div className="space-y-4 sm:space-y-6">
+                <h1
+                  className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
+                >
+                  Prêt à transformer{" "}
+                  <br className="hidden sm:block" />
+                  votre avenir ?
+                </h1>
+                <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+                  Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
+                  pour développer leurs projets et créer des partenariats durables.
+                </p>
+              </div>
+
+              {/* store badges */}
+              <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+                <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
+                <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
+              </div>
+              <p className="text-xs text-gray-500 text-center md:text-left">
+                Disponible sur iOS 13+ et Android 7+
               </p>
+
+              {/* features */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
+                <FeatureCard
+                  icon={<Download size={20} />}
+                  title="Téléchargement gratuit"
+                  subtitle="Applications entièrement gratuites avec toutes les fonctionnalités"
+                />
+                <FeatureCard
+                  icon={<Users size={20} />}
+                  title="Réseau vérifié"
+                  subtitle="Tous les membres sont vérifiés pour garantir la qualité"
+                />
+                <FeatureCard
+                  icon={<Shield size={20} />}
+                  title="Sécurisé"
+                  subtitle="Vos données sont protégées avec un cryptage de niveau bancaire"
+                />
+                <FeatureCard
+                  icon={<Zap size={20} />}
+                  title="Mises à jour"
+                  subtitle="Nouvelles fonctionnalités ajoutées chaque mois"
+                />
+              </div>
             </div>
 
-            {/* store badges */}
-            <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-              <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
-              <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
-            </div>
-            <p className="text-xs text-gray-500 text-center md:text-left">
-              Disponible sur iOS 13+ et Android 7+
-            </p>
-
-            {/* features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
-              <FeatureCard
-                icon={<Download size={20} />}
-                title="Téléchargement gratuit"
-                subtitle="Applications entièrement gratuites avec toutes les fonctionnalités"
-              />
-              <FeatureCard
-                icon={<Users size={20} />}
-                title="Réseau vérifié"
-                subtitle="Tous les membres sont vérifiés pour garantir la qualité"
-              />
-              <FeatureCard
-                icon={<Shield size={20} />}
-                title="Sécurisé"
-                subtitle="Vos données sont protégées avec un cryptage de niveau bancaire"
-              />
-              <FeatureCard
-                icon={<Zap size={20} />}
-                title="Mises à jour"
-                subtitle="Nouvelles fonctionnalités ajoutées chaque mois"
+            {/* RIGHT — image seule */}
+            <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
+              <Image
+                src="/ending_image.png"
+                alt="Aperçu de l’app UpAfrica"
+                width={406}
+                height={670}
+                priority
+                className="w-full h-full object-contain"
               />
             </div>
-          </div>
-
-          {/* RIGHT — image seule (masquée sur mobile et tablette) */}
-          <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
-            <Image
-              src="/ending_image.png"
-              alt="Aperçu de l’app UpAfrica"
-              width={406}
-              height={670}
-              priority
-              className="w-full h-full object-contain"
-            />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* ===== NEWSLETTER ===== */}
       <section className="px-4 sm:px-6 lg:px-12 pb-12 sm:pb-20">
@@ -163,10 +164,10 @@ export default function CtaSection() {
       {/* ===== FOOTER ===== */}
       <footer className="px-4 sm:px-6 lg:px-12 py-12 border-t border-white/10">
         <div className="mx-auto w-full max-w-[1054px]">
-          {/* Section supérieure du footer (Logo, Liens, Contact) */}
+          {/* Section supérieure du footer */}
           <div className="flex flex-col md:flex-row md:justify-between gap-10">
             
-            {/* Colonne gauche (Logo & Description) */}
+            {/* Colonne gauche */}
             <div className="w-full md:w-auto md:max-w-xs">
               <div className="flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-lg bg-[#ED6D0B] grid place-items-center">
@@ -185,10 +186,16 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#">Fonctionnalités</Link></li>
-                  <li><Link href="#">Tarifs</Link></li>
-                  <li><Link href="#">Sécurité</Link></li>
-                  <li><Link href="#">Mises à jour</Link></li>
+                  {["Fonctionnalités","Tarifs","Sécurité","Mises à jour"].map((item,i)=>(
+                    <li key={i}>
+                      <Link href="#" className="text-[#7F7F7F] relative transition-colors duration-300
+                        after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                        after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
+                        hover:text-white hover:after:w-full">
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -196,10 +203,16 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Entreprise</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#">À propos</Link></li>
-                  <li><Link href="#">Carrières</Link></li>
-                  <li><Link href="#">Presse</Link></li>
-                  <li><Link href="#">Partenaires</Link></li>
+                  {["À propos","Carrières","Presse","Partenaires"].map((item,i)=>(
+                    <li key={i}>
+                      <Link href="#" className="text-[#7F7F7F] relative transition-colors duration-300
+                        after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                        after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
+                        hover:text-white hover:after:w-full">
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -207,15 +220,21 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Légal</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#">Confidentialité</Link></li>
-                  <li><Link href="#">Conditions</Link></li>
-                  <li><Link href="#">Cookies</Link></li>
-                  <li><Link href="#">Licences</Link></li>
+                  {["Confidentialité","Conditions","Cookies","Licences"].map((item,i)=>(
+                    <li key={i}>
+                      <Link href="#" className="text-[#7F7F7F] relative transition-colors duration-300
+                        after:content-[''] after:absolute after:left-0 after:-bottom-0.5
+                        after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300
+                        hover:text-white hover:after:w-full">
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Colonne de droite (Contact & Réseaux sociaux) */}
+            {/* Colonne de droite */}
             <div className="text-left">
               <div className="space-y-2 text-sm">
                 <div className="flex items-center gap-2 text-[#99A1AF]">
@@ -273,11 +292,11 @@ export default function CtaSection() {
             © 2024 UpAfrica. Tous droits réservés. Construisons ensemble l&apos;avenir de l&apos;Afrique.
           </p>
           <nav className="hidden md:flex flex-wrap justify-center md:justify-end items-center text-[12px] text-[#99A1AF]">
-            <Link href="/privacy" className="px-2 hover:text-[#7F7F7F]">Politique de confidentialité</Link>
+            <Link href="/privacy" className="px-2 hover:text-white relative after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Politique de confidentialité</Link>
             <span className="hidden sm:inline mx-1">•</span>
-            <Link href="/terms" className="px-2 hover:text-[#7F7F7F]">Conditions</Link>
+            <Link href="/terms" className="px-2 hover:text-white relative after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Conditions</Link>
             <span className="hidden sm:inline mx-1">•</span>
-            <Link href="/sitemap" className="px-2 hover:text-[#7F7F7F]">Plan du site</Link>
+            <Link href="/sitemap" className="px-2 hover:text-white relative after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Plan du site</Link>
           </nav>
         </div>
       </section>
@@ -327,7 +346,7 @@ function AnimatedCounter({
   value: number; duration?: number; decimals?: number; suffix?: string;
 }) {
   const ref = React.useRef<HTMLSpanElement | null>(null);
-  const inView = useInView(ref, { once: false }); // 👈 relance à chaque scroll
+  const inView = useInView(ref, { once: false }); 
   const mv = useMotionValue(0);
 
   const formatted = useTransform(mv, (latest) => {
@@ -341,29 +360,22 @@ function AnimatedCounter({
 
   React.useEffect(() => {
     if (!inView) return;
-    mv.set(0); // reset avant chaque animation
-    const controls = animate(mv, value, { duration, ease: "easeOut" });
-    return () => controls.stop();
+    const controls = animate(mv, value, { duration });
+    return controls.stop;
   }, [inView, value, duration, mv]);
 
-  return (
-    <span ref={ref}>
-      <motion.span>{formatted}</motion.span>
-    </span>
-  );
+  return <motion.span ref={ref} className="tabular-nums">{formatted}</motion.span>;
 }
 
 /* ----------- Flag Card ----------- */
-function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string; }) {
+function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string }) {
   return (
-    <div className="w-[115px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
-      <Image src={imgSrc} alt={`Drapeau ${country}`} width={24} height={16} className="rounded-[2px] object-cover" />
-      <div className="text-center leading-tight">
-        <div className="text-[12px] font-semibold text-white">{country}</div>
-        <div className="text-[12px] font-medium text-[#F6B27A]">
-          <AnimatedCounter value={value} suffix="+" />
-        </div>
-      </div>
+    <div className="flex flex-col items-center justify-center bg-[#2A2A2A]/40 rounded-xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] min-w-[120px] md:min-w-[150px]">
+      <Image src={imgSrc} alt={country} width={40} height={40} className="mb-2 rounded-full" />
+      <span className="text-sm font-medium text-white">{country}</span>
+      <span className="text-lg font-bold text-[#ED6D0B]">
+        <AnimatedCounter value={value} suffix="+" />
+      </span>
     </div>
   );
 }
