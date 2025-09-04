@@ -270,9 +270,9 @@ function Hero() {
     <section
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
-        mt-29 md:mt-29 xl:mt-20 bg-cover bg-center bg-no-repeat
+        pt-28 md:pt-32 xl:pt-40 bg-cover bg-center bg-no-repeat
       "
-      style={{ paddingTop: "0px", backgroundImage: "url('/back1.png')" }}
+      style={{ backgroundImage: "url('/back1.png')" }}
     >
       <div
         className="
