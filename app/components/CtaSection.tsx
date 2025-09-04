@@ -1,3 +1,4 @@
+//cta
 "use client";
 
 import Image from "next/image";
@@ -19,85 +20,85 @@ export default function CtaSection() {
     <div className="relative isolate text-white -mt-10 md:mt-20">
 
       <section className="px-4 sm:px-6 lg:px-12 py-12 sm:py-20">
-        <div className="mx-auto w-full max-w-[854px]">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
-            {/* LEFT */}
-            <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-2">
-              {/* rating */}
-              <div className="flex items-center gap-2 justify-center md:justify-start">
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
-                  ))}
-                </div>
-                <span className="text-xs sm:text-sm font-medium text-orange-400/90">
-                  4.9/5 · 50 000+ téléchargements
-                </span>
+      <div className="mx-auto w-full max-w-[854px]">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-8 sm:gap-10 md:gap-[42px]">
+          {/* LEFT */}
+          <div className="w-full md:w-[406px] flex flex-col items-center md:items-start text-center md:text-left space-y-6 sm:space-y-2">
+            {/* rating */}
+            <div className="flex items-center gap-2 justify-center md:justify-start">
+              <div className="flex items-center gap-1">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={14} className="sm:size-16 md:size-4 text-orange-400 fill-orange-400" />
+                ))}
               </div>
-
-              {/* heading */}
-              <div className="space-y-4 sm:space-y-6">
-                <h1
-                  className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
-                >
-                  Prêt à transformer{" "}
-                  <br className="hidden sm:block" />
-                  votre avenir ?
-                </h1>
-                <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-                  Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
-                  pour développer leurs projets et créer des partenariats durables.
-                </p>
-              </div>
-
-              {/* store badges */}
-              <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-                <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
-                <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
-              </div>
-              <p className="text-xs text-gray-500 text-center md:text-left">
-                Disponible sur iOS 13+ et Android 7+
-              </p>
-
-              {/* features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
-                <FeatureCard
-                  icon={<Download size={20} />}
-                  title="Téléchargement gratuit"
-                  subtitle="Applications entièrement gratuites avec toutes les fonctionnalités"
-                />
-                <FeatureCard
-                  icon={<Users size={20} />}
-                  title="Réseau vérifié"
-                  subtitle="Tous les membres sont vérifiés pour garantir la qualité"
-                />
-                <FeatureCard
-                  icon={<Shield size={20} />}
-                  title="Sécurisé"
-                  subtitle="Vos données sont protégées avec un cryptage de niveau bancaire"
-                />
-                <FeatureCard
-                  icon={<Zap size={20} />}
-                  title="Mises à jour"
-                  subtitle="Nouvelles fonctionnalités ajoutées chaque mois"
-                />
-              </div>
+              <span className="text-xs sm:text-sm font-medium text-orange-400/90">
+                4.9/5 · 50 000+ téléchargements
+              </span>
             </div>
 
-            {/* RIGHT — image seule (masquée sur mobile et tablette) */}
-            <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
-              <Image
-                src="/ending_image.png"
-                alt="Aperçu de l’app UpAfrica"
-                width={406}
-                height={670}
-                priority
-                className="w-full h-full object-contain"
+            {/* heading */}
+            <div className="space-y-4 sm:space-y-6">
+              <h1
+                className={`${dmSans.className} text-[28px] sm:text-[36px] md:text-[42px] leading-[1.2] font-bold text-white`}
+              >
+                Prêt à transformer{" "}
+                <br className="hidden sm:block" />
+                votre avenir ?
+              </h1>
+              <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+                Rejoignez des milliers d&apos;entrepreneurs africains qui utilisent déjà UpAfrica
+                pour développer leurs projets et créer des partenariats durables.
+              </p>
+            </div>
+
+            {/* store badges */}
+            <div className="flex flex-row gap-3 sm:gap-4 justify-center md:justify-start">
+              <StoreBadge href="/" src="/Google_Play.png" alt="Télécharger sur Google Play" width={160} height={48} />
+              <StoreBadge href="/" src="/App_Store.png" alt="Télécharger sur l’App Store" width={150} height={48} />
+            </div>
+            <p className="text-xs text-gray-500 text-center md:text-left">
+              Disponible sur iOS 13+ et Android 7+
+            </p>
+
+            {/* features */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-[14px] pt-2 w-full">
+              <FeatureCard
+                icon={<Download size={20} />}
+                title="Téléchargement gratuit"
+                subtitle="Applications entièrement gratuites avec toutes les fonctionnalités"
+              />
+              <FeatureCard
+                icon={<Users size={20} />}
+                title="Réseau vérifié"
+                subtitle="Tous les membres sont vérifiés pour garantir la qualité"
+              />
+              <FeatureCard
+                icon={<Shield size={20} />}
+                title="Sécurisé"
+                subtitle="Vos données sont protégées avec un cryptage de niveau bancaire"
+              />
+              <FeatureCard
+                icon={<Zap size={20} />}
+                title="Mises à jour"
+                subtitle="Nouvelles fonctionnalités ajoutées chaque mois"
               />
             </div>
           </div>
+
+          {/* RIGHT — image seule (masquée sur mobile et tablette) */}
+          <div className="hidden md:flex w-full md:w-[406px] justify-center animate-bounce-slow">
+            <Image
+              src="/ending_image.png"
+              alt="Aperçu de l’app UpAfrica"
+              width={406}
+              height={670}
+              priority
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ===== NEWSLETTER ===== */}
       <section className="px-4 sm:px-6 lg:px-12 pb-12 sm:pb-20">
@@ -184,10 +185,10 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Fonctionnalités</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Tarifs</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Sécurité</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Mises à jour</Link></li>
+                  <li><Link href="#">Fonctionnalités</Link></li>
+                  <li><Link href="#">Tarifs</Link></li>
+                  <li><Link href="#">Sécurité</Link></li>
+                  <li><Link href="#">Mises à jour</Link></li>
                 </ul>
               </div>
 
@@ -195,10 +196,10 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Entreprise</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">À propos</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Carrières</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Presse</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Partenaires</Link></li>
+                  <li><Link href="#">À propos</Link></li>
+                  <li><Link href="#">Carrières</Link></li>
+                  <li><Link href="#">Presse</Link></li>
+                  <li><Link href="#">Partenaires</Link></li>
                 </ul>
               </div>
 
@@ -206,10 +207,10 @@ export default function CtaSection() {
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Légal</h4>
                 <ul className="space-y-1 text-base">
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Confidentialité</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Conditions</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Cookies</Link></li>
-                  <li><Link href="#" className="text-[#7F7F7F] relative after:content-[''] after:block after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Licences</Link></li>
+                  <li><Link href="#">Confidentialité</Link></li>
+                  <li><Link href="#">Conditions</Link></li>
+                  <li><Link href="#">Cookies</Link></li>
+                  <li><Link href="#">Licences</Link></li>
                 </ul>
               </div>
             </div>
@@ -307,45 +308,63 @@ function StoreBadge({
 
 function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string; }) {
   return (
-    <div className="relative flex items-top md:h-[130px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] text-left">
-      <div className="flex flex-col">
-        <div className="w-10 h-10 rounded-lg bg-[#ED6D0B]/10 grid place-items-center mb-3">
-          <span className="text-[#ED6D0B]">{icon}</span>
+    <div className="relative flex items-top md:h-[130px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+      <div className="flex items-start gap-[12px]">
+        <div className="text-[#ED6D0B]">{icon}</div>
+        <div className="flex flex-col text-left">
+          <h4 className="text-[14px] font-semibold text-white">{title}</h4>
+          <p className="text-[12px] text-[#99A1AF] leading-snug">{subtitle}</p>
         </div>
-        <h3 className="text-sm font-semibold mb-1">{title}</h3>
-        <p className="text-xs text-gray-400 leading-snug">{subtitle}</p>
       </div>
     </div>
   );
 }
 
-function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string; }) {
-  let count = React.useRef<any>(null);
-  let inViewRef = React.useRef(null);
-  const inView = useInView(inViewRef, { once: true });
-  let motionValue = useMotionValue(0);
-  let rounded = useTransform(motionValue, latest => Math.round(latest).toLocaleString());
+/* ----------- Animated Counter ----------- */
+function AnimatedCounter({
+  value, duration = 2, decimals = 0, suffix = "+"
+}: {
+  value: number; duration?: number; decimals?: number; suffix?: string;
+}) {
+  const ref = React.useRef<HTMLSpanElement | null>(null);
+  const inView = useInView(ref, { once: false }); // 👈 relance à chaque scroll
+  const mv = useMotionValue(0);
+
+  const formatted = useTransform(mv, (latest) => {
+    const n = Number(latest);
+    const text = n.toLocaleString("fr-FR", {
+      maximumFractionDigits: decimals,
+      minimumFractionDigits: decimals,
+    });
+    return `${text}${suffix}`;
+  });
 
   React.useEffect(() => {
-    if (inView) {
-      let controls = animate(motionValue, value, { duration: 2, ease: "easeOut" });
-      return controls.stop;
-    }
-  }, [inView, motionValue, value]);
+    if (!inView) return;
+    mv.set(0); // reset avant chaque animation
+    const controls = animate(mv, value, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, value, duration, mv]);
 
   return (
-    <motion.div
-      ref={inViewRef}
-      className="flex-shrink-0 w-[148px] h-[108px] md:w-[162px] md:h-[118px] p-3 md:p-4 rounded-xl bg-[#2A2A2A]/50 backdrop-blur-[20px] border border-white/10 flex flex-col items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-    >
-      <div className="relative w-8 h-6 mb-2">
-        <Image src={imgSrc} alt={country} fill className="rounded-[4px] object-cover" />
+    <span ref={ref}>
+      <motion.span>{formatted}</motion.span>
+    </span>
+  );
+}
+
+/* ----------- Flag Card ----------- */
+function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string; }) {
+  return (
+    <div className="w-[115px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
+      <Image src={imgSrc} alt={`Drapeau ${country}`} width={24} height={16} className="rounded-[2px] object-cover" />
+      <div className="text-center leading-tight">
+        <div className="text-[12px] font-semibold text-white">{country}</div>
+        <div className="text-[12px] font-medium text-[#F6B27A]">
+          <AnimatedCounter value={value} suffix="+" />
+        </div>
       </div>
-      <motion.span ref={count} className="text-base md:text-lg font-bold text-white">
-        {rounded}
-      </motion.span>
-      <span className="text-xs text-[#99A1AF] mt-1">{country}</span>
-    </motion.div>
+    </div>
   );
 }
 
