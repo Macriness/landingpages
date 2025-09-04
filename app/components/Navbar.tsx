@@ -1,18 +1,35 @@
 "use client";
 
-import { Download, Star, Globe, TrendingUp, X, ArrowRight, Play, Zap } from "lucide-react";
+import {
+  Download,
+  Star,
+  Globe,
+  TrendingUp,
+  ArrowRight,
+  Play,
+  Zap,
+} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useInView,
+} from "framer-motion";
 
-function Navbar() {
+/* ================
+   Barre de nav
+   ================ */
+function Navbar({
+  onContactClick,
+}: {
+  onContactClick: () => void;
+}) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    document.body.style.overflow = open ? "hidden" : "unset";
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -66,41 +83,43 @@ function Navbar() {
               </ul>
             </div>
 
-            <div className="hidden md:block relative z-10"> {/* CHANGEMENT ICI: sm:block devient md:block */}
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white"
+            {/* Bouton desktop “Nous contacter” */}
+            <div className="hidden md:block relative z-10">
+              <button
+                onClick={onContactClick}
+                className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white"
+                style={{
+                  background: "var(--btn-base-orange, #FF7A1A)",
+                  boxShadow:
+                    "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
+                }}
+              >
+                Nous contacter
+              </button>
+            </div>
+
+            {/* Burger mobile */}
+            <button
+              onClick={() => setOpen(true)}
+              aria-controls="mobile-sidebar"
+              aria-expanded={open}
+              className="md:hidden ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full relative z-[120] hover:bg-white/10 transition-colors"
               style={{
-                background: "var(--btn-base-orange, #FF7A1A)",
-                boxShadow:
-                  "0 2px 6px rgba(0,0,0,0.25), 0 8px 16px rgba(255,122,26,0.28)",
+                background: "rgba(255,255,255,0.06)",
+                border: "1px solid rgba(255,255,255,0.10)",
               }}
             >
-              Nous contacter
-            </a>
+              <div className="h-3 w-4 grid gap-0.5">
+                <span className="block h-[1.5px] bg-white/90 rounded-full" />
+                <span className="block h-[1.5px] bg-white/90 rounded-full" />
+                <span className="block h-[1.5px] bg-white/90 rounded-full" />
+              </div>
+            </button>
           </div>
-
-          {/* --- Icône du menu burger --- */}
-          <button
-            onClick={() => setOpen(true)}
-            aria-controls="mobile-sidebar"
-            aria-expanded={open}
-            className="md:hidden ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full relative z-[120] hover:bg-white/10 transition-colors"
-            style={{
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.10)",
-            }}
-          >
-            <div className="h-3 w-4 grid gap-0.5">
-              <span className="block h-[1.5px] bg-white/90 rounded-full" />
-              <span className="block h-[1.5px] bg-white/90 rounded-full" />
-              <span className="block h-[1.5px] bg-white/90 rounded-full" />
-            </div>
-          </button>
         </div>
-      </div>
-    </nav>
+      </nav>
 
+      {/* Sidebar mobile */}
       <div
         id="mobile-sidebar"
         className={`fixed inset-0 z-[200] sm:hidden ${
@@ -166,10 +185,12 @@ function Navbar() {
                 className="flex items-center gap-3"
               >
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-2xl grid place-items-center
+                  <div
+                    className="w-10 h-10 rounded-2xl grid place-items-center
                     shadow-[0_6px_18px_rgba(255,122,26,0.35)]
                     border border-white/10
-                    bg-gradient-to-br from-[#FF8A1A] to-[#FF6A00]">
+                    bg-gradient-to-br from-[#FF8A1A] to-[#FF6A00]"
+                  >
                     <Zap size={18} className="text-white" />
                   </div>
                 </div>
@@ -204,9 +225,11 @@ function Navbar() {
             </nav>
 
             <div className="p-6">
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  onContactClick();
+                }}
                 className="flex items-center justify-center w-full h-12 rounded-xl
                            text-[16px] font-semibold text-white
                            bg-gradient-to-b from-[#FF8A1A] to-[#FF6A00]
@@ -216,7 +239,7 @@ function Navbar() {
                            active:translate-y-[1px] transition-all"
               >
                 Nous contacter
-              </a>
+              </button>
             </div>
           </div>
         </aside>
@@ -225,6 +248,9 @@ function Navbar() {
   );
 }
 
+/* ======================
+   Compteurs animés + Hero
+   ====================== */
 function AnimatedCounter({
   value,
   duration = 2.2,
@@ -362,7 +388,7 @@ function Hero() {
                 ].join(", "),
               }}
             >
-                <Play size={18}/>
+              <Play size={18} />
               Voir la démo
             </a>
           </div>
@@ -419,11 +445,21 @@ function Hero() {
   );
 }
 
-export default function LandingPage() {
+/* ======================
+   Export par défaut
+   - Rendu du header + section Hero
+   - Pas de modal ici (gérée dans page.tsx)
+   ====================== */
+export default function NavbarWithHero({
+  onContactClick,
+}: {
+  onContactClick: () => void;
+}) {
   return (
     <>
-      <Navbar />
+      <Navbar onContactClick={onContactClick} />
       <Hero />
     </>
   );
 }
+
