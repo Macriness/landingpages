@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useRef, useEffect } from "react";
+import { Earth } from 'lucide-react';
 import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
@@ -213,19 +214,19 @@ export default function EcosystemSection() {
           {/* Desktop */}
           <div className="hidden md:grid items-center justify-items-center gap-4 sm:gap-[0px] md:grid-cols-5 max-w-[1000px] mx-auto">
             <StepItem
-              icon={<Users size={20} />}
+              icon={<Users size={25} />}
               title="Connectez-vous"
               desc="Rejoignez notre communauté et créez votre profil professionnel"
             />
             <Arrow />{/* flèche 1 */}
             <StepItem
-              icon={<Globe size={20} />}
+              icon= {<Earth size={25} />}
               title="Élevez"
               desc="Découvrez des opportunités et partenaires à travers l’Afrique"
             />
             <Arrow />{/* flèche 2 */}
             <StepItem
-              icon={<Rocket size={20} />}
+              icon={<Rocket size={25} />}
               title="Collaborez"
               desc="Lancez des projets ambitieux et créez un impact durable"
             />
@@ -234,19 +235,19 @@ export default function EcosystemSection() {
           {/* Mobile */}
           <div className="flex md:hidden flex-col items-center gap-4 max-w-[780px] mx-auto">
             <StepItem
-              icon={<Users size={20} />}
+              icon={<Users size={25} />}
               title="Connectez-vous"
               desc="Rejoignez notre communauté et créez votre profil professionnel"
             />
             <Arrow className="rotate-90 my-2" />
             <StepItem
-              icon={<Globe size={20} />}
+              icon={<Earth size={25} />}
               title="Élevez"
               desc="Découvrez des opportunités et partenaires à travers l’Afrique"
             />
             <Arrow className="rotate-90 my-2" />
             <StepItem
-              icon={<Rocket size={20} />}
+              icon={<Rocket size={25} />}
               title="Collaborez"
               desc="Lancez des projets ambitieux et créez un impact durable"
             />
