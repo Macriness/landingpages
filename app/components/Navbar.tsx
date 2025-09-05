@@ -87,7 +87,8 @@ function Navbar({
             <div className="hidden md:block relative z-10">
               <button
                 onClick={onContactClick}
-                className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white"
+                className="inline-flex items-center justify-center h-9 px-3 rounded-lg text-[14px] font-medium text-white
+                           transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95"
                 style={{
                   background: "var(--btn-base-orange, #FF7A1A)",
                   boxShadow:
@@ -103,7 +104,8 @@ function Navbar({
               onClick={() => setOpen(true)}
               aria-controls="mobile-sidebar"
               aria-expanded={open}
-              className="md:hidden ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full relative z-[120] hover:bg-white/10 transition-colors"
+              className="md:hidden ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full relative z-[120] hover:bg-white/10 transition-colors
+                         transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95"
               style={{
                 background: "rgba(255,255,255,0.06)",
                 border: "1px solid rgba(255,255,255,0.10)",
@@ -215,7 +217,8 @@ function Navbar({
                       className="block w-full px-4 py-3 rounded-xl
                                  text-white/95 text-[18px] font-medium
                                  hover:bg-white/10 active:bg-white/15
-                                 transition-colors"
+                                 transition-colors
+                                 transition-transform duration-200 ease-in-out active:scale-95"
                     >
                       {label}
                     </a>
@@ -236,7 +239,8 @@ function Navbar({
                            shadow-[0_8px_24px_rgba(255,122,26,0.35)]
                            border border-white/10
                            hover:shadow-[0_10px_28px_rgba(255,122,26,0.45)]
-                           active:translate-y-[1px] transition-all"
+                           transition-all
+                           transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95"
               >
                 Nous contacter
               </button>
@@ -363,7 +367,8 @@ function Hero() {
           <div className="flex flex-row gap-3 xl:gap-4 w-full justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] font-medium text-white gap-[6px] w-full sm:flex-1 whitespace-nowrap"
+              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] font-medium text-white gap-[6px] w-full sm:flex-1 whitespace-nowrap
+                         transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95"
               style={{
                 background: "var(--btn-base-orange, #FF7A1A)",
                 boxShadow: [
@@ -379,7 +384,8 @@ function Hero() {
 
             <a
               href="#features"
-              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] gap-[6px] font-medium text-white w-full sm:flex-1 whitespace-nowrap"
+              className="inline-flex items-center justify-center h-12 xl:h-10 px-4 xl:px-4 rounded-lg text-[14px] xl:text-[14px] gap-[6px] font-medium text-white w-full sm:flex-1 whitespace-nowrap
+                         transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95"
               style={{
                 background: "var(--btn-base-grey, #232323)",
                 boxShadow: [

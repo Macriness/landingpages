@@ -103,7 +103,7 @@ export default function FeaturesSection() {
 
                   {"kicker" in f && (
                     <p className="mt-2 md:mt-3 text-[13.28px] font-semibold text-[#D9D9D9]">
-                      {(f).kicker}
+                      {(f as any).kicker}
                     </p>
                   )}
 
@@ -162,7 +162,7 @@ export default function FeaturesSection() {
 
                         {"kicker" in f && (
                           <p className="mt-3 text-[10.5px] font-medium text-[#D9D9D9]">
-                            {(f).kicker}
+                            {(f as any).kicker}
                           </p>
                         )}
 
@@ -223,7 +223,7 @@ export default function FeaturesSection() {
 
                         {"kicker" in f && (
                           <p className="mt-3 text-[12.5px] font-medium text-[#D9D9D9]">
-                            {(f).kicker}
+                            {(f as any).kicker}
                           </p>
                         )}
 
@@ -268,13 +268,13 @@ export default function FeaturesSection() {
               bg-[#ED6D0B]
               text-white text-[14px] md:text-[15px] font-medium
               shadow-[0_1px_10px_rgba(237,109,11,0.5),0_1px_20px_rgba(237,109,11,0.5)]
-              transition-transform duration-150
-              hover:-translate-y-[1px]
-              active:translate-y-0
+              transition-transform duration-200 ease-in-out
+              hover:scale-105 active:scale-95
               focus-visible:outline-none
               focus-visible:ring-2 focus-visible:ring-[#ED6D0B]/60
               focus-visible:ring-offset-2 focus-visible:ring-offset-[#232323]
             "
+            role="button"
           >
             Commencer maintenant
             <ArrowRight className="h-4 w-4" />
@@ -284,3 +284,4 @@ export default function FeaturesSection() {
     </section>
   );
 }
+

@@ -6,6 +6,13 @@ import { Earth } from 'lucide-react';
 import { Users, Building, ArrowRight, Globe, Rocket } from "lucide-react";
 import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
 
+// Effet press/hover unifié (comme "Rejoindre l'élite")
+const PRESSABLE =
+  "transition-transform duration-200 ease-in-out will-change-transform hover:scale-105 active:scale-95";
+
+/* ===========================================================
+   Compteur animé
+=========================================================== */
 function AnimatedCounter({
   value,
   duration = 2.2,
@@ -257,13 +264,13 @@ export default function EcosystemSection() {
         {/* === CTA + image APRES le bouton === */}
         <div className="mt-14 flex flex-col items-center gap-6">
           <button
-            className="
+            className={`
               w-full max-w-[200px] h-[45px] rounded-[8px] px-4
               bg-[#ED6D0B] text-white font-semibold
-              shadow-[0_0_24px_rgba(237,109,11,0.75),inset_0_1px_0_rgba(255,255,255,0.18)]
-              hover:brightness-105 active:translate-y-[1px] transition
+              shadow-[0px_1px_20px_rgba(237,109,11,0.5),0px_4px_12px_rgba(0,0,0,0.15)]
+              ${PRESSABLE}
               text-[clamp(12px,3.5vw,16px)] whitespace-nowrap
-            "
+            `}
           >
             Rejoindre l’écosystème
           </button>
@@ -298,7 +305,7 @@ function FeatureGlassCard({
 }) {
   return (
     <article
-      className="
+      className={`
         relative overflow-hidden
         rounded-[14px]
         bg-[rgba(42,42,42,0.40)]
@@ -309,7 +316,8 @@ function FeatureGlassCard({
                 inset_0_-1px_0_rgba(0,0,0,0.20)]
         flex flex-col
         w-full max-w-[270px] mx-auto sm:w-[256px]
-      "
+        cursor-pointer select-none ${PRESSABLE}
+      `}
     >
       {/* Top image */}
       <div className="relative h-[233px] w-full">
@@ -362,7 +370,7 @@ function StatCard({
 }) {
   return (
     <div
-      className="
+      className={`
         w-full sm:w-[198px] min-h-[132px]
         px-[22px] py-[9px]
         rounded-[12.75px]
@@ -373,7 +381,8 @@ function StatCard({
                 inset_0_1px_0_rgba(255,255,255,0.10),
                 inset_0_-1px_0_rgba(0,0,0,0.20)]
         grid place-items-center text-center
-      "
+        cursor-pointer select-none ${PRESSABLE}
+      `}
     >
       <div className="space-y-1.5">
         <div className="text-[22px] font-semibold text-[var(--text-orange-2,#F5AA71)]">
@@ -399,7 +408,12 @@ function StepItem({
   desc: string;
 }) {
   return (
-    <div className="flex flex-col items-center text-center max-w-[270px] sm:max-w-[450px]">
+    <div
+      className={`
+        flex flex-col items-center text-center max-w-[270px] sm:max-w-[450px]
+        cursor-pointer select-none ${PRESSABLE}
+      `}
+    >
       <div className="w-16 h-16 rounded-full bg-[#ED6D0B] grid place-items-center shadow-[0_6px_16px_rgba(237,109,11,.4)] mb-3">
         <span className="text-white text-3xl">{icon}</span>
       </div>
