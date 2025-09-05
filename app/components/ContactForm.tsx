@@ -25,6 +25,17 @@ export default function ContactFormModal({
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+
+    // Si c'est le champ "phone", on filtre pour garder uniquement les chiffres
+    if (name === "phone") {
+      const onlyNums = value.replace(/\D/g, "");
+      setFormData((prev) => ({
+        ...prev,
+        [name]: onlyNums,
+      }));
+      return;
+    }
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -154,6 +165,8 @@ export default function ContactFormModal({
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
+                inputMode="numeric"
+                pattern="[0-9]*"
                 className="w-full bg-transparent text-white border-b border-gray-500 focus:border-gray-300 outline-none py-1"
               />
             </div>
