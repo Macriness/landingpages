@@ -114,7 +114,7 @@ export default function ContactFormModal({
           {/* Nom + Prénom */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-[24px] sm:gap-[32px]">
             <div>
-              <label className="block text-white text-[14px] mb-1">First Name</label>
+              <label className="block text-[#D4A574] text-[14px] mb-1">First Name</label>
               <input
                 type="text"
                 name="firstName"
@@ -124,7 +124,7 @@ export default function ContactFormModal({
               />
             </div>
             <div>
-              <label className="block text-white text-[14px] mb-1">Last Name</label>
+              <label className="block text-[#D4A574] text-[14px] mb-1">Last Name</label>
               <input
                 type="text"
                 name="lastName"
@@ -138,7 +138,7 @@ export default function ContactFormModal({
           {/* Email + Téléphone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-[24px] sm:gap-[32px]">
             <div>
-              <label className="block text-white text-[14px] mb-1">Email</label>
+              <label className="block text-[#D4A574] text-[14px] mb-1">Email</label>
               <input
                 type="email"
                 name="email"
@@ -148,7 +148,7 @@ export default function ContactFormModal({
               />
             </div>
             <div>
-              <label className="block text-white text-[14px] mb-1">Phone Number</label>
+              <label className="block text-[#D4A574] text-[14px] mb-1">Phone Number</label>
               <input
                 type="tel"
                 name="phone"
@@ -161,7 +161,7 @@ export default function ContactFormModal({
 
           {/* Message */}
           <div>
-            <label className="block text-white text-[14px] mb-1">Message</label>
+            <label className="block text-[#D4A574] text-[14px] mb-1">Message</label>
             <textarea
               name="message"
               value={formData.message}
@@ -198,6 +198,7 @@ export default function ContactFormModal({
     </div>
   );
 }
+
 
 
 
