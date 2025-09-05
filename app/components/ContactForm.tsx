@@ -3,6 +3,12 @@
 import { ArrowRight, X } from "lucide-react";
 import { useState } from "react";
 
+// Même comportement que le bouton "Rejoindre l'élite"
+const baseBtn =
+  "transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95";
+// Option utile pour les boutons désactivés (évite le scale)
+const baseBtnDisabledFix = "disabled:hover:scale-100 disabled:active:scale-100 disabled:cursor-not-allowed";
+
 export default function ContactFormModal({
   open,
   onClose,
@@ -90,7 +96,13 @@ export default function ContactFormModal({
         {/* Bouton fermer */}
         <button
           onClick={onClose}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 text-gray-300 hover:text-white"
+          aria-label="Fermer la fenêtre de contact"
+          className={`
+            absolute top-3 right-3 sm:top-4 sm:right-4
+            text-gray-300 hover:text-white
+            focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[#373737]
+            ${baseBtn}
+          `}
         >
           <X size={24} />
         </button>
@@ -192,9 +204,12 @@ export default function ContactFormModal({
             type="button"
             onClick={handleSubmit}
             disabled={isSubmitting || isSubmitted}
-            className="flex items-center justify-center gap-2 px-6 py-3 rounded-[12px] font-medium text-white 
-                       bg-[#FF7A1A] hover:opacity-90 disabled:opacity-70 
-                       shadow-[0_0_20px_rgba(255,122,26,0.6)] w-full sm:w-auto"
+            className={`
+              flex items-center justify-center gap-2 px-6 py-3 rounded-[12px] font-medium text-white 
+              bg-[#FF7A1A] hover:opacity-90 disabled:opacity-70 
+              shadow-[0_0_20px_rgba(255,122,26,0.6)] w-full sm:w-auto
+              ${baseBtn} ${baseBtnDisabledFix}
+            `}
           >
             {isSubmitting
               ? "Envoi..."
