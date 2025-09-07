@@ -60,7 +60,7 @@ export default function EcosystemSection() {
   return (
     <section
       id="ecosystem"
-      className="relative text-white bg-cover bg-center bg-no-repeat"
+      className="relative text-white bg-cover bg-center bg-no-repeat scroll-mt-30 sm:scroll-mt-28"
       style={{ backgroundImage: "url('/back3.png')" }}
     >
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12 -mt-10">

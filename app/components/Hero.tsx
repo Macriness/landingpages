@@ -9,7 +9,7 @@ export default function Hero() {
     <section 
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
-        -mt-20
+        
       "
     >
       <div

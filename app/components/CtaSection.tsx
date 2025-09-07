@@ -200,33 +200,33 @@ export default function CtaSection() {
               {/* Produit */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
-                <ul className="space-y-1 text-base">
-                  <li><Link href="#">Fonctionnalités</Link></li>
-                  <li><Link href="#">Tarifs</Link></li>
-                  <li><Link href="#">Sécurité</Link></li>
-                  <li><Link href="#">Mises à jour</Link></li>
+                <ul className="space-y-1 text-[#99A1AF] hover:text-[#7F7F7F]">
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Fonctionnalités</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Tarifs</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Sécurité</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Mises à jour</Link></li>
                 </ul>
               </div>
 
               {/* Entreprise */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Entreprise</h4>
-                <ul className="space-y-1 text-base">
-                  <li><Link href="#">À propos</Link></li>
-                  <li><Link href="#">Carrières</Link></li>
-                  <li><Link href="#">Presse</Link></li>
-                  <li><Link href="#">Partenaires</Link></li>
+                <ul className="space-y-1 text-[#99A1AF] hover:text-[#7F7F7F]">
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">À propos</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Carrières</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Presse</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Partenaires</Link></li>
                 </ul>
               </div>
 
               {/* Légal */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Légal</h4>
-                <ul className="space-y-1 text-base">
-                  <li><Link href="#">Confidentialité</Link></li>
-                  <li><Link href="#">Conditions</Link></li>
-                  <li><Link href="#">Cookies</Link></li>
-                  <li><Link href="#">Licences</Link></li>
+                <ul className="space-y-1 text-[#99A1AF] hover:text-[#7F7F7F]">
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Confidentialité</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Conditions</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Cookies</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F]">Licences</Link></li>
                 </ul>
               </div>
             </div>
@@ -387,10 +387,10 @@ function AnimatedCounter({
 /* ----------- Flag Card ----------- */
 function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string; }) {
   return (
-    <div className="w-[115px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
+    <div className="w-[105px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
       <Image src={imgSrc} alt={`Drapeau ${country}`} width={24} height={16} className="rounded-[2px] object-cover" />
       <div className="text-center leading-tight">
-        <div className="text-[12px] font-semibold text-white">{country}</div>
+        <div className="text-[10px] font-semibold text-white">{country}</div>
         <div className="text-[12px] font-medium text-[#F6B27A]">
           <AnimatedCounter value={value} suffix="+" />
         </div>

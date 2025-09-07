@@ -61,7 +61,7 @@ function AnimatedCounter({
 /* --- Section WhyChoose --- */
 export default function WhyChoose() {
   return (
-    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat"
+    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat  scroll-mt-10 sm:scroll-mt-20"
     style={{ backgroundImage: "url('/back2.png')" }}>
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20 z-10 relative">
         {/* HEADER */}
@@ -272,7 +272,7 @@ export default function WhyChoose() {
             relative w-full max-w-[1100px] mx-auto
             rounded-[20px] p-6 md:p-8 text-center
             bg-[#232323] border border-white/6
-            shadow-[20px_20px_40px_rgba(0,0,0,0.40),-20px_-20px_40px_rgba(255,255,255,0.06),inset_2px_2px_6px_rgba(0,0,0,0.35),inset_-2px_-2px_6px_rgba(255,255,255,0.06)]
+            shadow-[inset_2px_2px_6px_rgba(0,0,0,0.35),inset_-2px_-2px_6px_rgba(255,255,255,0.06)]
           "
         >
           {/* Badge top — selon tes specs Figma */}
@@ -382,7 +382,7 @@ function FeatureCard({
         relative flex flex-col items-center text-center overflow-hidden
         ${cardWidth} ${fixedHeight} ${cardPadding} ${cardGap}
         rounded-[20px] bg-[#232323] border border-white/6
-        shadow-[20px_20px_40px_rgba(0,0,0,0.40),-20px_-20px_40px_rgba(255,255,255,0.06),inset_2px_2px_6px_rgba(0,0,0,0.35),inset_-2px_-2px_6px_rgba(255,255,255,0.06)]
+        shadow-[inset_2px_2px_6px_rgba(0,0,0,0.35),inset_-2px_-2px_6px_rgba(255,255,255,0.06)]
         mx-auto
         ${className}
       `}
@@ -398,6 +398,7 @@ function FeatureCard({
           border border-white/10
           shadow-[0_14px_28px_rgba(255,122,26,0.45)]
           ${isTablet ? "h-12 w-12" : "h-14 w-14"}
+          flex-shrink-0 /* AJOUT ICI : Empêche la boîte de l'icône de se réduire */
         `}
         style={{
           background: "linear-gradient(180deg,#FF9A3C 0%,#FF7A1A 100%)",
@@ -435,6 +436,7 @@ function FeatureCard({
           ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
           shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
           md:text-[7.5px] md:px-[22px] md:py-[8px] md:gap-2
+          whitespace-nowrap /* AJOUT ICI : Force le texte du badge à rester sur une seule ligne */
         "
       >
         {badge}
