@@ -300,7 +300,7 @@ function Hero() {
     <section
       className="
         relative overflow-hidden from-gray-900 via-amber-900/20 to-gray-900
-        pt-35 md:pt-32 xl:pt-20 bg-cover bg-center bg-no-repeat
+        pt-40 md:pt-32 xl:pt-20 bg-cover bg-center bg-no-repeat
       "
       style={{ backgroundImage: "url('/back1.png')" }}
     >
