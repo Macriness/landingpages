@@ -60,7 +60,7 @@ export default function EcosystemSection() {
   return (
     <section
       id="ecosystem"
-      className="relative text-white bg-cover bg-center bg-no-repeat xl:pt-40 scroll-mt-30 sm:scroll-mt-28"
+      className="relative text-white bg-cover bg-center bg-no-repeat -pt-10 xl:pt-40 scroll-mt-30 sm:scroll-mt-28"
       style={{ backgroundImage: "url('/back3.png')" }}
     >
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-12 -mt-10">
@@ -179,7 +179,7 @@ export default function EcosystemSection() {
           <StatCard
             value={<AnimatedCounter value={54} />}
             title="Pays africains"
-            sub="Présence sur tout le continent"
+            sub="Sur tout le continent"
           />
           <StatCard
             value={<AnimatedCounter value={120} suffix="+" />}
@@ -277,7 +277,7 @@ export default function EcosystemSection() {
 
           {/* Image mobile uniquement */}
           <div className="md:hidden w-full flex justify-center">
-            <div className="relative w-[100%] max-w-[780px] mt-10" style={{ aspectRatio: "9 / 16" }}>
+            <div className="relative w-[100%] max-w-[780px] " style={{ aspectRatio: "9 / 16" }}>
               <img src="/ending_image.png" alt="Aperçu UpAfrica" className="object-contain w-full h-full" />
             </div>
           </div>

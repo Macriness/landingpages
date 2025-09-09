@@ -339,7 +339,7 @@ function StoreBadge({
 
 function FeatureCard({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string; }) {
   return (
-    <div className="relative flex items-top md:h-[130px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+    <div className="relative flex items-top md:h-[137px] w-full md:w-[182px] p-[15px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
       <div className="flex items-start gap-[12px]">
         <div className="text-[#ED6D0B]">{icon}</div>
         <div className="flex flex-col text-left">
@@ -387,7 +387,7 @@ function AnimatedCounter({
 /* ----------- Flag Card ----------- */
 function FlagCard({ country, value, imgSrc }: { country: string; value: number; imgSrc: string; }) {
   return (
-    <div className="w-[105px] sm:w-[160px] h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
+    <div className="w-[90px] sm:w-[160px] h-[90px] sm:h-[94px] rounded-[8.75px] bg-[#2A2A2A]/40 backdrop-blur-[40px] border border-white/8 shadow-[0_8px_32px_rgba(0,0,0,0.4)] px-[16px] py-[10px] flex flex-col items-center justify-center gap-[10px]">
       <Image src={imgSrc} alt={`Drapeau ${country}`} width={24} height={16} className="rounded-[2px] object-cover" />
       <div className="text-center leading-tight">
         <div className="text-[10px] font-semibold text-white">{country}</div>

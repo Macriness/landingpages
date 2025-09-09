@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import {
   ArrowUpRight,
   TrendingUp,
@@ -60,34 +60,61 @@ function AnimatedCounter({
 
 /* --- Section WhyChoose --- */
 export default function WhyChoose() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Définissez votre point de rupture pour la version mobile, par exemple 640px (taille 'sm' de Tailwind)
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    // Appelez la fonction une première fois lors du chargement initial
+    handleResize();
+
+    // Ajoutez un écouteur d'événement pour redimensionner la fenêtre
+    window.addEventListener('resize', handleResize);
+
+    // Nettoyez l'écouteur lorsque le composant est démonté
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+    }, []);
   return (
-    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat xl:pt-60 scroll-mt-10 sm:scroll-mt-20"
+    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat pt-10 xl:pt-60 scroll-mt-10 sm:scroll-mt-20"
     style={{ backgroundImage: "url('/back2.png')" }}>
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20 z-10 relative">
         {/* HEADER */}
         <div className="relative text-center mb-12">
           {/* Badge pill glossy */}
           <div
-            className="
-              inline-flex items-center gap-1.5 mb-6 flex-nowrap
-              max-w-full justify-center
-              px-2 py-1
-              rounded-full uppercase tracking-[0.12em]
-              font-semibold select-none
-              text-[#ED6D0B]
-              bg-[#232323]
-              backdrop-blur-[20px]
-              ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
-              shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
-              overflow-hidden
-            "
-          >
-            <Dot size={24} className="opacity-90 shrink-0" />
-            <span className="whitespace-nowrap text-[clamp(10px,2.5vw,14px)] leading-tight">
-              PLUS DE <AnimatedCounter value={50000} /> ENTREPRENEURS NOUS FONT CONFIANCE
-            </span>
-            <Zap size={12} className="opacity-90 shrink-0" />
-          </div>
+      className="
+        inline-flex items-center gap-1.5 mb-6 flex-nowrap
+        max-w-full justify-center
+        px-2 py-1
+        rounded-full uppercase tracking-[0.12em]
+        font-semibold select-none
+        text-[#ED6D0B]
+        bg-[#232323]
+        backdrop-blur-[20px]
+        ring-1 ring-inset ring-[rgba(237,109,11,0.20)]
+        shadow-[0_8px_32px_rgba(237,109,11,0.30),inset_0_1px_0_rgba(255,255,255,0.20)]
+        overflow-hidden
+      "
+    >
+      <Dot size={24} className="opacity-90 shrink-0" />
+      <span className="whitespace-nowrap text-[clamp(10px,2.5vw,14px)] leading-tight">
+        {isMobile ? (
+          <>
+            <AnimatedCounter value={50000} />+ ENTREPRENEURS NOUS FONT CONFIANCE
+          </>
+        ) : (
+          <>
+            PLUS DE <AnimatedCounter value={50000} /> ENTREPRENEURS NOUS FONT CONFIANCE
+          </>
+        )}
+      </span>
+      <Zap size={12} className="opacity-90 shrink-0" />
+    </div>
 
           {/* glow badge */}
           <div
