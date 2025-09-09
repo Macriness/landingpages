@@ -61,7 +61,7 @@ function AnimatedCounter({
 /* --- Section WhyChoose --- */
 export default function WhyChoose() {
   return (
-    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat  scroll-mt-10 sm:scroll-mt-20"
+    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat xl:pt-80 scroll-mt-10 sm:scroll-mt-20"
     style={{ backgroundImage: "url('/back2.png')" }}>
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20 z-10 relative">
         {/* HEADER */}
@@ -136,7 +136,7 @@ export default function WhyChoose() {
         <div className="flex flex-col items-center gap-4 md:hidden max-w-[1100px] mx-auto mt-16">
           <FeatureCard
             icon={TrendingUp}
-            title={<>Plus de <AnimatedCounter value={750} />M d&apos;euros</>}
+            title={<>Plus de €<AnimatedCounter value={750} />M</>}
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             badge={
@@ -166,7 +166,7 @@ export default function WhyChoose() {
         <div className="hidden md:flex lg:hidden justify-center gap-[20px] max-w-[1100px] mx-auto mt-16">
           <FeatureCard
             icon={TrendingUp}
-            title={<>Plus de <AnimatedCounter value={750} />M d&apos;euros</>}
+            title={<>Plus de €<AnimatedCounter value={750} />M</>}
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             isTablet={true}
@@ -199,12 +199,7 @@ export default function WhyChoose() {
         <div className="hidden lg:flex flex-wrap justify-center max-w-[1100px] mx-auto mt-24">
           <FeatureCard
             icon={TrendingUp}
-            title={
-              <>
-                Plus de <AnimatedCounter value={750} /> M
-                <span className="ml-1"> d&apos;euros</span>
-              </>
-            }
+            title={<>Plus de €<AnimatedCounter value={750} />M</>}
             subtitle="Capital facilité"
             description="Investissements et financements réalisés via notre écosystème"
             badge={

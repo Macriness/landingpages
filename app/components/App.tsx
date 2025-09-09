@@ -57,7 +57,7 @@ export default function AppSection() {
   return (
     <section
       id="app"
-      className="relative py-16 sm:py-20 lg:py-24 text-white text-[16px] sm:text-[18px] overflow-hidden -mt-20 scroll-mt-15 sm:scroll-mt-20"
+      className="relative py-16 sm:py-20 lg:py-24 text-white text-[16px] sm:text-[18px] overflow-hidden xl:pt-40 scroll-mt-15 sm:scroll-mt-20"
     >
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-10 sm:space-y-12">
         {/* Heading */}
