@@ -61,7 +61,7 @@ function AnimatedCounter({
 /* --- Section WhyChoose --- */
 export default function WhyChoose() {
   return (
-    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat xl:pt-80 scroll-mt-10 sm:scroll-mt-20"
+    <section id="why" className="relative py-24 text-white bg-cover bg-center bg-no-repeat xl:pt-60 scroll-mt-10 sm:scroll-mt-20"
     style={{ backgroundImage: "url('/back2.png')" }}>
       <div className="mx-auto w-[92%] max-w-6xl text-center space-y-20 z-10 relative">
         {/* HEADER */}

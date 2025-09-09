@@ -200,33 +200,33 @@ export default function CtaSection() {
               {/* Produit */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Produit</h4>
-                <ul className="space-y-1 text-[#99A1AF] hover:text-[#7F7F7F]">
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Fonctionnalités</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Tarifs</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Sécurité</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Mises à jour</Link></li>
+                <ul className="space-y-1 text-[#99A1AF] ">
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Fonctionnalités</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Tarifs</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Sécurité</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Mises à jour</Link></li>
                 </ul>
               </div>
 
               {/* Entreprise */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Entreprise</h4>
-                <ul className="space-y-1 text-[#99A1AF] hover:text-[#7F7F7F]">
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">À propos</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Carrières</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Presse</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Partenaires</Link></li>
+                <ul className="space-y-1 text-[#99A1AF] ">
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">À propos</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Carrières</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Presse</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Partenaires</Link></li>
                 </ul>
               </div>
 
               {/* Légal */}
               <div className="space-y-2.5 text-left">
                 <h4 className="text-white font-semibold text-lg">Légal</h4>
-                <ul className="space-y-1 text-[#99A1AF] hover:text-[#7F7F7F]">
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Confidentialité</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Conditions</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Cookies</Link></li>
-                  <li><Link href="#" className="hover:text-[#7F7F7F]">Licences</Link></li>
+                <ul className="space-y-1 text-[#99A1AF]">
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Confidentialité</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Conditions</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Cookies</Link></li>
+                  <li><Link href="#" className="hover:text-[#7F7F7F] hover:underline ">Licences</Link></li>
                 </ul>
               </div>
             </div>
@@ -299,11 +299,11 @@ export default function CtaSection() {
             © 2024 UpAfrica. Tous droits réservés. Construisons ensemble l&apos;avenir de l&apos;Afrique.
           </p>
           <nav className="hidden md:flex flex-wrap justify-center md:justify-end items-center text-[12px] text-[#99A1AF]">
-            <Link href="/privacy" className="px-2 hover:text-[#7F7F7F]">Politique de confidentialité</Link>
+            <Link href="/privacy" className="px-2 hover:text-[#7F7F7F] hover:underline ">Politique de confidentialité</Link>
             <span className="hidden sm:inline mx-1">•</span>
-            <Link href="/terms" className="px-2 hover:text-[#7F7F7F]">Conditions</Link>
+            <Link href="/terms" className="px-2 hover:text-[#7F7F7F] hover:underline ">Conditions</Link>
             <span className="hidden sm:inline mx-1">•</span>
-            <Link href="/sitemap" className="px-2 hover:text-[#7F7F7F]">Plan du site</Link>
+            <Link href="/sitemap" className="px-2 hover:text-[#7F7F7F] hover:underline ">Plan du site</Link>
           </nav>
         </div>
       </section>
